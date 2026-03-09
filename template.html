@@ -846,7 +846,7 @@ function baixarPNG() {
   el.style.maxWidth = '800px';
 
   html2canvas(el, { 
-    scale: 2, /* Reduzido de 4 para 2 -> Qualidade impecável (retina), sem travar a memória do celular */
+    scale: 3, /* Ajustado para 3: Equilíbrio entre a super nitidez (evitando que WhatsApp/Telegram destruam a imagem) e o limite de segurança de memória de dispositivos antigos */
     useCORS: true, 
     allowTaint: true, 
     backgroundColor: null,
