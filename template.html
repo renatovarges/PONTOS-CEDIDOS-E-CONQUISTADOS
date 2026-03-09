@@ -1,0 +1,885 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pontos Cedidos &amp; Conquistados – Brasileir&atilde;o 2026</title>
+<style>
+##FONT_FACES##
+:root {
+  --tcc-dark: #0f3a20;
+  --tcc-green: #154d29; /* Levemente menos escuro a pedido */
+  --tcc-gold: #ceab42;
+  --tcc-gold-light: #ebd076;
+  --tcc-white: #ffffff;
+  --tcc-offwhite: #ffffff;
+  --tcc-red: #c52b2b;
+  
+  --bg-pontos: #c1eae9;
+  --bg-basica: #fdf1d5;
+  --text-dark: #0a2012;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: 'Decalotype', 'Segoe UI', sans-serif;
+  background: #021a0c;
+  color: var(--tcc-white);
+  min-height: 100vh;
+}
+
+/* ── CONTROLES (FORA DA ARTE) ── */
+#painel-controles {
+  background: var(--tcc-dark);
+  border-bottom: 2px solid var(--tcc-gold);
+  padding: 16px 24px;
+  display: flex; flex-wrap: wrap; gap: 16px;
+  align-items: flex-end; justify-content: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+}
+.ctrl-grupo { display: flex; flex-direction: column; gap: 6px; }
+.ctrl-grupo label {
+  font-size: 11px; font-weight: 800; color: var(--tcc-gold);
+  letter-spacing: 0.8px; text-transform: uppercase;
+}
+.ctrl-grupo select, .ctrl-grupo input[type=file] {
+  background: #0d381f; border: 1px solid rgba(206, 171, 66, 0.5);
+  color: var(--tcc-white); font-family: 'Decalotype', sans-serif;
+  font-size: 14px; font-weight: 600; padding: 8px 12px; border-radius: 8px;
+  min-width: 160px; cursor: pointer; outline: none; transition: 0.2s;
+}
+.ctrl-grupo select:focus { border-color: var(--tcc-gold); }
+.ctrl-grupo input[type=file] { padding: 5px 8px; font-size: 12px; }
+
+.toggle-btn { display: flex; align-items: center; gap: 8px; cursor: pointer; user-select: none; }
+.toggle-btn input[type=checkbox] {
+  width: 44px; height: 24px; appearance: none;
+  background: #0d381f; border: 1px solid var(--tcc-gold);
+  border-radius: 12px; position: relative; cursor: pointer; transition: 0.2s;
+}
+.toggle-btn input[type=checkbox]:checked { background: var(--tcc-gold); }
+.toggle-btn input[type=checkbox]::after {
+  content: ''; position: absolute; width: 16px; height: 16px;
+  background: var(--tcc-white); border-radius: 50%; top: 3px; left: 3px; transition: 0.2s;
+}
+.toggle-btn input[type=checkbox]:checked::after { left: 23px; background: var(--tcc-dark); }
+#mando-label { font-size: 12px; font-weight: 700; color: var(--tcc-gold); text-transform: uppercase; }
+
+.btn {
+  background: var(--tcc-gold); color: var(--tcc-dark); border: none;
+  font-family: 'Decalotype', sans-serif; font-size: 14px; font-weight: 900;
+  padding: 10px 24px; border-radius: 8px; cursor: pointer;
+  transition: all 0.2s; letter-spacing: 0.5px; text-transform: uppercase;
+  box-shadow: 0 4px 0 #a3852d; margin-bottom: 4px;
+}
+.btn:hover { background: var(--tcc-gold-light); transform: translateY(-2px); box-shadow: 0 6px 0 #a3852d; }
+.btn:active { transform: translateY(2px); box-shadow: 0 2px 0 #a3852d; }
+
+#status-msg {
+  text-align: center; padding: 16px; font-size: 14px;
+  color: var(--tcc-gold); font-weight: 700; min-height: 50px;
+}
+#nav-jogos {
+  display: none; align-items: center; justify-content: center;
+  gap: 16px; padding: 0 24px 24px 24px; flex-wrap: wrap;
+}
+.btn-nav {
+  background: transparent; border: 2px solid var(--tcc-gold); color: var(--tcc-gold);
+  font-family: 'Decalotype', sans-serif; font-size: 13px; font-weight: 800;
+  padding: 8px 18px; border-radius: 8px; cursor: pointer; transition: 0.2s; text-transform: uppercase;
+}
+.btn-nav:hover { background: var(--tcc-gold); color: var(--tcc-dark); }
+.btn-nav:disabled { opacity: 0.3; cursor: not-allowed; }
+#info-jogo { font-size: 18px; font-weight: 900; color: var(--tcc-white); padding: 0 10px; }
+
+
+/* ── CONTAINER DA ARTE (O CANVAS A SER EXPORTADO) ── */
+#arte-wrapper { display: flex; flex-direction: column; align-items: center; padding-bottom: 30px; }
+#arte-container {
+  width: 720px; /* Largura padrao premium */
+  position: relative;
+  background-color: var(--tcc-offwhite);
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.8);
+}
+#arte-container.hidden { display: none; }
+
+/* Textura de papel amassado / noise fundo claro */
+.arte-bg-noise {
+  display: none;
+}
+/* Imagem base global, se existir */
+.arte-bg-img {
+  position: absolute; inset: 0; z-index: 0; pointer-events: none;
+  background-size: cover; background-position: center; opacity: 1;
+}
+
+.arte-inner { position: relative; z-index: 1; width: 100%; display: flex; flex-direction: column; }
+
+/* ── CABECALHO DA ARTE ── */
+.arte-header {
+  display: flex; align-items: center; justify-content: center;
+  padding: 40px 30px 25px 30px; position: relative;
+}
+.pill-wrap {
+  display: flex; align-items: center; justify-content: center; gap: 15px;
+  background: var(--tcc-dark);
+  border-radius: 8px;
+  padding: 8px 30px 8px 20px;
+  text-align: center;
+  border: 4px solid var(--tcc-gold);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.4);
+}
+.arte-logo-inset { width: 65px; object-fit: contain; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.15)); }
+.pill-title {
+  color: var(--tcc-white); font-size: 28px; font-weight: 900;
+  letter-spacing: 0px; text-transform: uppercase; line-height: 1; margin: 0;
+  white-space: nowrap;
+}
+.pill-title span {
+  color: var(--tcc-gold); font-weight: 800;
+}
+
+/* ── GRID DOS CAMPINHOS (2x2) ── */
+.arte-grid {
+  display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr;
+  gap: 35px 25px; padding: 10px 40px 30px 40px;
+}
+
+/* ── O CAMPINHO INDIVIDUAL ── */
+.campinho-wrapper {
+  display: flex; flex-direction: column; align-items: center;
+}
+/* O Título flutuante externo */
+.campinho-titulo {
+  color: var(--tcc-dark);
+  background: var(--tcc-gold);
+  padding: 6px 20px;
+  border-radius: 6px 6px 0 0;
+  font-size: 16px; font-weight: 900; font-style: italic;
+  text-transform: uppercase; letter-spacing: 1px;
+  margin-bottom: 0px;
+  z-index: 2;
+  box-shadow: 0 -2px 5px rgba(0,0,0,0.3);
+  border: 2px solid var(--tcc-dark); border-bottom: none;
+}
+
+/* A estrutura verde do campo */
+.campinho {
+  background: var(--tcc-green);
+  border: 2px solid var(--tcc-dark);
+  border-radius: 8px;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  min-height: 310px;
+  box-shadow: 0 8px 15px rgba(0,0,0,0.35);
+}
+
+/* Escudo Centro (Nova Classe) */
+.escudo-centro {
+  width: 52px; height: 52px;
+  background: #ffffff;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+  margin: 0 5px;
+  z-index: 5;
+}
+.escudo-centro img { max-width: 38px; max-height: 38px; object-fit: contain; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.25)); }
+.escudo-centro img.escudo-pequeno { max-width: 44px; max-height: 44px; transform: scale(1.15); } /* Compensação otica para escudos redondos/miudos */
+
+/* Logo TCC inferior direita do campinho */
+.campinho-logo-watermark {
+  position: absolute; right: 18px; bottom: 12px;
+  width: 45px; opacity: 1; z-index: 2; pointer-events: none;
+}
+
+/* SVG do Campo Esportivo */
+.campo-svg {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  opacity: 0.25; z-index: 2; pointer-events: none;
+}
+
+/* Container flexivel p posicoes */
+.campo-posicoes {
+  position: relative; z-index: 3; display: flex; flex-direction: column;
+  align-items: center; justify-content: space-evenly;
+  padding: 12px 6px; height: 100%; gap: 6px;
+}
+.linha-pos {
+  display: flex; align-items: center; justify-content: center; gap: 14px; width: 100%;
+}
+
+/* ── CAIXAS DE DADOS (SCORE BOXES) ── */
+.box-pos {
+  display: flex; flex-direction: column; align-items: stretch;
+  width: 58px;
+  border-radius: 6px;
+  overflow: hidden;
+  border: 2px solid var(--tcc-dark);
+  box-shadow: 0 5px 10px rgba(0,0,0,0.4);
+  z-index: 4;
+}
+.val-pt {
+  background: #dafdff; /* Azul turquesa claro/água conforme soliciado */
+  display: flex; flex-direction: column; align-items: center; justify-content: flex-start;
+  padding: 5px 0 2px 0;
+  border-bottom: 2px solid var(--tcc-dark);
+}
+.pos-nome {
+  color: var(--tcc-dark); font-size: 8px; font-weight: 900; letter-spacing: 0px;
+  line-height: 1; margin-bottom: 2px; text-transform: uppercase;
+  opacity: 0.9;
+}
+.pt-num {
+  color: var(--tcc-dark); font-size: 20px; font-weight: 900; line-height: 1;
+  letter-spacing: -0.5px;
+}
+.val-ba {
+  background: #fbf5df; /* Bege claro suave leite */
+  color: var(--tcc-dark);
+  font-size: 14px; font-weight: 900; text-align: center;
+  padding: 4px 0; line-height: 1;
+}
+
+/* Destaques de Regra (Bateu a meta) */
+.destaque-verde {
+  color: #1ab352 !important; /* Verde Cartola Vibrante - Sem Sombra para elegância plana */
+  text-shadow: none !important;
+}
+
+/* ── RODAPÉ ── */
+.arte-footer-container {
+  display: flex; flex-direction: column; width: 100%; margin-top: auto;
+}
+.footer-legenda {
+  display: flex; align-items: center; justify-content: center; gap: 30px;
+  padding: 10px 0 20px 0; z-index: 1;
+}
+.leg-item { display: flex; align-items: center; gap: 6px; }
+.leg-box { width: 16px; height: 16px; border-radius: 2px; border: 1px solid rgba(0,0,0,0.3); }
+.box-p { background: #dafdff; }
+.box-b { background: #fbf5df; }
+.leg-txt { font-size: 13px; font-weight: 900; color: var(--tcc-dark); text-transform: uppercase; letter-spacing: 1px; }
+
+.footer-bar {
+  background: var(--tcc-dark);
+  padding: 12px 24px;
+  position: relative;
+  display: flex; align-items: center; justify-content: center;
+  z-index: 1;
+}
+.footer-logo-small {
+  position: absolute; left: 30px; width: 45px; object-fit: contain; filter: drop-shadow(0 2px 3px rgba(0,0,0,0.3));
+}
+.footer-copy {
+  font-size: 11px; font-weight: 800; color: var(--tcc-white);
+  text-transform: uppercase; letter-spacing: 1.5px;
+}
+
+#btn-download-wrap { display: flex; justify-content: center; }
+.btn-dl { background: var(--tcc-gold); padding: 14px 40px; font-size: 17px; box-shadow: 0 5px 0 #a3852d; border-radius: 12px; }
+.btn-dl:hover { box-shadow: 0 7px 0 #a3852d; transform: translateY(-2px); }
+.btn-dl:active { box-shadow: 0 2px 0 #a3852d; transform: translateY(3px); }
+
+@media (max-width: 760px) { #arte-container { width: 100%; max-width: 720px; } }
+</style>
+</head>
+<body>
+
+<div id="painel-controles">
+  <div class="ctrl-grupo">
+    <label>&#128193; Planilha (xlsx)</label>
+    <input type="file" id="upload-xlsx" accept=".xlsx" />
+  </div>
+  <div class="ctrl-grupo">
+    <label>&#127919; Rodada Alvo</label>
+    <select id="sel-rodada">
+      ##RODADA_OPTIONS##
+    </select>
+  </div>
+  <div class="ctrl-grupo">
+    <label>&#128197; &Uacute;ltimos N Jogos</label>
+    <select id="sel-n">
+      ##N_OPTIONS##
+    </select>
+  </div>
+  <div class="ctrl-grupo">
+    <label>&#127967; Filtrar Mando</label>
+    <label class="toggle-btn">
+      <input type="checkbox" id="chk-mando" />
+      <span id="mando-label">Todos os jogos</span>
+    </label>
+  </div>
+  <div class="ctrl-grupo">
+    <label>&nbsp;</label>
+    <button class="btn" id="btn-gerar" onclick="gerarArte()">&#9917; Gerar Arte</button>
+  </div>
+</div>
+
+<div id="status-msg">&#11014;&#65039; Fa&ccedil;a upload da planilha e clique em &quot;Gerar Arte&quot;</div>
+
+<div id="nav-jogos">
+  <button class="btn-nav" id="btn-prev" onclick="navegarJogo(-1)">&larr; Anterior</button>
+  <span id="info-jogo">Jogo 1 de 10</span>
+  <button class="btn-nav" id="btn-next" onclick="navegarJogo(1)">Pr&oacute;ximo &rarr;</button>
+</div>
+
+<div id="arte-wrapper">
+  <div id="arte-container" class="hidden">
+    <div class="arte-bg-noise"></div>
+    <div class="arte-bg-img" id="arte-bg"></div>
+    
+    <div class="arte-inner">
+      <div class="arte-header">
+        <div class="pill-wrap">
+          <img class="arte-logo-inset" src="##LOGO_TCC##" alt="TCC" onerror="this.style.display='none'" />
+          <div class="pill-title" id="arte-rodada-txt">PONTOS E M.B&Aacute;SICA <span>&ndash; RODADA X</span></div>
+        </div>
+      </div>
+      
+      <div class="arte-grid" id="arte-grid"></div>
+      
+      <div class="arte-footer-container">
+        <div class="footer-legenda">
+          <div class="leg-item"><div class="leg-box box-p"></div><span class="leg-txt">PONTOS</span></div>
+          <div class="leg-item"><div class="leg-box box-b"></div><span class="leg-txt">M&Eacute;DIA B&Aacute;SICA</span></div>
+        </div>
+        <div class="footer-bar">
+          <img class="footer-logo-small" src="##LOGO_TCC##" alt="TCC" onerror="this.style.display='none'" />
+          <div class="footer-copy">MATERIAL EXCLUSIVO &ndash; TREINANDO CAMPE&Otilde;ES DE CARTOLA</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="btn-download-wrap">
+  <button class="btn btn-dl" onclick="baixarPNG()" id="btn-download" style="display:none;">
+    &#11015;&#65039; Baixar Arte em Alta Resolu&ccedil;&atilde;o
+  </button>
+</div>
+
+<script>
+##XLSX_JS##
+</script>
+<script>
+##H2C_JS##
+</script>
+
+<script>
+// ── Dados estáticos embutidos ─────────────────────────────────────
+var RODADAS_TXT = ##RODADAS_TXT_JSON##;
+var MEIAS_VOL_CSV = ##MEIAS_VOL_CSV_JSON##;
+var ATACANTES_TXT = ##ATACANTES_TXT_JSON##;
+var TEAM_IMAGES = ##TEAM_IMAGES_JSON##;
+var BG_B64 = ##BG_B64_JSON##;
+
+// ── Utilitários ───────────────────────────────────────────────────
+function removerAcentos(s) { return s.normalize('NFD').replace(/[\u0300-\u036f]/g, ''); }
+function normalizar(s) { return removerAcentos((s || '').toUpperCase().trim()); }
+function normalizarTime(s) {
+  return normalizar(s)
+    .replace(/-MG$/, '').replace(/-PR$/, '').replace(/-RJ$/, '')
+    .replace(/-SP$/, '').replace(/-RS$/, '').replace(/-SC$/, '')
+    .replace(/\s+DA\s+GAMA$/, '').trim();
+}
+function fmt(v) {
+  if (!v || v === 0) return '0,0';
+  return v.toFixed(1).replace('.', ',');
+}
+function setStatus(msg) { document.getElementById('status-msg').innerHTML = msg; }
+
+// ── Parse de dados estáticos ──────────────────────────────────────
+function parseRodadas(txt) {
+  var result = {}; var rodadaAtual = null; var lines = txt.split('\n');
+  for (var i = 0; i < lines.length; i++) {
+    var line = lines[i].trim();
+    if (!line) continue;
+    var m = line.match(/^Rodada (\d+)/);
+    if (m) { rodadaAtual = parseInt(m[1]); result[rodadaAtual] = []; continue; }
+    if (rodadaAtual !== null && line.indexOf(' x ') >= 0) {
+      var parts = line.split(' x '); result[rodadaAtual].push({ mandante: parts[0].trim(), visitante: parts[1].trim() });
+    }
+  }
+  return result;
+}
+
+function parseMeiasVolantes(csv) {
+  var result = {}; var lines = csv.replace(/\r/g, '').split('\n');
+  for (var i = 1; i < lines.length; i++) {
+    var line = lines[i].trim();
+    if (!line) continue;
+    var parts = line.split(',');
+    if (parts.length < 3) continue;
+    var time = parts[0].trim(), jogador = parts[1].trim(), classif = parts[2].trim();
+    if (classif === 'MEIA' || classif === 'VOLANTE') {
+      var classifStr = (classif === 'MEIA') ? 'MEI' : 'VOL';
+      result[normalizarTime(time) + '|' + normalizar(jogador)] = classifStr;
+    }
+  }
+  return result;
+}
+
+function parseAtacantes(txt) {
+  var result = {}; var lines = txt.replace(/\r/g, '').split('\n');
+  for (var i = 1; i < lines.length; i++) {
+    var line = lines[i].trim();
+    if (!line) continue;
+    var parts = line.split('|');
+    if (parts.length < 5) continue;
+    var nome = parts[1].trim(), categoria = parts[4].trim();
+    var pos = categoria === 'Ponta direita' ? 'ATA-PD' : (categoria === 'Ponta esquerda' ? 'ATA-PE' : 'ATA');
+    result[normalizar(nome)] = pos;
+  }
+  return result;
+}
+
+function nomeParaEscudo(nome) {
+  var n = normalizar(nome);
+  var map = [
+    ['ATHLETICO', 'athletico_pr'], ['ATLETICO', 'atletico_mg'],
+    ['BAHIA', 'bahia'], ['BOTAFOGO', 'botafogo'], ['CHAPECOENSE', 'chapecoense'],
+    ['CORINTHIANS', 'corinthians'], ['CORITIBA', 'coritiba'], ['CRUZEIRO', 'cruzeiro'],
+    ['FLAMENGO', 'flamengo'], ['FLUMINENSE', 'fluminense'], ['GREMIO', 'gremio'],
+    ['INTERNACIONAL', 'internacional'], ['MIRASSOL', 'mirassol'], ['PALMEIRAS', 'palmeiras'],
+    ['RED BULL BRAGANTINO', 'red_bull_bragantino'], ['RB BRAGANTINO', 'red_bull_bragantino'],
+    ['REMO', 'remo'], ['SANTOS', 'santos'], ['SAO PAULO', 'sao_paulo'],
+    ['VASCO', 'vasco'], ['VITORIA', 'vitoria']
+  ];
+  for (var i = 0; i < map.length; i++) { if (n.indexOf(map[i][0]) >= 0) return map[i][1]; }
+  return null;
+}
+
+// ── Estado global ─────────────────────────────────────────────────
+var dadosPlanilha = [];
+var rodadasMap = parseRodadas(RODADAS_TXT);
+var meiasVolMap = parseMeiasVolantes(MEIAS_VOL_CSV);
+var atacantesMap = parseAtacantes(ATACANTES_TXT);
+var jogosRodadaAtual = [];
+var jogoIdx = 0, rodadaAlvo = 1, nJogos = 5, filtroMando = false;
+
+// ── Parser XLSX ───────────────────────────────────────────────────
+function parsearData(dataRaw) {
+  if (!dataRaw) return null;
+  if (dataRaw instanceof Date) return isNaN(dataRaw.getTime()) ? null : dataRaw;
+  if (typeof dataRaw === 'string') {
+    var s = dataRaw.trim();
+    var parts = s.split(/[\/\-]/);
+    if (parts.length === 3) {
+      var p0 = parseInt(parts[0], 10), p1 = parseInt(parts[1], 10), p2 = parseInt(parts[2], 10);
+      if (p0 > 1000) return new Date(p0, p1 - 1, p2, 12, 0, 0); // YYYY-MM-DD
+      else if (p2 > 1000) {
+        if (p0 > 12) return new Date(p2, p1 - 1, p0, 12, 0, 0); // DD/MM/YYYY
+        if (p1 > 12) return new Date(p2, p0 - 1, p1, 12, 0, 0); // MM/DD/YYYY
+        return new Date(p2, p1 - 1, p0, 12, 0, 0); // Assume DD/MM/YYYY
+      } else {
+        var ano = p2 + 2000;
+        if (p0 > 12) return new Date(ano, p1 - 1, p0, 12, 0, 0); // DD/MM/YY
+        if (p1 > 12) return new Date(ano, p0 - 1, p1, 12, 0, 0); // MM/DD/YY
+        return new Date(ano, p1 - 1, p0, 12, 0, 0); // Assume DD/MM/YY
+      }
+    }
+  }
+  if (typeof dataRaw === 'number' && dataRaw > 40000) {
+    var d = new Date(Math.round((dataRaw - 25569) * 86400 * 1000));
+    return isNaN(d.getTime()) ? null : d;
+  }
+  return null;
+}
+
+function lerPlanilha(file) {
+  return new Promise(function(resolve, reject) {
+    var reader = new FileReader();
+    reader.onload = function(ev) {
+      try {
+        var wb = XLSX.read(ev.target.result, { type: 'array', cellDates: true });
+        var sheetName = null;
+        for (var i = 0; i < wb.SheetNames.length; i++) {
+          if (wb.SheetNames[i].toLowerCase() === 'por jogo') { sheetName = wb.SheetNames[i]; break; }
+        }
+        if (!sheetName) { reject('Aba "Por jogo" nao encontrada'); return; }
+        var ws = wb.Sheets[sheetName];
+        var rows = XLSX.utils.sheet_to_json(ws, { raw: false, dateNF: 'dd/mm/yyyy' });
+        if (rows.length === 0) { reject('Planilha vazia'); return; }
+
+        var primeiraKey = Object.keys(rows[0]);
+        var colMap = {};
+        for (var k = 0; k < primeiraKey.length; k++) { colMap[normalizar(primeiraKey[k])] = primeiraKey[k]; }
+
+        function col(nome) { return colMap[normalizar(nome)] || nome; }
+        function get(r, n1, n2, n3) {
+          var nomes = [n1, n2, n3].filter(Boolean);
+          for (var i = 0; i < nomes.length; i++) {
+            var real = col(nomes[i]);
+            if (r[real] !== undefined && r[real] !== null && r[real] !== '') return r[real];
+            if (r[nomes[i]] !== undefined && r[nomes[i]] !== null && r[nomes[i]] !== '') return r[nomes[i]];
+          }
+          return '';
+        }
+
+        var dados = [];
+        for (var i = 0; i < rows.length; i++) {
+          var r = rows[i];
+          var timeVal = get(r, 'Time');
+          var dataRaw = get(r, 'Data');
+          var dataObj = parsearData(dataRaw);
+          if (!timeVal || !dataObj) continue;
+          dados.push({
+            time: String(timeVal).trim(),
+            adversario: String(get(r, 'Adversário', 'Adversario') || '').trim(),
+            posReal: parseFloat(get(r, 'PosReal') || '0') || 0,
+            mand: String(get(r, 'Mand') || '').trim(),
+            pts: parseFloat(get(r, 'Pts') || '0') || 0,
+            basica: parseFloat(get(r, 'Básica', 'Basica') || '0') || 0,
+            nome: String(get(r, 'Nome2') || '').trim(),
+            data: dataObj
+          });
+        }
+        if (dados.length === 0) { reject('0 registros validos.'); return; }
+        dados.sort(function(a, b) { return b.data - a.data; });
+        resolve(dados);
+      } catch(err) { reject('Excecao: ' + err.toString()); }
+    };
+    reader.onerror = function() { reject('Erro ao ler arquivo'); };
+    reader.readAsArrayBuffer(file);
+  });
+}
+
+// ── Classificação de posição ──────────────────────────────────────
+function classificarPos(posReal, time, nome) {
+  if (posReal === 1) return 'GOL';
+  if (posReal === 2.2) return 'LAT-D';
+  if (posReal === 2.6) return 'LAT-E';
+  if (posReal === 3) return 'ZAG';
+  if (posReal === 5) {
+    var nk = normalizar(nome);
+    return atacantesMap[nk] || 'ATA';
+  }
+  if (posReal === 4) {
+    var nk = normalizar(nome); var tk = normalizarTime(time); var key = tk + '|' + nk;
+    if (meiasVolMap[key]) return meiasVolMap[key];
+    var keys = Object.keys(meiasVolMap);
+    for (var i = 0; i < keys.length; i++) { if (keys[i].split('|')[1] === nk) return meiasVolMap[keys[i]]; }
+    return 'MEI';
+  }
+  return null;
+}
+
+var POSICOES = ['GOL','LAT-D','LAT-E','ZAG','VOL','MEI','ATA','ATA-PD','ATA-PE'];
+
+function calcular(time, mandoAlvo, n, filtrarMando) {
+  var recs = dadosPlanilha.filter(function(r) { return normalizarTime(r.time) === normalizarTime(time); });
+  if (filtrarMando) recs = recs.filter(function(r) { return r.mand === mandoAlvo; });
+  var datas = [], vistas = {};
+  for (var i = 0; i < recs.length; i++) {
+    var dk = recs[i].data.toISOString().slice(0,10);
+    if (!vistas[dk]) { vistas[dk] = true; datas.push(dk); if (datas.length >= n) break; }
+  }
+  var dset = {}; for (var i = 0; i < datas.length; i++) dset[datas[i]] = true;
+  var nR = datas.length;
+  var somaPts = {}, somaBasica = {};
+  for (var i = 0; i < POSICOES.length; i++) { somaPts[POSICOES[i]] = 0; somaBasica[POSICOES[i]] = 0; }
+  var filtrados = recs.filter(function(r) { return dset[r.data.toISOString().slice(0,10)]; });
+  for (var i = 0; i < filtrados.length; i++) {
+    var pos = classificarPos(filtrados[i].posReal, filtrados[i].time, filtrados[i].nome);
+    if (pos && somaPts[pos] !== undefined) { somaPts[pos] += filtrados[i].pts; somaBasica[pos] += filtrados[i].basica; }
+  }
+  var result = {};
+  for (var i = 0; i < POSICOES.length; i++) {
+    result[POSICOES[i]] = { pts: nR > 0 ? somaPts[POSICOES[i]] / nR : 0, basica: nR > 0 ? somaBasica[POSICOES[i]] / nR : 0 };
+  }
+  return result;
+}
+
+function calcularCedido(time, mandoAlvo, n, filtrarMando) {
+  var recs = dadosPlanilha.filter(function(r) { return normalizarTime(r.time) === normalizarTime(time); });
+  if (filtrarMando) recs = recs.filter(function(r) { return r.mand === mandoAlvo; });
+  var datas = [], advsMap = {}, vistas = {};
+  for (var i = 0; i < recs.length; i++) {
+    var dk = recs[i].data.toISOString().slice(0,10);
+    if (!vistas[dk]) { vistas[dk] = true; datas.push(dk); advsMap[dk] = recs[i].adversario; if (datas.length >= n) break; }
+  }
+  var nR = datas.length;
+  var somaPts = {}, somaBasica = {};
+  for (var i = 0; i < POSICOES.length; i++) { somaPts[POSICOES[i]] = 0; somaBasica[POSICOES[i]] = 0; }
+  for (var di = 0; di < datas.length; di++) {
+    var dk = datas[di], adv = advsMap[dk];
+    var advRecs = dadosPlanilha.filter(function(r) {
+      return r.data.toISOString().slice(0,10) === dk && normalizarTime(r.time) === normalizarTime(adv);
+    });
+    for (var i = 0; i < advRecs.length; i++) {
+      var pos = classificarPos(advRecs[i].posReal, advRecs[i].time, advRecs[i].nome);
+      if (pos && somaPts[pos] !== undefined) { somaPts[pos] += advRecs[i].pts; somaBasica[pos] += advRecs[i].basica; }
+    }
+  }
+  var result = {};
+  for (var i = 0; i < POSICOES.length; i++) {
+    result[POSICOES[i]] = { pts: nR > 0 ? somaPts[POSICOES[i]] / nR : 0, basica: nR > 0 ? somaBasica[POSICOES[i]] / nR : 0 };
+  }
+  return result;
+}
+
+// ── Gerar Arte ────────────────────────────────────────────────────
+function gerarArte() {
+  var fileInput = document.getElementById('upload-xlsx');
+  var file = fileInput.files[0];
+  if (!file) { setStatus('&#10060; Selecione a planilha primeiro!'); return; }
+  var btnGerar = document.getElementById('btn-gerar');
+  btnGerar.disabled = true; btnGerar.innerHTML = 'Lendo...';
+  setStatus('&#9203; Lendo e Processando...');
+  
+  lerPlanilha(file).then(function(dados) {
+    dadosPlanilha = dados;
+    rodadaAlvo = parseInt(document.getElementById('sel-rodada').value);
+    nJogos = parseInt(document.getElementById('sel-n').value);
+    filtroMando = document.getElementById('chk-mando').checked;
+    jogosRodadaAtual = rodadasMap[rodadaAlvo] || [];
+    if (jogosRodadaAtual.length === 0) {
+      setStatus('&#10060; Nenhum jogo para Rodada ' + rodadaAlvo);
+      btnGerar.disabled = false; btnGerar.innerHTML = '&#9917; Gerar Arte';
+      return;
+    }
+    jogoIdx = 0;
+    renderJogo();
+    
+    document.getElementById('nav-jogos').style.display = 'flex';
+    document.getElementById('arte-container').classList.remove('hidden');
+    document.getElementById('btn-download').style.display = 'inline-block';
+    if(BG_B64 && BG_B64.length > 20) {
+      document.getElementById('arte-bg').style.backgroundImage = 'url(' + BG_B64 + ')';
+    }
+    
+    setStatus('&#10003; Layout Extraordinario Pronto! | Rodada ' + rodadaAlvo);
+    btnGerar.disabled = false; btnGerar.innerHTML = '&#9917; Gerar Arte';
+  }).catch(function(err) {
+    setStatus('&#10060; Erro: ' + err);
+    console.error(err);
+    btnGerar.disabled = false; btnGerar.innerHTML = '&#9917; Gerar Arte';
+  });
+}
+
+function navegarJogo(dir) {
+  jogoIdx = Math.max(0, Math.min(jogosRodadaAtual.length - 1, jogoIdx + dir));
+  renderJogo();
+}
+
+function renderJogo() {
+  var jogo = jogosRodadaAtual[jogoIdx];
+  var total = jogosRodadaAtual.length;
+  document.getElementById('info-jogo').textContent = 'Jogo ' + (jogoIdx+1) + ' de ' + total + ' - ' + jogo.mandante + ' x ' + jogo.visitante;
+  document.getElementById('btn-prev').disabled = jogoIdx === 0;
+  document.getElementById('btn-next').disabled = jogoIdx === total - 1;
+  document.getElementById('arte-rodada-txt').innerHTML = 'PONTOS E M.B&Aacute;SICA <span>&ndash; RODADA ' + rodadaAlvo + '</span>';
+  
+  var mandConq  = calcular(jogo.mandante, 'Casa', nJogos, filtroMando);
+  var visitConq = calcular(jogo.visitante, 'Fora', nJogos, filtroMando);
+  var cedidoCasa = calcularCedido(jogo.mandante, 'Casa', nJogos, filtroMando);
+  var cedidoFora = calcularCedido(jogo.visitante, 'Fora', nJogos, filtroMando);
+  
+  var grid = document.getElementById('arte-grid');
+  grid.innerHTML = '';
+  
+  var escMand = nomeParaEscudo(jogo.mandante);
+  var escVis  = nomeParaEscudo(jogo.visitante);
+  
+  grid.appendChild(criarCampinhoDOM('CONQUISTADO CASA', mandConq, escMand));
+  grid.appendChild(criarCampinhoDOM('CEDIDO FORA', cedidoFora, escVis));
+  grid.appendChild(criarCampinhoDOM('CEDIDO CASA', cedidoCasa, escMand));
+  grid.appendChild(criarCampinhoDOM('CONQUISTADO FORA', visitConq, escVis));
+}
+
+// Criacao da estrutura atomica primorosa do campinho
+function criarCampinhoDOM(titulo, dados, escudoKey) {
+  var wrapper = document.createElement('div');
+  wrapper.className = 'campinho-wrapper';
+  
+  // Titulo solto acima do bloco
+  var tit = document.createElement('div');
+  tit.className = 'campinho-titulo';
+  tit.textContent = titulo;
+  wrapper.appendChild(tit);
+
+  // O Campinho em si
+  var camp = document.createElement('div');
+  camp.className = 'campinho';
+  
+  // O escudo watermark foi removido daqui e será injetado no centro dinamicamente na DOM do loop
+  
+  // Nova watermark Logo TCC inferior direito
+  var imgTcc = document.createElement('img');
+  imgTcc.className = 'campinho-logo-watermark';
+  imgTcc.src = '##LOGO_TCC##'; // Usa o logo branco do cabeçalho
+  imgTcc.setAttribute('onerror', "this.style.display='none'");
+  camp.appendChild(imgTcc);
+
+  // Desenhando linhas SVG refinadas
+  var svgNS = 'http://www.w3.org/2000/svg';
+  var svg = document.createElementNS(svgNS, 'svg');
+  svg.setAttribute('class', 'campo-svg');
+  svg.setAttribute('viewBox', '0 0 100 160');
+  svg.setAttribute('preserveAspectRatio', 'none');
+  
+  function linha(x1,y1,x2,y2) {
+    var l = document.createElementNS(svgNS, 'line');
+    l.setAttribute('x1',x1); l.setAttribute('y1',y1); l.setAttribute('x2',x2); l.setAttribute('y2',y2);
+    l.setAttribute('stroke','#ffffff'); l.setAttribute('stroke-width','0.6'); return l;
+  }
+  // Linhas externas
+  svg.appendChild(linha(4,4,96,4)); svg.appendChild(linha(96,4,96,156)); 
+  svg.appendChild(linha(96,156,4,156)); svg.appendChild(linha(4,156,4,4));
+  // Central
+  svg.appendChild(linha(4,80,96,80));
+  // Circulo central
+  var circ = document.createElementNS(svgNS, 'circle');
+  circ.setAttribute('cx',50); circ.setAttribute('cy',80); circ.setAttribute('r',14);
+  circ.setAttribute('stroke','#ffffff'); circ.setAttribute('stroke-width','0.6'); circ.setAttribute('fill','none');
+  svg.appendChild(circ);
+  // Areas
+  svg.appendChild(linha(22,4,22,26)); svg.appendChild(linha(78,4,78,26)); svg.appendChild(linha(22,26,78,26)); // grande top
+  svg.appendChild(linha(38,4,38,12)); svg.appendChild(linha(62,4,62,12)); svg.appendChild(linha(38,12,62,12)); // peq top
+  svg.appendChild(linha(22,156,22,134)); svg.appendChild(linha(78,156,78,134)); svg.appendChild(linha(22,134,78,134)); // grande bot
+  svg.appendChild(linha(38,156,38,148)); svg.appendChild(linha(62,156,62,148)); svg.appendChild(linha(38,148,62,148)); // peq bot
+  
+  camp.appendChild(svg);
+
+  // Box Flex com Posições
+  var posCont = document.createElement('div');
+  posCont.className = 'campo-posicoes';
+  
+  var layout = [['ATA-PE','ATA','ATA-PD'],['VOL','ESCUDO','MEI'],['LAT-E','ZAG','LAT-D'],['GOL']];
+  var labelMap = {'GOL':'GOL','LAT-D':'LAT D','LAT-E':'LAT E','ZAG':'ZAG','VOL':'VOL','MEI':'MEI','ATA':'ATA','ATA-PD':'ATA - PD','ATA-PE':'ATA - PE'};
+  
+  for (var i = 0; i < layout.length; i++) {
+    var linhaRow = document.createElement('div');
+    linhaRow.className = 'linha-pos';
+    if (layout[i].indexOf('ESCUDO') >= 0) {
+      linhaRow.style.gap = '25px'; // espaçamento maior na meiuca p/ respirar
+    }
+    for (var p = 0; p < layout[i].length; p++) {
+      var pos = layout[i][p];
+      if (pos === 'ESCUDO') {
+        var elEsc = document.createElement('div');
+        elEsc.className = 'escudo-centro';
+        if (escudoKey && TEAM_IMAGES[escudoKey]) {
+          var img = document.createElement('img');
+          img.src = TEAM_IMAGES[escudoKey];
+          
+          // Compensação de tamanho visual para times específicos (menores)
+          var timesPequenos = ['fluminense', 'cruzeiro', 'vasco', 'palmeiras', 'chapecoense', 'corinthians', 'coritiba', 'santos', 'atletico_mg', 'internacional', 'gremio', 'red_bull_bragantino', 'botafogo', 'bahia', 'vitoria', 'remo'];
+          if (timesPequenos.indexOf(escudoKey) >= 0) {
+            img.classList.add('escudo-pequeno');
+          }
+          
+          elEsc.appendChild(img);
+        }
+        linhaRow.appendChild(elEsc);
+        continue;
+      }
+
+      var val = dados[pos] || {pts:0, basica:0};
+      var boxPos = document.createElement('div');
+      boxPos.className = 'box-pos';
+      
+      var valP = document.createElement('div');
+      valP.className = 'val-pt';
+      
+      var lbl = document.createElement('div');
+      lbl.className = 'pos-nome';
+      lbl.textContent = labelMap[pos];
+      
+      var numP = document.createElement('div');
+      numP.className = 'pt-num';
+      numP.textContent = fmt(val.pts);
+      
+      // Regras de Coloração: Média de Pontos
+      var valPtNum = parseFloat(val.pts) || 0;
+      var isGreenPt = false;
+      if (pos.startsWith('ATA')) { if (valPtNum > 8.0) isGreenPt = true; }
+      else if (pos === 'GOL') { if (valPtNum > 5.0) isGreenPt = true; }
+      else { if (valPtNum > 7.0) isGreenPt = true; } // LAT, ZAG, VOL, MEI
+      
+      if (isGreenPt) numP.classList.add('destaque-verde');
+      
+      valP.appendChild(lbl);
+      valP.appendChild(numP);
+      
+      var valB = document.createElement('div');
+      valB.className = 'val-ba';
+      valB.textContent = fmt(val.basica);
+      
+      // Regras de Coloração: Média Básica
+      var valBaNum = parseFloat(val.basica) || 0;
+      var isGreenBa = false;
+      if (pos === 'GOL') { if (valBaNum > 3.0) isGreenBa = true; }
+      else if (pos === 'VOL') { if (valBaNum > 5.0) isGreenBa = true; }
+      else { if (valBaNum > 4.0) isGreenBa = true; } // LAT, ZAG, MEI, ATA
+      
+      if (isGreenBa) valB.classList.add('destaque-verde');
+      
+      boxPos.appendChild(valP);
+      boxPos.appendChild(valB);
+      
+      linhaRow.appendChild(boxPos);
+    }
+    posCont.appendChild(linhaRow);
+  }
+  
+  camp.appendChild(posCont);
+  wrapper.appendChild(camp);
+  return wrapper;
+}
+
+// ── Download PNG Configurado com escala massiva ────────────────────
+function baixarPNG() {
+  var btn = document.getElementById('btn-download');
+  btn.disabled = true; btn.innerHTML = '&#9203; Rasterizando Alta Qualidade...';
+  
+  var el = document.getElementById('arte-container');
+  // Forçar scroll para o topo absoluto para evitar cortes por offset de tela
+  window.scrollTo(0, 0);
+  
+  // Congelar dimensões exatas durante o print para não depender do zoom do navegador
+  var origWidth = el.style.width;
+  var origMaxWidth = el.style.maxWidth;
+  el.style.width = '800px'; 
+  el.style.maxWidth = '800px';
+
+  html2canvas(el, { 
+    scale: 2, /* Reduzido de 4 para 2 -> Qualidade impecável (retina), sem travar a memória do celular */
+    useCORS: true, 
+    allowTaint: true, 
+    backgroundColor: null,
+    width: 800,
+    windowWidth: 800,
+    logging: false,
+    imageTimeout: 0,
+    removeContainer: true /* Libera o DOM temporário gerado para evitar "memory leaks" */
+  })
+    .then(function(canvas) {
+      // Restaurar tamanhos dinâmicos
+      el.style.width = origWidth;
+      el.style.maxWidth = origMaxWidth;
+
+      canvas.toBlob(function(blob) {
+        var url = URL.createObjectURL(blob);
+        var a = document.createElement('a');
+        var jogo = jogosRodadaAtual[jogoIdx];
+        a.href = url;
+        a.download = 'PREMIUM_R' + rodadaAlvo + '_' + jogo.mandante.replace(/ /g,'_') + 'X' + jogo.visitante.replace(/ /g,'_') + '.png';
+        document.body.appendChild(a); a.click();
+        setTimeout(function() { document.body.removeChild(a); URL.revokeObjectURL(url); }, 1000);
+        btn.disabled = false; btn.innerHTML = '&#11015;&#65039; Baixar Arte em Alta Resolu&ccedil;&atilde;o';
+      }, 'image/png', 1.0);
+    }).catch(function(err) {
+      btn.disabled = false; btn.innerHTML = '&#11015;&#65039; Tentar Novamente';
+      setStatus('Erro ao salvar HD: ' + err.message);
+    });
+}
+
+document.getElementById('chk-mando').addEventListener('change', function() {
+  document.getElementById('mando-label').textContent = this.checked ? 'MESMO MANDO' : 'TODOS OS JOGOS';
+});
+</script>
+</body>
+</html>

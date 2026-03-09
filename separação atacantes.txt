@@ -1,0 +1,101 @@
+ordem|nome|clube|posicao_especifica|categoria
+1|Vitor Roque|Palmeiras|Centre-Forward|Atacante de área
+2|Yuri Alberto|Corinthians|Centre-Forward|Atacante de área
+3|Kaio Jorge|Cruzeiro|Centre-Forward|Atacante de área
+4|Samuel Lino|Flamengo|Left Winger|Ponta esquerda
+5|José Manuel López|Palmeiras|Centre-Forward|Atacante de área
+6|Pedro|Flamengo|Centre-Forward|Atacante de área
+7|Jhon Arias|Palmeiras|Right Winger|Ponta direita
+8|Luis Sinisterra|Cruzeiro|Left Winger|Ponta esquerda
+9|Paulinho|Palmeiras|Second Striker|Atacante de área
+10|Tetê|Grêmio|Right Winger|Ponta direita
+11|Ramón Sosa|Palmeiras|Second Striker|Atacante de área
+12|Erick Pulga|Bahia|Left Winger|Ponta esquerda
+13|Álvaro Montoro|Botafogo|Left Winger|Ponta esquerda
+14|Allan|Palmeiras|Right Winger|Ponta direita
+15|Mateo Cassierra|Atlético Mineiro|Centre-Forward|Atacante de área
+16|Arthur Cabral|Botafogo|Centre-Forward|Atacante de área
+17|Keny Arroyo|Cruzeiro|Right Winger|Ponta direita
+18|Memphis Depay|Corinthians|Second Striker|Atacante de área
+19|Gui Negão|Corinthians|Centre-Forward|Atacante de área
+20|Gonzalo Plata|Flamengo|Right Winger|Ponta direita
+21|Isidro Pitta|Red Bull Bragantino|Centre-Forward|Atacante de área
+22|Benjamín Rollheiser|Santos|Right Winger|Ponta direita
+23|Álvaro Barreal|Santos|Left Winger|Ponta esquerda
+24|Artur|Botafogo|Right Winger|Ponta direita
+25|Ferreirinha|São Paulo|Left Winger|Ponta esquerda
+26|Everton|Flamengo|Left Winger|Ponta esquerda
+27|Luiz Araújo|Flamengo|Right Winger|Ponta direita
+28|Tomás Cuello|Atlético Mineiro|Left Winger|Ponta esquerda
+29|Matheus Martins|Botafogo|Left Winger|Ponta esquerda
+30|Ryan Francisco|São Paulo|Centre-Forward|Atacante de área
+31|Wallace Yan|Flamengo|Centre-Forward|Atacante de área
+32|Agustín Canobbio|Fluminense|Left Winger|Ponta esquerda
+33|John Kennedy|Fluminense|Centre-Forward|Atacante de área
+34|Riquelme|Fluminense|Right Winger|Ponta direita
+35|Kayky|Internacional|Right Winger|Ponta direita
+36|Francis Amuzu|Grêmio|Left Winger|Ponta esquerda
+37|Carlos Vinícius|Grêmio|Centre-Forward|Atacante de área
+38|Rony|Santos|Centre-Forward|Atacante de área
+39|Robinho Junior|Santos|Right Winger|Ponta direita
+40|Nuno Moreira|Vasco da Gama|Right Winger|Ponta direita
+41|Andrés Gómez|Vasco da Gama|Left Winger|Ponta esquerda
+42|Luighi|Palmeiras|Centre-Forward|Atacante de área
+43|Kevin Serna|Fluminense|Right Winger|Ponta direita
+44|Vitinho|Internacional|Left Winger|Ponta esquerda
+45|Lucas Barbosa|Red Bull Bragantino|Right Winger|Ponta direita
+46|Cristian Olivera|Bahia|Right Winger|Ponta direita
+47|Ruan Pablo|Bahia|Left Winger|Ponta esquerda
+48|Marino Hinestroza|Vasco da Gama|Right Winger|Ponta direita
+49|Kaio César|Corinthians|Right Winger|Ponta direita
+50|Pedro Raul|Corinthians|Centre-Forward|Atacante de área
+51|Gabriel Barbosa|Santos|Centre-Forward|Atacante de área
+52|Nathan Fernandes|Botafogo|Right Winger|Ponta direita
+53|André Silva|São Paulo|Centre-Forward|Atacante de área
+54|Marquinhos|Cruzeiro|Right Winger|Ponta direita
+55|Brenner|Vasco da Gama|Centre-Forward|Atacante de área
+56|Yeferson Soteldo|Fluminense|Left Winger|Ponta esquerda
+57|Rodrigo Castillo|Fluminense|Centre-Forward|Atacante de área
+58|Antonio Galeano|Mirassol|Right Winger|Ponta direita
+59|Rafael Borré|Internacional|Centre-Forward|Atacante de área
+60|Johan Carbonero|Internacional|Left Winger|Ponta esquerda
+61|Júnior Santos|Atlético Mineiro|Right Winger|Ponta direita
+62|Wanderson|Cruzeiro|Left Winger|Ponta esquerda
+63|Kevin Viveros|Atlético Paranaense|Centre-Forward|Atacante de área
+64|Vinicinho|Red Bull Bragantino|Left Winger|Ponta esquerda
+65|André Henrique|Grêmio|Centre-Forward|Atacante de área
+66|Alan Minda|Atlético Mineiro|Right Winger|Ponta direita
+67|Joaquín Correa|Botafogo|Second Striker|Atacante de área
+68|Santiago Moreno|Fluminense|Right Winger|Ponta direita
+69|Negueba|Mirassol|Right Winger|Ponta direita
+70|Alerrandro|Internacional|Centre-Forward|Atacante de área
+71|Gustavo Prado|Internacional|Right Winger|Ponta direita
+72|Moisés|Santos|Left Winger|Ponta esquerda
+73|Chris Ramos|Botafogo|Centre-Forward|Atacante de área
+74|Lucas Moura|São Paulo|Right Winger|Ponta direita
+75|Breno Lopes|Coritiba|Left Winger|Ponta esquerda
+76|Joaquín Lavega|Coritiba|Left Winger|Ponta esquerda
+77|Lucas Ronier|Coritiba|Right Winger|Ponta direita
+78|Adson|Vasco da Gama|Right Winger|Ponta direita
+79|Felipe Anderson|Palmeiras|Left Winger|Ponta esquerda
+80|José Herrera|Red Bull Bragantino|Right Winger|Ponta direita
+81|Henry Mosquera|Red Bull Bragantino|Left Winger|Ponta esquerda
+82|Michel Araújo|Bahia|Left Winger|Ponta esquerda
+83|Néiser Villarreal|Cruzeiro|Centre-Forward|Atacante de área
+84|Diego Tarzia|Vitória|Left Winger|Ponta esquerda
+85|Gonzalo Tapia|São Paulo|Right Winger|Ponta direita
+86|Lucca|São Paulo|Left Winger|Ponta esquerda
+87|Claudio Spinelli|Vasco da Gama|Centre-Forward|Atacante de área
+88|Bruno Tabata|Internacional|Right Winger|Ponta direita
+89|José Enamorado|Grêmio|Right Winger|Ponta direita
+90|Diego Hernández|Clube do Remo|Left Winger|Ponta esquerda
+91|Cristian Pavón|Grêmio|Right Winger|Ponta direita
+92|Dieguinho|Corinthians|Right Winger|Ponta direita
+93|Martin Braithwaite|Grêmio|Centre-Forward|Atacante de área
+94|Lautaro Díaz|Santos|Centre-Forward|Atacante de área
+95|Lucas Villalba|Botafogo|Right Winger|Ponta direita
+96|Luciano|São Paulo|Centre-Forward|Atacante de área
+97|Jonathan Calleri|São Paulo|Centre-Forward|Atacante de área
+98|Bruno Rodrigues|Cruzeiro|Left Winger|Ponta esquerda
+99|Julimar|Atlético Paranaense|Left Winger|Ponta esquerda
+100|Renan Peixoto|Atlético Paranaense|Centre-Forward|Atacante de área
