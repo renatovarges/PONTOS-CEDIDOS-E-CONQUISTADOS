@@ -130,6 +130,7 @@ body {
   box-shadow: 0 8px 16px rgba(0,0,0,0.4);
 }
 .arte-logo-inset { width: 65px; object-fit: contain; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.15)); }
+.pill-text-container { display: flex; flex-direction: column; align-items: center; justify-content: center; }
 .pill-title {
   color: var(--tcc-white); font-size: 28px; font-weight: 900;
   letter-spacing: 0px; text-transform: uppercase; line-height: 1; margin: 0;
@@ -137,6 +138,10 @@ body {
 }
 .pill-title span {
   color: var(--tcc-gold); font-weight: 800;
+}
+.pill-subtitle {
+  color: var(--tcc-gold); font-size: 15px; font-weight: 800;
+  letter-spacing: 1.5px; text-transform: uppercase; margin-top: 4px;
 }
 
 /* ── GRID DOS CAMPINHOS (2x2) ── */
@@ -334,7 +339,10 @@ body {
       <div class="arte-header">
         <div class="pill-wrap">
           <img class="arte-logo-inset" src="##LOGO_TCC##" alt="TCC" onerror="this.style.display='none'" />
-          <div class="pill-title" id="arte-rodada-txt">PONTOS E M.B&Aacute;SICA <span>&ndash; RODADA X</span></div>
+          <div class="pill-text-container">
+            <div class="pill-title" id="arte-rodada-txt">PONTOS E M.B&Aacute;SICA <span>&ndash; RODADA X</span></div>
+            <div class="pill-subtitle" id="arte-recorte-txt">&Uacute;LTIMAS 5 RODADAS SEGUIDAS</div>
+          </div>
         </div>
       </div>
       
@@ -554,13 +562,16 @@ function classificarPos(posReal, time, nome) {
   if (posReal === 3) return 'ZAG';
   if (posReal === 5) {
     var nk = normalizar(nome);
-    return atacantesMap[nk] || 'ATA';
+    if (atacantesMap[nk]) return atacantesMap[nk];
+    var ataKeys = Object.keys(atacantesMap);
+    for (var i = 0; i < ataKeys.length; i++) { if (ataKeys[i].indexOf(nk) >= 0 || nk.indexOf(ataKeys[i]) >= 0) return atacantesMap[ataKeys[i]]; }
+    return 'ATA';
   }
   if (posReal === 4) {
     var nk = normalizar(nome); var tk = normalizarTime(time); var key = tk + '|' + nk;
     if (meiasVolMap[key]) return meiasVolMap[key];
     var keys = Object.keys(meiasVolMap);
-    for (var i = 0; i < keys.length; i++) { if (keys[i].split('|')[1] === nk) return meiasVolMap[keys[i]]; }
+    for (var i = 0; i < keys.length; i++) { if (keys[i].split('|')[1] === nk || keys[i].split('|')[1].indexOf(nk) >= 0 || nk.indexOf(keys[i].split('|')[1]) >= 0) return meiasVolMap[keys[i]]; }
     return 'MEI';
   }
   return null;
@@ -671,6 +682,14 @@ function renderJogo() {
   document.getElementById('btn-prev').disabled = jogoIdx === 0;
   document.getElementById('btn-next').disabled = jogoIdx === total - 1;
   document.getElementById('arte-rodada-txt').innerHTML = 'PONTOS E M.B&Aacute;SICA <span>&ndash; RODADA ' + rodadaAlvo + '</span>';
+  
+  var recorteTxt = "&Uacute;LTIMAS " + nJogos + " RODADAS";
+  if (filtroMando) {
+    recorteTxt += " POR MANDO";
+  } else {
+    recorteTxt += " SEGUIDAS";
+  }
+  document.getElementById('arte-recorte-txt').innerHTML = recorteTxt;
   
   var mandConq  = calcular(jogo.mandante, 'Casa', nJogos, filtroMando);
   var visitConq = calcular(jogo.visitante, 'Fora', nJogos, filtroMando);
