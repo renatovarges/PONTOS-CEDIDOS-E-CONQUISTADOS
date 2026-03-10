@@ -588,17 +588,21 @@ function calcular(time, mandoAlvo, n, filtrarMando) {
     if (!vistas[dk]) { vistas[dk] = true; datas.push(dk); if (datas.length >= n) break; }
   }
   var dset = {}; for (var i = 0; i < datas.length; i++) dset[datas[i]] = true;
-  var nR = datas.length;
-  var somaPts = {}, somaBasica = {};
-  for (var i = 0; i < POSICOES.length; i++) { somaPts[POSICOES[i]] = 0; somaBasica[POSICOES[i]] = 0; }
+  var somaPts = {}, somaBasica = {}, contPos = {};
+  for (var i = 0; i < POSICOES.length; i++) { somaPts[POSICOES[i]] = 0; somaBasica[POSICOES[i]] = 0; contPos[POSICOES[i]] = 0; }
   var filtrados = recs.filter(function(r) { return dset[r.data.toISOString().slice(0,10)]; });
   for (var i = 0; i < filtrados.length; i++) {
     var pos = classificarPos(filtrados[i].posReal, filtrados[i].time, filtrados[i].nome);
-    if (pos && somaPts[pos] !== undefined) { somaPts[pos] += filtrados[i].pts; somaBasica[pos] += filtrados[i].basica; }
+    if (pos && somaPts[pos] !== undefined) {
+      somaPts[pos] += filtrados[i].pts;
+      somaBasica[pos] += filtrados[i].basica;
+      contPos[pos]++;
+    }
   }
   var result = {};
   for (var i = 0; i < POSICOES.length; i++) {
-    result[POSICOES[i]] = { pts: nR > 0 ? somaPts[POSICOES[i]] / nR : 0, basica: nR > 0 ? somaBasica[POSICOES[i]] / nR : 0 };
+    var n_reg = contPos[POSICOES[i]];
+    result[POSICOES[i]] = { pts: n_reg > 0 ? somaPts[POSICOES[i]] / n_reg : 0, basica: n_reg > 0 ? somaBasica[POSICOES[i]] / n_reg : 0 };
   }
   return result;
 }
@@ -611,9 +615,8 @@ function calcularCedido(time, mandoAlvo, n, filtrarMando) {
     var dk = recs[i].data.toISOString().slice(0,10);
     if (!vistas[dk]) { vistas[dk] = true; datas.push(dk); advsMap[dk] = recs[i].adversario; if (datas.length >= n) break; }
   }
-  var nR = datas.length;
-  var somaPts = {}, somaBasica = {};
-  for (var i = 0; i < POSICOES.length; i++) { somaPts[POSICOES[i]] = 0; somaBasica[POSICOES[i]] = 0; }
+  var somaPts = {}, somaBasica = {}, contPos = {};
+  for (var i = 0; i < POSICOES.length; i++) { somaPts[POSICOES[i]] = 0; somaBasica[POSICOES[i]] = 0; contPos[POSICOES[i]] = 0; }
   for (var di = 0; di < datas.length; di++) {
     var dk = datas[di], adv = advsMap[dk];
     var advRecs = dadosPlanilha.filter(function(r) {
@@ -621,12 +624,17 @@ function calcularCedido(time, mandoAlvo, n, filtrarMando) {
     });
     for (var i = 0; i < advRecs.length; i++) {
       var pos = classificarPos(advRecs[i].posReal, advRecs[i].time, advRecs[i].nome);
-      if (pos && somaPts[pos] !== undefined) { somaPts[pos] += advRecs[i].pts; somaBasica[pos] += advRecs[i].basica; }
+      if (pos && somaPts[pos] !== undefined) {
+        somaPts[pos] += advRecs[i].pts;
+        somaBasica[pos] += advRecs[i].basica;
+        contPos[pos]++;
+      }
     }
   }
   var result = {};
   for (var i = 0; i < POSICOES.length; i++) {
-    result[POSICOES[i]] = { pts: nR > 0 ? somaPts[POSICOES[i]] / nR : 0, basica: nR > 0 ? somaBasica[POSICOES[i]] / nR : 0 };
+    var n_reg = contPos[POSICOES[i]];
+    result[POSICOES[i]] = { pts: n_reg > 0 ? somaPts[POSICOES[i]] / n_reg : 0, basica: n_reg > 0 ? somaBasica[POSICOES[i]] / n_reg : 0 };
   }
   return result;
 }
