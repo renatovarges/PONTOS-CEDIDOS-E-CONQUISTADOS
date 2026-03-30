@@ -331,6 +331,7 @@ body {
 .extrato-jogo-header .ej-data { color: #ffffff; font-size: 12px; font-weight: 800; }
 .extrato-jogo-header .ej-pts { color: #5dffaa; font-size: 20px; font-weight: 900; letter-spacing: -0.5px; text-shadow: 0 2px 4px rgba(0,0,0,0.8); }
 .ej-matchup { display: flex; align-items: center; gap: 6px; }
+.ej-placar { color: #fff; font-size: 14px; font-weight: 900; letter-spacing: 1px; white-space: nowrap; text-shadow: 0 1px 3px rgba(0,0,0,0.8); }
 .ej-escudo-mini {
   width: 32px; height: 32px; background: #fff; border-radius: 50%;
   display: flex; align-items: center; justify-content: center;
@@ -1060,6 +1061,26 @@ function getExtratoCedido(time, mandoAlvo, n, filtrarMando, pos) {
   return resultado;
 }
 
+// Calcula placar usando G próprios + GC do adversário (evita problema de 2 goleiros e GS duplicado)
+function calcularPlacar(timeMand, timeVis, dk) {
+  var golsMand = 0, golsVis = 0;
+  var recsJogo = dadosPlanilha.filter(function(r) {
+    return r.data.toISOString().slice(0,10) === dk;
+  });
+  for (var i = 0; i < recsJogo.length; i++) {
+    var r = recsJogo[i];
+    var tNorm = normalizarTime(r.time);
+    if (tNorm === normalizarTime(timeMand)) {
+      golsMand += (r.scouts.G || 0);   // gol próprio do mandante
+      golsVis  += (r.scouts.GC || 0);  // gol contra do mandante = gol do visitante
+    } else if (tNorm === normalizarTime(timeVis)) {
+      golsVis  += (r.scouts.G || 0);   // gol próprio do visitante
+      golsMand += (r.scouts.GC || 0);  // gol contra do visitante = gol do mandante
+    }
+  }
+  return golsMand + 'x' + golsVis;
+}
+
 function formatarData(d) {
   var dd = ('0' + d.getDate()).slice(-2);
   var mm = ('0' + (d.getMonth() + 1)).slice(-2);
@@ -1160,12 +1181,12 @@ function mostrarExtrato(time, pos, mandoAlvo, tipo) {
       return wrap;
     }
 
-    var spanX = document.createElement('span');
-    spanX.className = 'ej-escudo-x';
-    spanX.textContent = 'x';
+    var placarSpan = document.createElement('span');
+    placarSpan.className = 'ej-placar';
+    placarSpan.textContent = calcularPlacar(timeMand, timeVis, dk);
 
     matchupDiv.appendChild(escudoMini(timeMand));
-    matchupDiv.appendChild(spanX);
+    matchupDiv.appendChild(placarSpan);
     matchupDiv.appendChild(escudoMini(timeVis));
 
     // Soma dos pts de todos os jogadores dessa posição nesse jogo
