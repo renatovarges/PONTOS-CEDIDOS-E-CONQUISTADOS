@@ -288,6 +288,72 @@ body {
 .btn-dl:active { box-shadow: 0 2px 0 #a3852d; transform: translateY(3px); }
 
 @media (max-width: 760px) { #arte-container { width: 100%; max-width: 720px; } }
+
+/* ── MODAL DE EXTRATO ── */
+.modal-overlay {
+  display: none; position: fixed; inset: 0; z-index: 9999;
+  background: rgba(0,0,0,0.75); align-items: center; justify-content: center;
+  padding: 20px;
+}
+.modal-overlay.active { display: flex; }
+.modal-box {
+  background: #0a2012; border: 3px solid var(--tcc-gold); border-radius: 12px;
+  max-width: 820px; width: 100%; max-height: 85vh; overflow-y: auto;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.8); position: relative;
+}
+.modal-header {
+  background: var(--tcc-gold); color: var(--tcc-dark); padding: 14px 20px;
+  display: flex; align-items: center; justify-content: space-between;
+  border-radius: 9px 9px 0 0; position: sticky; top: 0; z-index: 2;
+}
+.modal-header h2 { font-size: 16px; font-weight: 900; text-transform: uppercase; letter-spacing: 0.5px; margin: 0; }
+.modal-close {
+  background: var(--tcc-dark); color: var(--tcc-gold); border: none;
+  font-size: 20px; font-weight: 900; width: 32px; height: 32px;
+  border-radius: 50%; cursor: pointer; display: flex; align-items: center;
+  justify-content: center; transition: 0.2s;
+}
+.modal-close:hover { background: var(--tcc-red); color: #fff; }
+.modal-body { padding: 16px 20px; }
+.modal-subtitle {
+  color: var(--tcc-gold); font-size: 13px; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 1px; margin-bottom: 12px;
+}
+.extrato-jogo {
+  background: #0d381f; border: 1px solid rgba(206,171,66,0.3);
+  border-radius: 8px; margin-bottom: 12px; overflow: hidden;
+}
+.extrato-jogo-header {
+  background: rgba(206,171,66,0.15); padding: 10px 14px;
+  display: flex; align-items: center; justify-content: space-between;
+  border-bottom: 1px solid rgba(206,171,66,0.2);
+}
+.extrato-jogo-header .ej-data { color: #ffffff; font-size: 12px; font-weight: 800; }
+.extrato-jogo-header .ej-pts { color: #5dffaa; font-size: 15px; font-weight: 900; }
+.ej-matchup { display: flex; align-items: center; gap: 6px; }
+.ej-escudo-mini {
+  width: 30px; height: 30px; background: #fff; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.4); flex-shrink: 0;
+}
+.ej-escudo-mini img { max-width: 22px; max-height: 22px; object-fit: contain; }
+.ej-escudo-x { color: #fff; font-weight: 900; font-size: 11px; }
+.extrato-jogador {
+  padding: 10px 14px; border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.extrato-jogador:last-child { border-bottom: none; }
+.ej-nome { color: #fff; font-size: 13px; font-weight: 800; margin-bottom: 6px; text-transform: uppercase; }
+.ej-nome span { color: var(--tcc-gold); font-weight: 600; font-size: 11px; margin-left: 6px; text-transform: none; }
+.ej-scouts { display: flex; flex-wrap: wrap; gap: 5px; }
+.ej-scout-tag {
+  border-radius: 4px; padding: 2px 6px;
+  font-size: 12px; font-weight: 900; letter-spacing: 0.3px;
+}
+.ej-scout-tag.positivo { color: #5dffaa; background: rgba(93,255,170,0.12); }
+.ej-scout-tag.negativo { color: #ff6b6b; background: rgba(255,107,107,0.12); }
+.ej-scout-tag.neutro { color: #b0c4b0; background: rgba(255,255,255,0.07); }
+.box-pos.clicavel { cursor: pointer; transition: transform 0.15s, box-shadow 0.15s; }
+.box-pos.clicavel:hover { transform: scale(1.08); box-shadow: 0 5px 15px rgba(206,171,66,0.4); z-index: 10; }
 </style>
 </head>
 <body>
@@ -366,6 +432,17 @@ body {
   <button class="btn btn-dl" onclick="baixarPNG()" id="btn-download" style="display:none;">
     &#11015;&#65039; Baixar Arte em Alta Resolu&ccedil;&atilde;o
   </button>
+</div>
+
+<!-- Modal de Extrato (fora do arte-container, nao afeta PNG) -->
+<div class="modal-overlay" id="modal-extrato" onclick="if(event.target===this)fecharExtrato()">
+  <div class="modal-box">
+    <div class="modal-header">
+      <h2 id="modal-titulo">EXTRATO</h2>
+      <button class="modal-close" onclick="fecharExtrato()">&times;</button>
+    </div>
+    <div class="modal-body" id="modal-body"></div>
+  </div>
 </div>
 
 <script>
@@ -526,6 +603,9 @@ function lerPlanilha(file) {
           return '';
         }
 
+        // Colunas de scout a capturar
+        var SCOUT_COLS = ['G','A','FT','SG','DP','GC','CV','DE','FD','FF','FS','DS','PP','CA','GS','FC','I','PS','PC','PI'];
+
         var dados = [];
         for (var i = 0; i < rows.length; i++) {
           var r = rows[i];
@@ -533,7 +613,7 @@ function lerPlanilha(file) {
           var dataRaw = get(r, 'Data');
           var dataObj = parsearData(dataRaw);
           if (!timeVal || !dataObj) continue;
-          dados.push({
+          var reg = {
             time: String(timeVal).trim(),
             adversario: String(get(r, 'Adversário', 'Adversario') || '').trim(),
             posReal: parseFloat(get(r, 'PosReal') || '0') || 0,
@@ -541,8 +621,14 @@ function lerPlanilha(file) {
             pts: parseFloat(get(r, 'Pts') || '0') || 0,
             basica: parseFloat(get(r, 'Básica', 'Basica') || '0') || 0,
             nome: String(get(r, 'Nome2') || '').trim(),
-            data: dataObj
-          });
+            data: dataObj,
+            scouts: {}
+          };
+          for (var sc = 0; sc < SCOUT_COLS.length; sc++) {
+            var v = get(r, SCOUT_COLS[sc]);
+            reg.scouts[SCOUT_COLS[sc]] = parseFloat(v) || 0;
+          }
+          dados.push(reg);
         }
         if (dados.length === 0) { reject('0 registros validos.'); return; }
         dados.sort(function(a, b) { return b.data - a.data; });
@@ -710,14 +796,14 @@ function renderJogo() {
   var escMand = nomeParaEscudo(jogo.mandante);
   var escVis  = nomeParaEscudo(jogo.visitante);
   
-  grid.appendChild(criarCampinhoDOM('CONQUISTADO CASA', mandConq, escMand));
-  grid.appendChild(criarCampinhoDOM('CEDIDO FORA', cedidoFora, escVis));
-  grid.appendChild(criarCampinhoDOM('CEDIDO CASA', cedidoCasa, escMand));
-  grid.appendChild(criarCampinhoDOM('CONQUISTADO FORA', visitConq, escVis));
+  grid.appendChild(criarCampinhoDOM('CONQUISTADO CASA', mandConq, escMand, jogo.mandante, 'Casa'));
+  grid.appendChild(criarCampinhoDOM('CEDIDO FORA', cedidoFora, escVis, jogo.visitante, 'Fora'));
+  grid.appendChild(criarCampinhoDOM('CEDIDO CASA', cedidoCasa, escMand, jogo.mandante, 'Casa'));
+  grid.appendChild(criarCampinhoDOM('CONQUISTADO FORA', visitConq, escVis, jogo.visitante, 'Fora'));
 }
 
 // Criacao da estrutura atomica primorosa do campinho
-function criarCampinhoDOM(titulo, dados, escudoKey) {
+function criarCampinhoDOM(titulo, dados, escudoKey, timeCtx, mandoCtx) {
   var wrapper = document.createElement('div');
   wrapper.className = 'campinho-wrapper';
   
@@ -806,8 +892,15 @@ function criarCampinhoDOM(titulo, dados, escudoKey) {
 
       var val = dados[pos] || {pts:0, basica:0};
       var boxPos = document.createElement('div');
-      boxPos.className = 'box-pos';
-      
+      boxPos.className = 'box-pos clicavel';
+      boxPos.setAttribute('data-pos', pos);
+      boxPos.setAttribute('data-time', timeCtx || '');
+      boxPos.setAttribute('data-mando', mandoCtx || '');
+      boxPos.setAttribute('data-tipo', titulo);
+      boxPos.addEventListener('click', (function(p, t, m, tp) {
+        return function() { mostrarExtrato(t, p, m, tp); };
+      })(pos, timeCtx, mandoCtx, titulo));
+
       var valP = document.createElement('div');
       valP.className = 'val-pt';
       
@@ -903,6 +996,238 @@ function baixarPNG() {
       setStatus('Erro ao salvar HD: ' + err.message);
     });
 }
+
+// ── Extrato: dados jogo a jogo por posição ──────────────────────
+var SCOUT_COLS = ['G','A','FT','SG','DP','GC','CV','DS','FD','FF','FS','DE','PP','CA','GS','FC','I','PS','PC','PI'];
+// Abreviações exibidas no extrato (número + sigla curta)
+var SCOUT_ABR = {
+  G:'G',A:'A',FT:'FT',SG:'SG',DP:'DP',GC:'GC',
+  CV:'CV',DS:'DS',FD:'FD',FF:'FF',FS:'FS',
+  DE:'DE',PP:'PP',CA:'CA',GS:'GS',FC:'FC',
+  I:'I',PS:'PS',PC:'PC',PI:'PI'
+};
+// DS = Defesas (goleiro), DE = Desarmes (linha)
+// Scouts positivos (verde) e negativos (vermelho)
+var SCOUTS_POS = {G:1,A:1,FT:1,SG:1,DP:1,DS:1,FD:1,FS:1,DE:1,PS:1,PC:1};
+var SCOUTS_NEG = {GC:1,CV:1,PP:1,CA:1,GS:1,FC:1,I:1,PI:1,FF:1};
+
+function getExtratoConquistado(time, mandoAlvo, n, filtrarMando, pos) {
+  var recs = dadosPlanilha.filter(function(r) { return normalizarTime(r.time) === normalizarTime(time); });
+  if (filtrarMando) recs = recs.filter(function(r) { return r.mand === mandoAlvo; });
+  var datas = [], vistas = {};
+  for (var i = 0; i < recs.length; i++) {
+    var dk = recs[i].data.toISOString().slice(0,10);
+    if (!vistas[dk]) { vistas[dk] = true; datas.push(dk); if (datas.length >= n) break; }
+  }
+  var dset = {}; for (var i = 0; i < datas.length; i++) dset[datas[i]] = true;
+  var filtrados = recs.filter(function(r) { return dset[r.data.toISOString().slice(0,10)]; });
+  var resultado = [];
+  for (var i = 0; i < filtrados.length; i++) {
+    var r = filtrados[i];
+    var posClass = classificarPos(r.posReal, r.time, r.nome);
+    if (posClass === pos) {
+      resultado.push({ nome: r.nome, adversario: r.adversario, data: r.data, pts: r.pts, basica: r.basica, scouts: r.scouts, mand: r.mand });
+    }
+  }
+  resultado.sort(function(a, b) { return b.data - a.data; });
+  return resultado;
+}
+
+function getExtratoCedido(time, mandoAlvo, n, filtrarMando, pos) {
+  var recs = dadosPlanilha.filter(function(r) { return normalizarTime(r.time) === normalizarTime(time); });
+  if (filtrarMando) recs = recs.filter(function(r) { return r.mand === mandoAlvo; });
+  var datas = [], advsMap = {}, vistas = {};
+  for (var i = 0; i < recs.length; i++) {
+    var dk = recs[i].data.toISOString().slice(0,10);
+    if (!vistas[dk]) { vistas[dk] = true; datas.push(dk); advsMap[dk] = recs[i].adversario; if (datas.length >= n) break; }
+  }
+  var resultado = [];
+  for (var di = 0; di < datas.length; di++) {
+    var dk = datas[di], adv = advsMap[dk];
+    var advRecs = dadosPlanilha.filter(function(r) {
+      return r.data.toISOString().slice(0,10) === dk && normalizarTime(r.time) === normalizarTime(adv);
+    });
+    for (var i = 0; i < advRecs.length; i++) {
+      var r = advRecs[i];
+      var posClass = classificarPos(r.posReal, r.time, r.nome);
+      if (posClass === pos) {
+        resultado.push({ nome: r.nome, adversario: time, data: r.data, pts: r.pts, basica: r.basica, scouts: r.scouts, mand: r.mand, timeOrigem: adv });
+      }
+    }
+  }
+  resultado.sort(function(a, b) { return b.data - a.data; });
+  return resultado;
+}
+
+function formatarData(d) {
+  var dd = ('0' + d.getDate()).slice(-2);
+  var mm = ('0' + (d.getMonth() + 1)).slice(-2);
+  var yy = d.getFullYear();
+  return dd + '/' + mm + '/' + yy;
+}
+
+function mostrarExtrato(time, pos, mandoAlvo, tipo) {
+  var isCedido = tipo.indexOf('CEDIDO') >= 0;
+  var registros;
+  if (isCedido) {
+    registros = getExtratoCedido(time, mandoAlvo, nJogos, filtroMando, pos);
+  } else {
+    registros = getExtratoConquistado(time, mandoAlvo, nJogos, filtroMando, pos);
+  }
+
+  var labelMap = {'GOL':'GOLEIRO','LAT-D':'LATERAL DIR.','LAT-E':'LATERAL ESQ.','ZAG':'ZAGUEIRO','VOL':'VOLANTE','MEI':'MEIA','ATA':'ATACANTE','ATA-PD':'PONTA DIREITA','ATA-PE':'PONTA ESQUERDA'};
+  var tituloPos = labelMap[pos] || pos;
+  var tituloTipo = isCedido ? 'CEDIDO' : 'CONQUISTADO';
+  var tituloMando = mandoAlvo === 'Casa' ? 'EM CASA' : 'FORA';
+
+  document.getElementById('modal-titulo').textContent = tituloPos + ' \u2014 ' + time + ' (' + tituloTipo + ' ' + tituloMando + ')';
+
+  var body = document.getElementById('modal-body');
+  body.innerHTML = '';
+
+  if (registros.length === 0) {
+    body.innerHTML = '<p style="color:#aaa;text-align:center;padding:30px;">Nenhum registro encontrado para esta posi\u00e7\u00e3o.</p>';
+    document.getElementById('modal-extrato').classList.add('active');
+    return;
+  }
+
+  var sub = document.createElement('div');
+  sub.className = 'modal-subtitle';
+  sub.textContent = '\u00daltimos ' + nJogos + ' jogos \u2014 ' + registros.length + ' registro(s)';
+  body.appendChild(sub);
+
+  // Agrupar por data
+  var porData = {};
+  var datasOrdem = [];
+  for (var i = 0; i < registros.length; i++) {
+    var dk = registros[i].data.toISOString().slice(0,10);
+    if (!porData[dk]) { porData[dk] = []; datasOrdem.push(dk); }
+    porData[dk].push(registros[i]);
+  }
+
+  for (var di = 0; di < datasOrdem.length; di++) {
+    var dk = datasOrdem[di];
+    var regs = porData[dk];
+    var jogoDiv = document.createElement('div');
+    jogoDiv.className = 'extrato-jogo';
+
+    // Header do jogo
+    var header = document.createElement('div');
+    header.className = 'extrato-jogo-header';
+
+    var spanData = document.createElement('span');
+    spanData.className = 'ej-data';
+    spanData.textContent = formatarData(regs[0].data);
+
+    // Determina mandante e visitante para os escudos
+    var timeMand, timeVis;
+    if (isCedido) {
+      // cedido: o "time" analisado recebeu os pontos → adversário atacou em casa ou fora
+      // regs[0].mand refere ao mando do adversário (timeOrigem)
+      var timeAdv = regs[0].timeOrigem || regs[0].adversario;
+      if (mandoAlvo === 'Casa') {
+        // time analisado jogou em casa → adversário jogou fora
+        timeMand = time; timeVis = timeAdv;
+      } else {
+        timeMand = timeAdv; timeVis = time;
+      }
+    } else {
+      if (mandoAlvo === 'Casa') {
+        timeMand = time; timeVis = regs[0].adversario;
+      } else {
+        timeMand = regs[0].adversario; timeVis = time;
+      }
+    }
+
+    var matchupDiv = document.createElement('div');
+    matchupDiv.className = 'ej-matchup';
+
+    function escudoMini(nomeTime) {
+      var key = nomeParaEscudo(nomeTime);
+      var wrap = document.createElement('div');
+      wrap.className = 'ej-escudo-mini';
+      if (key && TEAM_IMAGES[key]) {
+        var img = document.createElement('img');
+        img.src = TEAM_IMAGES[key];
+        wrap.appendChild(img);
+      } else {
+        wrap.style.fontSize = '9px';
+        wrap.style.fontWeight = '900';
+        wrap.style.color = '#0a2012';
+        wrap.textContent = (nomeTime || '?').slice(0,3).toUpperCase();
+      }
+      return wrap;
+    }
+
+    var spanX = document.createElement('span');
+    spanX.className = 'ej-escudo-x';
+    spanX.textContent = 'x';
+
+    matchupDiv.appendChild(escudoMini(timeMand));
+    matchupDiv.appendChild(spanX);
+    matchupDiv.appendChild(escudoMini(timeVis));
+
+    // Soma dos pts de todos os jogadores dessa posição nesse jogo
+    var somaJogo = 0;
+    for (var j = 0; j < regs.length; j++) somaJogo += regs[j].pts;
+    var spanPts = document.createElement('span');
+    spanPts.className = 'ej-pts';
+    spanPts.textContent = fmt(somaJogo) + ' pts';
+
+    header.appendChild(spanData);
+    header.appendChild(matchupDiv);
+    header.appendChild(spanPts);
+    jogoDiv.appendChild(header);
+
+    // Cada jogador
+    for (var j = 0; j < regs.length; j++) {
+      var reg = regs[j];
+      var jogDiv = document.createElement('div');
+      jogDiv.className = 'extrato-jogador';
+
+      var nomeEl = document.createElement('div');
+      nomeEl.className = 'ej-nome';
+      nomeEl.innerHTML = reg.nome + ' <span>Pts: ' + fmt(reg.pts) + ' | B\u00e1sica: ' + fmt(reg.basica) + '</span>';
+      jogDiv.appendChild(nomeEl);
+
+      var scoutsDiv = document.createElement('div');
+      scoutsDiv.className = 'ej-scouts';
+
+      // Positivos primeiro, depois negativos, depois neutros
+      var ordens = ['positivo', 'negativo', 'neutro'];
+      for (var oi = 0; oi < ordens.length; oi++) {
+        var grupo = ordens[oi];
+        for (var sc = 0; sc < SCOUT_COLS.length; sc++) {
+          var col = SCOUT_COLS[sc];
+          var val = reg.scouts[col] || 0;
+          if (val === 0) continue;
+          var tipo = SCOUTS_POS[col] ? 'positivo' : (SCOUTS_NEG[col] ? 'negativo' : 'neutro');
+          if (tipo !== grupo) continue;
+          var tag = document.createElement('span');
+          tag.className = 'ej-scout-tag ' + tipo;
+          tag.textContent = val + (SCOUT_ABR[col] || col);
+          scoutsDiv.appendChild(tag);
+        }
+      }
+
+      jogDiv.appendChild(scoutsDiv);
+      jogoDiv.appendChild(jogDiv);
+    }
+
+    body.appendChild(jogoDiv);
+  }
+
+  document.getElementById('modal-extrato').classList.add('active');
+}
+
+function fecharExtrato() {
+  document.getElementById('modal-extrato').classList.remove('active');
+}
+
+// Fechar com ESC
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') fecharExtrato();
+});
 
 document.getElementById('chk-mando').addEventListener('change', function() {
   document.getElementById('mando-label').textContent = this.checked ? 'MESMO MANDO' : 'TODOS OS JOGOS';
