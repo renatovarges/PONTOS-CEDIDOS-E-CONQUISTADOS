@@ -587,7 +587,7 @@ function lerPlanilha(file) {
         }
         if (!sheetName) { reject('Aba "Por jogo" nao encontrada'); return; }
         var ws = wb.Sheets[sheetName];
-        var rows = XLSX.utils.sheet_to_json(ws, { raw: false, dateNF: 'dd/mm/yyyy' });
+        var rows = XLSX.utils.sheet_to_json(ws, { raw: true });
         if (rows.length === 0) { reject('Planilha vazia'); return; }
 
         var primeiraKey = Object.keys(rows[0]);
