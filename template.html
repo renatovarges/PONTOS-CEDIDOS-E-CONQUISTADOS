@@ -332,19 +332,20 @@ body {
 .extrato-jogo-header .ej-pts { color: #5dffaa; font-size: 15px; font-weight: 900; }
 .ej-matchup { display: flex; align-items: center; gap: 6px; }
 .ej-escudo-mini {
-  width: 38px; height: 38px; background: #fff; border-radius: 50%;
+  width: 32px; height: 32px; background: #fff; border-radius: 50%;
   display: flex; align-items: center; justify-content: center;
   box-shadow: 0 2px 6px rgba(0,0,0,0.4); flex-shrink: 0;
   overflow: hidden;
 }
-.ej-escudo-mini img { width: 34px; height: 34px; object-fit: contain; transform: scale(1.3); }
+.ej-escudo-mini img { width: 28px; height: 28px; object-fit: contain; transform: scale(1.2); }
 .ej-escudo-x { color: #fff; font-weight: 900; font-size: 11px; }
 .extrato-jogador {
   padding: 10px 14px; border-bottom: 1px solid rgba(255,255,255,0.06);
 }
 .extrato-jogador:last-child { border-bottom: none; }
-.ej-nome { color: #fff; font-size: 13px; font-weight: 800; margin-bottom: 6px; text-transform: uppercase; }
-.ej-nome span { color: var(--tcc-gold); font-weight: 600; font-size: 11px; margin-left: 6px; text-transform: none; }
+.ej-nome { color: #fff; font-size: 13px; font-weight: 800; margin-bottom: 6px; text-transform: uppercase; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.ej-pts-valor { color: #5dffaa; font-size: 16px; font-weight: 900; text-transform: none; }
+.ej-basica-valor { color: var(--tcc-gold); font-size: 11px; font-weight: 600; text-transform: none; }
 .ej-scouts { display: flex; flex-wrap: wrap; gap: 5px; }
 .ej-scout-tag {
   border-radius: 4px; padding: 2px 6px;
@@ -1188,7 +1189,7 @@ function mostrarExtrato(time, pos, mandoAlvo, tipo) {
 
       var nomeEl = document.createElement('div');
       nomeEl.className = 'ej-nome';
-      nomeEl.innerHTML = reg.nome + ' <span>Pts: ' + fmt(reg.pts) + ' | B\u00e1sica: ' + fmt(reg.basica) + '</span>';
+      nomeEl.innerHTML = reg.nome + ' <span class="ej-pts-valor">' + fmt(reg.pts) + ' pts</span><span class="ej-basica-valor">b\u00e1s: ' + fmt(reg.basica) + '</span>';
       jogDiv.appendChild(nomeEl);
 
       var scoutsDiv = document.createElement('div');
