@@ -6,7 +6,13 @@ SEM f-strings – garante compatibilidade com qualquer JS embutido.
 Assets (fontes, imagens, JS) são referenciados por URL relativa em vez de
 base64 para manter o HTML pequeno e carregável no Streamlit Cloud.
 """
-import os, glob, json
+import base64, os, glob, json
+
+def b64_image(path):
+    ext = os.path.splitext(path)[1].lower().lstrip('.')
+    mime = {'png':'image/png','jpg':'image/jpeg','jpeg':'image/jpeg','webp':'image/webp'}.get(ext,'image/png')
+    with open(path, 'rb') as f:
+        return 'data:' + mime + ';base64,' + base64.b64encode(f.read()).decode()
 
 BASE = os.path.dirname(os.path.abspath(__file__))
 ASSETS = os.path.join(BASE, 'assets')
@@ -64,10 +70,10 @@ logo_paths = (glob.glob(os.path.join(ASSETS, 'logos', 'logo_tcc_branco*')) +
               glob.glob(os.path.join(ASSETS, 'logos', 'logo_tcc*')) +
               glob.glob(os.path.join(ASSETS, 'logos', 'logo*')) +
               glob.glob(os.path.join(ASSETS, 'logos', '*.png')))
-logo_url = './assets/logos/' + os.path.basename(logo_paths[0]) if logo_paths else ''
-html = html.replace('##LOGO_TCC##', logo_url)
+logo_b64 = b64_image(logo_paths[0]) if logo_paths else ''
+html = html.replace('##LOGO_TCC##', logo_b64)
 
-# ── Background (URL relativa) ─────────────────────────────────────
+# ── Background (URL — background é texture opcional, cor base fica no CSS) ─
 bg_paths = (glob.glob(os.path.join(ASSETS, 'logos', 'background*')) +
             glob.glob(os.path.join(ASSETS, 'logos', 'bg*')))
 bg_url = './assets/logos/' + os.path.basename(bg_paths[0]) if bg_paths else ''
@@ -115,7 +121,7 @@ if os.path.exists(teams_dir):
                     found = fn
                     break
         if found:
-            team_images[chave] = './assets/teams/' + found
+            team_images[chave] = b64_image(os.path.join(teams_dir, found))
 
 html = html.replace('##TEAM_IMAGES_JSON##', json.dumps(team_images))
 
