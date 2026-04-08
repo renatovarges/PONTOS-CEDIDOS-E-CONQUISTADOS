@@ -1,5 +1,4 @@
 import streamlit as st
-import streamlit.components.v1 as components
 
 st.set_page_config(layout="wide", page_title="Pontos Cedidos e Conquistados")
 
@@ -20,4 +19,10 @@ if not st.session_state["autenticado"]:
         else:
             st.error("PIN Incorreto.")
 else:
-    components.iframe("/app/static/index.html", height=1200, scrolling=True)
+    st.markdown("""
+        <style>
+        .main .block-container { padding: 0 !important; max-width: 100% !important; }
+        iframe#site { width: 100%; height: calc(100vh - 56px); border: none; display: block; }
+        </style>
+        <iframe id="site" src="/app/static/index.html" scrolling="yes"></iframe>
+    """, unsafe_allow_html=True)
