@@ -36,8 +36,13 @@ for fp in sorted(font_files):
             url=url, fmt=fmt, w=weight, s=style))
 html = html.replace('##FONT_FACES##', '\n'.join(font_faces))
 
-# ── SheetJS e html2canvas (tokens não existem mais no template) ───
-# Template agora usa <script src="./assets/..."> diretamente.
+# ── SheetJS e html2canvas (inline para funcionar no srcdoc do Streamlit) ─
+xlsx_path = os.path.join(ASSETS, 'xlsx.full.min.js')
+h2c_path  = os.path.join(ASSETS, 'html2canvas.min.js')
+with open(xlsx_path, encoding='utf-8', errors='replace') as f:
+    html = html.replace('##XLSX_JS##', f.read())
+with open(h2c_path, encoding='utf-8', errors='replace') as f:
+    html = html.replace('##H2C_JS##', f.read())
 
 # ── Rodadas ───────────────────────────────────────────────────────
 with open(os.path.join(BASE, 'RODADAS_BRASILEIRAO_2026.txt'), encoding='utf-8') as f:
