@@ -8,7 +8,7 @@ import base64, os, glob, json
 
 BASE = os.path.dirname(os.path.abspath(__file__))
 ASSETS = os.path.join(BASE, 'assets')
-OUT = os.path.join(BASE, 'index.html')
+OUT = os.path.join(BASE, 'static', 'index.html')
 TEMPLATE = os.path.join(BASE, 'template.html')
 
 def b64_image(path):
