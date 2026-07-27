@@ -1,179 +1,195 @@
 atleta_id|nome|clube|posicao_especifica|categoria
-102561|Mastriani|Athlético-PR|Centre-Forward|Atacante de área
-105518|Renan Peixoto|Athlético-PR|Centre-Forward|Atacante de área
-115266|Renan Viana|Athlético-PR|Centre-Forward|Atacante de área
-143193|Viveros|Athlético-PR|Centre-Forward|Atacante de área
-123101|Leozinho|Athlético-PR|Right Winger|Ponta direita
-122439|Isaac|Athlético-PR|Left Winger|Ponta esquerda
-102796|Julimar|Athlético-PR|Left Winger|Ponta esquerda
-90031|Mendoza|Athlético-PR|Left Winger|Ponta esquerda
+122439|Isaac|Athletico-PR|Left Winger|Ponta esquerda
+151120|Jorge Rivaldo|Athletico-PR|Centre-Forward|Atacante de área
+123101|Leozinho|Athletico-PR|Right Winger|Ponta direita
+90031|Mendoza|Athletico-PR|Left Winger|Ponta esquerda
+105518|Renan Peixoto|Athletico-PR|Centre-Forward|Atacante de área
+115266|Renan Viana|Athletico-PR|Centre-Forward|Atacante de área
+143193|Viveros|Athletico-PR|Centre-Forward|Atacante de área
 95362|Cassierra|Atlético-MG|Centre-Forward|Atacante de área
-39148|Hulk|Atlético-MG|Centre-Forward|Atacante de área
-101002|Júnior Santos|Atlético-MG|Right Winger|Ponta direita
-98909|Cuello|Atlético-MG|Left Winger|Ponta esquerda
+147089|Cauã Soares|Atlético-MG|Second Striker|Atacante de área
+98909|Cuello|Atlético-MG|Right Winger|Ponta direita
 68920|Dudu|Atlético-MG|Left Winger|Ponta esquerda
-114040|Minda|Atlético-MG|Left Winger|Ponta esquerda
-78117|Everaldo|Bahia|Centre-Forward|Atacante de área
-145379|Kauê Furquim|Bahia|Centre-Forward|Atacante de área
-136955|Sanabria|Bahia|Centre-Forward|Atacante de área
-68996|Willian José|Bahia|Centre-Forward|Atacante de área
+114040|Minda|Atlético-MG|Right Winger|Ponta direita
+117314|Thiago Borbas|Atlético-MG|Centre-Forward|Atacante de área
 101314|Ademir|Bahia|Right Winger|Ponta direita
+114208|Alejo Véliz|Bahia|Centre-Forward|Atacante de área
+147560|Caio Suassuna|Bahia|Centre-Forward|Atacante de área
 113397|Cristian Olivera|Bahia|Right Winger|Ponta direita
 142265|Dell|Bahia|Left Winger|Ponta esquerda
 109401|Erick Pulga|Bahia|Left Winger|Ponta esquerda
+78117|Everaldo|Bahia|Centre-Forward|Atacante de área
+145379|Kauê Furquim|Bahia|Centre-Forward|Atacante de área
 129663|Ruan Pablo|Bahia|Left Winger|Ponta esquerda
+136955|Sanabria|Bahia|Centre-Forward|Atacante de área
+68996|Willian José|Bahia|Centre-Forward|Atacante de área
 92171|Arthur Cabral|Botafogo|Centre-Forward|Atacante de área
 147788|Arthur Izaque|Botafogo|Centre-Forward|Atacante de área
-103179|Chris Ramos|Botafogo|Centre-Forward|Atacante de área
+114801|Danilo Pereira|Botafogo|Centre-Forward|Atacante de área
 96353|Joaquín Correa|Botafogo|Second Striker|Atacante de área
+101002|Júnior Santos|Botafogo|Right Winger|Ponta direita
 146375|Kadir|Botafogo|Centre-Forward|Atacante de área
-95799|Artur|Botafogo|Right Winger|Ponta direita
 142086|Kauan Toledo|Botafogo|Right Winger|Ponta direita
-124757|Nathan Fernandes|Botafogo|Right Winger|Ponta direita
-107170|Jeffinho|Botafogo|Left Winger|Ponta esquerda
+151404|Lucas Emanuel|Botafogo|Centre-Forward|Atacante de área
 111831|Matheus Martins|Botafogo|Left Winger|Ponta esquerda
 142877|Villalba|Botafogo|Left Winger|Ponta esquerda
-140906|Davi Gomes|Bragantino|Centre-Forward|Atacante de área
-70360|Eduardo Sasha|Bragantino|Centre-Forward|Atacante de área
-100695|Fernando|Bragantino|Centre-Forward|Atacante de área
-108133|Isidro Pitta|Bragantino|Centre-Forward|Atacante de área
-112886|Lucas Barbosa|Bragantino|Right Winger|Ponta direita
-124239|Henry Mosquera|Bragantino|Left Winger|Ponta esquerda
-123738|Herrera|Bragantino|Left Winger|Ponta esquerda
-132580|Vinicinho|Bragantino|Left Winger|Ponta esquerda
 86292|Bolasie|Chapecoense|Centre-Forward|Atacante de área
-88293|Neto Pessoa|Chapecoense|Centre-Forward|Atacante de área
-141812|Palacios|Chapecoense|Centre-Forward|Atacante de área
-94286|Perotti|Chapecoense|Centre-Forward|Atacante de área
-146894|João Bom|Chapecoense|Right Winger|Ponta direita
-95332|Marcinho|Chapecoense|Right Winger|Ponta direita
-116066|Rubens|Chapecoense|Right Winger|Ponta direita
-123625|Ítalo|Chapecoense|Right Winger|Ponta direita
 108131|Garcez|Chapecoense|Left Winger|Ponta esquerda
-130619|Mailson|Chapecoense|Left Winger|Ponta esquerda
+146894|João Bom|Chapecoense|Right Winger|Ponta direita
+94034|Kevin Ramírez|Chapecoense|Left Winger|Ponta esquerda
+151412|Kássio|Chapecoense|Right Winger|Ponta direita
+95332|Marcinho|Chapecoense|Right Winger|Ponta direita
+88293|Neto Pessoa|Chapecoense|Centre-Forward|Atacante de área
+116066|Rubens|Chapecoense|Right Winger|Ponta direita
+122121|Túlio Eduardo|Chapecoense|Centre-Forward|Atacante de área
 107516|Ênio|Chapecoense|Left Winger|Ponta esquerda
+123625|Ítalo|Chapecoense|Right Winger|Ponta direita
 133543|Gui Negão|Corinthians|Centre-Forward|Atacante de área
-85048|Memphis Depay|Corinthians|Second Striker|Atacante de área
-98225|Pedro Raul|Corinthians|Centre-Forward|Atacante de área
-100652|Yuri Alberto|Corinthians|Centre-Forward|Atacante de área
 118844|Kaio César|Corinthians|Right Winger|Ponta direita
 121824|Kayke|Corinthians|Left Winger|Ponta esquerda
+81720|Lingard|Corinthians|AM|Atacante de área
+85048|Memphis Depay|Corinthians|Second Striker|Atacante de área
+150826|Nícollas|Corinthians|Left Winger|Ponta esquerda
+98225|Pedro Raul|Corinthians|Centre-Forward|Atacante de área
 78435|Vitinho|Corinthians|Left Winger|Ponta esquerda
-147429|Brayan|Coritiba|Centre-Forward|Atacante de área
-93371|Rodrigo Rodrigues|Coritiba|Centre-Forward|Atacante de área
-124834|Ruan Assis|Coritiba|Centre-Forward|Atacante de área
-101729|Fabinho|Coritiba|Right Winger|Ponta direita
-123648|Lucas Ronier|Coritiba|Right Winger|Ponta direita
+100652|Yuri Alberto|Corinthians|Centre-Forward|Atacante de área
 93988|Breno Lopes|Coritiba|Left Winger|Ponta esquerda
+149991|David|Coritiba|Left Winger|Ponta esquerda
 141165|Enzo Vagner|Coritiba|Left Winger|Ponta esquerda
+101729|Fabinho|Coritiba|Right Winger|Ponta direita
 86485|Keno|Coritiba|Left Winger|Ponta esquerda
 117930|Lavega|Coritiba|Left Winger|Ponta esquerda
+123648|Lucas Ronier|Coritiba|Right Winger|Ponta direita
+103626|Ocampo|Coritiba|Left Winger|Ponta esquerda
+141339|Paulo Roberto|Coritiba||Atacante de área
 90302|Pedro Rocha|Coritiba|Left Winger|Ponta esquerda
+117403|Renato Marques|Coritiba|Centre-Forward|Atacante de área
+93371|Rodrigo Rodrigues|Coritiba|Centre-Forward|Atacante de área
+124834|Ruan Assis|Coritiba|Centre-Forward|Atacante de área
 131279|Thiago Azaf|Coritiba|Left Winger|Ponta esquerda
-132264|Arroyo|Cruzeiro|Centre-Forward|Atacante de área
-90608|Chico da Costa|Cruzeiro|Centre-Forward|Atacante de área
-103445|Kaio Jorge|Cruzeiro|Centre-Forward|Atacante de área
-137543|Tevis|Cruzeiro|Centre-Forward|Atacante de área
-131967|Villarreal|Cruzeiro|Centre-Forward|Atacante de área
-113158|Marquinhos|Cruzeiro|Right Winger|Ponta direita
+132264|Arroyo|Cruzeiro|Right Winger|Ponta direita
 92811|Bruno Rodrigues|Cruzeiro|Left Winger|Ponta esquerda
+90608|Chico da Costa|Cruzeiro|Centre-Forward|Atacante de área
+106199|Gabriel Pec|Cruzeiro|Right Winger|Ponta direita
+103445|Kaio Jorge|Cruzeiro|Centre-Forward|Atacante de área
 137542|Kaique Kenji|Cruzeiro|Left Winger|Ponta esquerda
+113158|Marquinhos|Cruzeiro|Right Winger|Ponta direita
 146807|Rayan Lelis|Cruzeiro|Left Winger|Ponta esquerda
 114405|Sinisterra|Cruzeiro|Left Winger|Ponta esquerda
+137543|Tevis|Cruzeiro|Centre-Forward|Atacante de área
+131967|Villarreal|Cruzeiro|Centre-Forward|Atacante de área
 93478|Wanderson|Cruzeiro|Left Winger|Ponta esquerda
+147556|Alan Santos|Flamengo|Left Winger|Ponta esquerda
 90285|Bruno Henrique|Flamengo|Centre-Forward|Atacante de área
-94583|Pedro|Flamengo|Centre-Forward|Atacante de área
-109096|Plata|Flamengo|Centre-Forward|Atacante de área
-122573|Wallace Yan|Flamengo|Centre-Forward|Atacante de área
-82627|Luiz Araújo|Flamengo|Right Winger|Ponta direita
 145705|Douglas Telles|Flamengo|Left Winger|Ponta esquerda
 86757|Everton|Flamengo|Left Winger|Ponta esquerda
+82627|Luiz Araújo|Flamengo|Right Winger|Ponta direita
+94583|Pedro|Flamengo|Centre-Forward|Atacante de área
+109096|Plata|Flamengo|Centre-Forward|Atacante de área
 98873|Samuel Lino|Flamengo|Left Winger|Ponta esquerda
+122573|Wallace Yan|Flamengo|Centre-Forward|Atacante de área
 79631|Cano|Fluminense|Centre-Forward|Atacante de área
+102928|Canobbio|Fluminense|Right Winger|Ponta direita
+39148|Hulk|Fluminense|Centre-Forward|Atacante de área
 110759|John Kennedy|Fluminense|Centre-Forward|Atacante de área
-140484|Riquelme Felipe|Fluminense|Centre-Forward|Atacante de área
-132071|Serna|Fluminense|Centre-Forward|Atacante de área
-87258|Soteldo|Fluminense|Centre-Forward|Atacante de área
-108474|Santi Moreno|Fluminense|Right Winger|Ponta direita
-102928|Canobbio|Fluminense|Left Winger|Ponta esquerda
 143465|Keven Samuel|Fluminense|Left Winger|Ponta esquerda
 127969|Matheus Reis|Fluminense|Left Winger|Ponta esquerda
+140484|Riquelme Felipe|Fluminense|Centre-Forward|Atacante de área
+124424|Rodrigo Castillo|Fluminense|Centre-Forward|Atacante de área
+132071|Serna|Fluminense|Left Winger|Ponta esquerda
+87258|Soteldo|Fluminense|Centre-Forward|Atacante de área
 143463|Wesley Natã|Fluminense|Left Winger|Ponta esquerda
-121792|André|Grêmio|Centre-Forward|Atacante de área
+142004|Amuzu|Grêmio|Left Winger|Ponta esquerda
 89368|Braithwaite|Grêmio|Centre-Forward|Atacante de área
 105563|Carlos Vinícius|Grêmio|Centre-Forward|Atacante de área
-91908|Pavón|Grêmio|Centre-Forward|Atacante de área
-105089|Tetê|Grêmio|Right Winger|Ponta direita
-142004|Amuzu|Grêmio|Left Winger|Ponta esquerda
 106104|Enamorado|Grêmio|Left Winger|Ponta esquerda
 141595|Gabriel Mec|Grêmio|Left Winger|Ponta esquerda
 142261|Jeferson|Grêmio|Left Winger|Ponta esquerda
+109097|Jovane Cabral|Grêmio|Left Winger|Ponta esquerda
+109114|Matheus Nascimento|Grêmio|Centre-Forward|Atacante de área
+91908|Pavón|Grêmio|Centre-Forward|Atacante de área
+105089|Tetê|Grêmio|Right Winger|Ponta direita
 101715|Alerrandro|Internacional|Centre-Forward|Atacante de área
-92854|Borré|Internacional|Centre-Forward|Atacante de área
-142638|João Victor|Internacional|Centre-Forward|Atacante de área
-143488|Raykkonen|Internacional|Centre-Forward|Atacante de área
-111829|Kayky|Internacional|Right Winger|Ponta direita
-107989|Carbonero|Internacional|Left Winger|Ponta esquerda
+107989|Carbonero|Internacional|Right Winger|Ponta direita
+150841|Fabricio Prado|Internacional|Centre-Forward|Atacante de área
 147202|João Bezerra|Internacional|Left Winger|Ponta esquerda
+142638|João Victor|Internacional|Centre-Forward|Atacante de área
+111829|Kayky|Internacional|Right Winger|Ponta direita
+143488|Raykkonen|Internacional|Centre-Forward|Atacante de área
 101960|Vitinho|Internacional|Left Winger|Ponta esquerda
-81005|André Luis|Mirassol|Centre-Forward|Atacante de área
-104204|Edson Carioca|Mirassol|Centre-Forward|Atacante de área
-102667|Nathan Fogaça|Mirassol|Centre-Forward|Atacante de área
-117403|Renato Marques|Mirassol|Centre-Forward|Atacante de área
-84042|Tiquinho Soares|Mirassol|Centre-Forward|Atacante de área
-90917|Carlos Eduardo|Mirassol|Right Winger|Ponta direita
-89918|Everton Galdino|Mirassol|Right Winger|Ponta direita
-98384|Negueba|Mirassol|Right Winger|Ponta direita
 97321|Alesson|Mirassol|Left Winger|Ponta esquerda
+81005|André Luis|Mirassol|Centre-Forward|Atacante de área
+103967|Bruno Santos|Mirassol|Centre-Forward|Atacante de área
+90917|Carlos Eduardo|Mirassol|Right Winger|Ponta direita
+104204|Edson Carioca|Mirassol|Centre-Forward|Atacante de área
+89918|Everton Galdino|Mirassol|Right Winger|Ponta direita
+91130|Fernandinho|Mirassol|Left Winger|Ponta esquerda
 108713|Galeano|Mirassol|Left Winger|Ponta esquerda
+97450|Gustavo Mosquito|Mirassol|Right Winger|Ponta direita
+98384|Negueba|Mirassol|Right Winger|Ponta direita
 145436|Belé|Palmeiras|Centre-Forward|Atacante de área
+151003|Eduardo|Palmeiras|Centre-Back|Ponta esquerda
 113103|Flaco López|Palmeiras|Centre-Forward|Atacante de área
+146624|Heittor|Palmeiras|Centre-Forward|Atacante de área
 130612|Luighi|Palmeiras|Centre-Forward|Atacante de área
+151436|Miguel Bilong|Palmeiras|Second Striker|Atacante de área
 99818|Paulinho|Palmeiras|Second Striker|Atacante de área
 112863|Ramón Sosa|Palmeiras|Second Striker|Atacante de área
-114802|Vitor Roque|Palmeiras|Centre-Forward|Atacante de área
 130608|Riquelme Fillipi|Palmeiras|Left Winger|Ponta esquerda
-96831|Carlinhos|Remo|Centre-Forward|Atacante de área
-107700|Eduardo Melo|Remo|Centre-Forward|Atacante de área
-146040|João Pedro|Remo|Centre-Forward|Atacante de área
-147864|Rafael Monti|Remo|Centre-Forward|Atacante de área
+114802|Vitor Roque|Palmeiras|Centre-Forward|Atacante de área
+140906|Davi Gomes|Red Bull Bragantino|Centre-Forward|Atacante de área
+70360|Eduardo Sasha|Red Bull Bragantino|Centre-Forward|Atacante de área
+100695|Fernando|Red Bull Bragantino|Left Winger|Ponta esquerda
+131766|Filipinho|Red Bull Bragantino|Left Winger|Ponta esquerda
+124239|Henry Mosquera|Red Bull Bragantino|Left Winger|Ponta esquerda
+123738|Herrera|Red Bull Bragantino|Right Winger|Ponta direita
+108133|Isidro Pitta|Red Bull Bragantino|Centre-Forward|Atacante de área
+149994|Jhuan Nunes|Red Bull Bragantino|Right Winger|Ponta direita
+112886|Lucas Barbosa|Red Bull Bragantino|Right Winger|Ponta direita
+132580|Vinicinho|Red Bull Bragantino|Left Winger|Ponta esquerda
 101254|Alef Manga|Remo|Left Winger|Ponta esquerda
+107700|Eduardo Melo|Remo|Centre-Forward|Atacante de área
 148109|Filipe Lima|Remo|Left Winger|Ponta esquerda
+102877|Gabriel Poveda|Remo|Centre-Forward|Atacante de área
+95131|Gabriel Taliari|Remo|Centre-Forward|Atacante de área
 105048|Jajá|Remo|Left Winger|Ponta esquerda
-142593|Nicolás Ferreira|Remo|Left Winger|Ponta esquerda
+147864|Rafael Monti|Remo|Centre-Forward|Atacante de área
 141991|Tico|Remo|Left Winger|Ponta esquerda
+122781|Caballero|Santos|Left Winger|Ponta esquerda
+145036|Fernando Pradella|Santos|Left Winger|Ponta esquerda
 83257|Gabriel|Santos|Centre-Forward|Atacante de área
 118775|Lautaro Díaz|Santos|Centre-Forward|Atacante de área
-148206|Nadson|Santos|Centre-Forward|Atacante de área
-91607|Rony|Santos|Centre-Forward|Atacante de área
-145036|Fernando Pradella|Santos|Left Winger|Ponta esquerda
 133673|Mateus Xavier|Santos|Left Winger|Ponta esquerda
 104666|Moisés|Santos|Left Winger|Ponta esquerda
+148206|Nadson|Santos|Centre-Forward|Atacante de área
 142867|Robinho Jr.|Santos|Left Winger|Ponta esquerda
+91607|Rony|Santos|Centre-Forward|Atacante de área
 131617|André Silva|São Paulo|Centre-Forward|Atacante de área
+95799|Artur|São Paulo|Right Winger|Ponta direita
 89840|Calleri|São Paulo|Centre-Forward|Atacante de área
 101290|Ferreira|São Paulo|Centre-Forward|Atacante de área
+141382|Gustavo Santana|São Paulo|Centre-Forward|Atacante de área
+141609|Lucca|São Paulo|Left Winger|Ponta esquerda
 80287|Luciano|São Paulo|Centre-Forward|Atacante de área
 141614|Paulinho|São Paulo|Centre-Forward|Atacante de área
 140542|Ryan Francisco|São Paulo|Centre-Forward|Atacante de área
-141609|Lucca|São Paulo|Left Winger|Ponta esquerda
 108588|Tapia|São Paulo|Left Winger|Ponta esquerda
-99789|Brenner|Vasco|Centre-Forward|Atacante de área
-110144|Spinelli|Vasco|Centre-Forward|Atacante de área
-99198|Vegetti|Vasco|Centre-Forward|Atacante de área
-110598|Marino Hinestroza|Vasco|Right Winger|Ponta direita
+148717|Tetê|São Paulo|Right Winger|Ponta direita
+108946|Victor Sá|São Paulo|Left Winger|Ponta esquerda
 141406|Andrey Fernandes|Vasco|Left Winger|Ponta esquerda
 116706|Andrés Gómez|Vasco|Left Winger|Ponta esquerda
+99789|Brenner|Vasco|Centre-Forward|Atacante de área
+133690|Bruno Lopes|Vasco|Centre-Forward|Atacante de área
 90309|David|Vasco|Left Winger|Ponta esquerda
 147883|João Vitor|Vasco|Left Winger|Ponta esquerda
-104134|Fabri|Vitória|Centre-Forward|Atacante de área
-134678|Lawan|Vitória|Centre-Forward|Atacante de área
-95550|Pedro Henrique|Vitória|Centre-Forward|Atacante de área
-92696|Renato Kayzer|Vitória|Centre-Forward|Atacante de área
-111951|Renzo López|Vitória|Centre-Forward|Atacante de área
+110598|Marino Hinestroza|Vasco|Right Winger|Ponta direita
+110144|Spinelli|Vasco|Centre-Forward|Atacante de área
+147268|Anderson Pato|Vitória|Left Winger|Ponta esquerda
 97810|Erick|Vitória|Right Winger|Ponta direita
+104134|Fabri|Vitória|Centre-Forward|Atacante de área
 97911|Lucas Silva|Vitória|Right Winger|Ponta direita
 68952|Marinho|Vitória|Right Winger|Ponta direita
 42222|Osvaldo|Vitória|Right Winger|Ponta direita
-109138|Kike Saverio|Vitória|Left Winger|Ponta esquerda
-130892|Luis Miguel|Vitória|Left Winger|Ponta esquerda
+92696|Renato Kayzer|Vitória|Centre-Forward|Atacante de área
+130209|Renê|Vitória|Left Winger|Ponta esquerda
+143153|Tarzia|Vitória|Left Winger|Ponta esquerda
