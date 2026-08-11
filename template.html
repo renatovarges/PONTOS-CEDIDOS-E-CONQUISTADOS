@@ -356,6 +356,55 @@ body {
 .ej-scout-tag.neutro { color: #b0c4b0; background: rgba(255,255,255,0.07); }
 .box-pos.clicavel { cursor: pointer; transition: transform 0.15s, box-shadow 0.15s; }
 .box-pos.clicavel:hover { transform: scale(1.08); box-shadow: 0 5px 15px rgba(206,171,66,0.4); z-index: 10; }
+
+/* Ranking da rodada */
+#ranking-rodada { width: min(1320px, calc(100% - 28px)); margin: 34px auto 70px; display: none; }
+.ranking-head { background: linear-gradient(135deg,#102b1d,#06150e); color:#fff; border:1px solid rgba(206,171,66,.45); border-radius:18px; padding:22px 24px; box-shadow:0 18px 45px rgba(0,0,0,.25); }
+.ranking-head-row { display:flex;align-items:center;justify-content:space-between;gap:20px; }
+.ranking-head h2 { margin:0; font-size:28px; letter-spacing:.5px; color:var(--tcc-gold); }
+.ranking-head p { margin:7px 0 0; color:#c7d8cd; font-size:14px; }
+.ranking-tabs { display:flex; gap:8px; flex-wrap:wrap; margin:16px 0; }
+.ranking-tab { border:1px solid #cfb45b; color:#ead98c; background:#11291d; padding:9px 14px; border-radius:999px; font:800 12px Decalotype,sans-serif; cursor:pointer; }
+.ranking-tab.active { background:var(--tcc-gold); color:#102116; }
+.ranking-list { display:grid; gap:14px; }
+.ranking-card { display:grid; grid-template-columns:52px 118px minmax(190px,.85fr) minmax(280px,1.45fr) 150px; align-items:center; gap:18px; background:linear-gradient(135deg,#fff 0%,#f7fbf8 100%); border-radius:18px; padding:16px 20px; box-shadow:0 10px 30px rgba(8,39,23,.16); border:1px solid rgba(21,79,47,.12); border-left:6px solid var(--tcc-gold); position:relative;overflow:hidden; }
+.ranking-card:nth-child(1){border-left-color:#d6ad2f}.ranking-card:nth-child(2){border-left-color:#aeb8b1}.ranking-card:nth-child(3){border-left-color:#b77a43}
+.rank-num { width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:#123522;color:#f2d977;font-size:20px;font-weight:900; }
+.rank-photo-wrap{width:108px;height:108px;position:relative;display:flex;align-items:center;justify-content:center}
+.rank-photo { width:104px;height:104px;border-radius:50%;object-fit:contain;object-position:center bottom;background:radial-gradient(circle at 50% 35%,#fff 0,#e2ece5 70%,#b5cbbd 100%);border:3px solid #fff;box-shadow:0 4px 14px rgba(6,48,27,.28); }
+.rank-crest{position:absolute;right:-3px;bottom:-3px;width:40px;height:40px;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 3px 10px rgba(0,0,0,.28);border:2px solid #e9d27d}
+.rank-crest img{width:34px;height:34px;object-fit:contain;transform:scale(1.05)}
+.rank-player h3 { margin:0;color:#102d1d;font-size:19px;text-transform:uppercase; }
+.rank-player-title{display:flex;align-items:center;gap:9px}.rank-player-title .crest-inline{width:28px;height:28px;object-fit:contain}
+.rank-player .meta { color:#587064;font-size:12px;font-weight:700;margin-top:5px; }
+.rank-average{display:inline-block;margin-top:8px;background:#113b25;color:#fff;border-radius:9px;padding:8px 12px;font:900 15px/1.1 Arial,sans-serif;letter-spacing:.25px;white-space:nowrap}
+.rank-badges { display:flex;gap:5px;flex-wrap:nowrap;margin-top:8px;white-space:nowrap; }
+.rank-badge { font-size:10px;font-weight:900;padding:5px 8px;border-radius:20px;background:#e8f2eb;color:#245d3c;display:inline-flex;align-items:center;gap:4px;border:1px solid rgba(25,100,55,.08) }
+.rank-badge .badge-icon{width:16px;height:16px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;color:#fff;background:#238d4a;font-size:10px;line-height:1}
+.rank-badge.provavel .badge-icon{background:#17a24a}.rank-badge.duvida .badge-icon{background:#e89e18}.rank-badge.conquista .badge-icon{background:#1676bd}.rank-badge.cedidos .badge-icon{background:#b56018}.rank-badge.cruzamento .badge-icon{background:#7b46b2}
+.rank-reasons { color:#263b30;font-size:13px;line-height:1.45; }
+.rank-reasons div+div { margin-top:4px; }
+.rank-score { text-align:center; }
+.rank-score strong { display:block;color:#123522;font-size:34px;line-height:1; }
+.rank-score span { font-size:10px;color:#6e7d74;font-weight:900;letter-spacing:1px; }
+.rank-breakdown { margin-top:7px;font-size:10px;color:#557064;line-height:1.45; }
+.ranking-method { margin-top:16px;background:#edf4ef;border-radius:12px;padding:13px 16px;color:#365044;font-size:12px;line-height:1.5; }
+.ranking-download{border:0;border-radius:11px;padding:12px 16px;background:linear-gradient(135deg,#f0d66e,#cba63b);color:#123522;font:900 12px Decalotype,sans-serif;cursor:pointer;box-shadow:0 5px 0 #8c7226;text-transform:uppercase;white-space:nowrap}.ranking-download:active{transform:translateY(3px);box-shadow:0 2px 0 #8c7226}
+.ranking-export{position:absolute!important;left:0!important;top:0!important;width:1800px!important;margin:0!important;padding:64px!important;background:radial-gradient(circle at 50% 0,#174f31,#031c0f 66%)!important;box-sizing:border-box;color:#fff;z-index:-9999;pointer-events:none}
+.ranking-export .ranking-head{border-radius:26px;padding:32px 38px}.ranking-export .ranking-head h2{font-size:42px;line-height:1.05}.ranking-export .ranking-head p{font-size:19px;line-height:1.35;margin-top:10px}.ranking-export .ranking-tabs,.ranking-export .ranking-download{display:none!important}
+.ranking-export .ranking-list{display:grid!important;grid-template-columns:minmax(0,1fr)!important;gap:24px;margin-top:28px}
+.ranking-export .ranking-card{display:grid!important;grid-template-columns:76px 176px 480px minmax(0,1fr) 190px!important;grid-template-rows:auto!important;align-items:center;gap:26px;min-height:205px;padding:24px 34px;border-radius:26px;box-sizing:border-box}
+.ranking-export .rank-num{width:64px;height:64px;font-size:28px}
+.ranking-export .rank-photo-wrap{width:166px;height:166px}
+.ranking-export .rank-photo{width:158px;height:158px;border-width:5px;box-shadow:0 8px 24px rgba(6,48,27,.25)}
+.ranking-export .rank-crest{right:-1px;bottom:-1px;width:52px;height:52px;border-width:3px}.ranking-export .rank-crest img{width:44px;height:44px}
+.ranking-export .rank-player{min-width:0}.ranking-export .rank-player-title{gap:10px}.ranking-export .rank-player h3{font-size:31px;line-height:1.08}.ranking-export .crest-inline{width:32px;height:32px}.ranking-export .rank-player .meta{font-size:19px;line-height:1.25;margin-top:8px}
+.ranking-export .rank-average{display:inline-block!important;margin-top:14px;padding:13px 18px;border-radius:13px;color:#fff!important;font:900 23px/1.1 Arial,sans-serif!important;letter-spacing:.2px;white-space:nowrap}
+.ranking-export .rank-badges{margin-top:13px;gap:7px;flex-wrap:nowrap!important;white-space:nowrap}.ranking-export .rank-badge{font-size:13px;padding:7px 10px;flex:0 0 auto}.ranking-export .rank-badge .badge-icon{width:21px;height:21px;font-size:13px}
+.ranking-export .rank-reasons{grid-column:auto!important;padding:0!important;color:#20382b;font-size:22px;line-height:1.38;min-width:0}.ranking-export .rank-reasons div+div{margin-top:9px}
+.ranking-export .rank-score{text-align:center;align-self:center}.ranking-export .rank-score strong{font-size:52px;line-height:.95}.ranking-export .rank-score span{display:block;margin-top:9px;font-size:14px}.ranking-export .rank-breakdown{margin-top:13px;font-size:14px;line-height:1.5}
+.ranking-export .ranking-method{font-size:18px;line-height:1.4;padding:17px 22px;margin-top:24px;border-radius:16px}
+@media(max-width:850px){.ranking-card{grid-template-columns:45px 78px 1fr}.rank-photo{width:72px;height:72px}.rank-reasons,.rank-score{grid-column:2/4}.rank-score{text-align:left}.rank-score strong{display:inline;margin-right:6px}}
 </style>
 </head>
 <body>
@@ -436,6 +485,18 @@ body {
   </button>
 </div>
 
+<section id="ranking-rodada">
+  <div class="ranking-head">
+    <div class="ranking-head-row">
+      <div><h2 id="ranking-title">DESTAQUES ESTAT&Iacute;STICOS DA RODADA</h2><p id="ranking-subtitle"></p></div>
+      <button class="ranking-download" id="ranking-download" onclick="baixarRankingPosicao()">&#11015; Baixar posi&ccedil;&atilde;o em alta resolu&ccedil;&atilde;o</button>
+    </div>
+  </div>
+  <div class="ranking-tabs" id="ranking-tabs"></div>
+  <div class="ranking-list" id="ranking-list"></div>
+  <div class="ranking-method" id="ranking-method"></div>
+</section>
+
 <!-- Modal de Extrato (fora do arte-container, nao afeta PNG) -->
 <div class="modal-overlay" id="modal-extrato" onclick="if(event.target===this)fecharExtrato()">
   <div class="modal-box">
@@ -460,6 +521,8 @@ var RODADAS_TXT = ##RODADAS_TXT_JSON##;
 var MEIAS_VOL_CSV = ##MEIAS_VOL_CSV_JSON##;
 var ATACANTES_TXT = ##ATACANTES_TXT_JSON##;
 var TEAM_IMAGES = ##TEAM_IMAGES_JSON##;
+var PLAYER_PHOTOS = ##PLAYER_PHOTOS_JSON##;
+var CARTOLA_MERCADO = ##CARTOLA_MERCADO_JSON##;
 var BG_B64 = ##BG_B64_JSON##;
 
 // ── Utilitários ───────────────────────────────────────────────────
@@ -616,6 +679,8 @@ function lerPlanilha(file) {
           var dataObj = parsearData(dataRaw);
           if (!timeVal || !dataObj) continue;
           var reg = {
+            id: String(get(r, 'ID') || '').trim(),
+            clubId: String(get(r, 'ClubeID') || '').trim(),
             time: String(timeVal).trim(),
             adversario: String(get(r, 'Adversário', 'Adversario') || '').trim(),
             posReal: parseFloat(get(r, 'PosReal') || '0') || 0,
@@ -756,8 +821,9 @@ function gerarArte() {
     if(BG_B64 && BG_B64.length > 20) {
       document.getElementById('arte-bg').style.backgroundImage = 'url(' + BG_B64 + ')';
     }
+    gerarRanking();
     
-    setStatus('&#10003; Layout Extraordinario Pronto! | Rodada ' + rodadaAlvo);
+    setStatus('&#10003; Artes e ranking prontos! | Rodada ' + rodadaAlvo);
     btnGerar.disabled = false; btnGerar.innerHTML = '&#9917; Gerar Arte';
   }).catch(function(err) {
     setStatus('&#10060; Erro: ' + err);
@@ -1244,6 +1310,222 @@ function mostrarExtrato(time, pos, mandoAlvo, tipo) {
 
 function fecharExtrato() {
   document.getElementById('modal-extrato').classList.remove('active');
+}
+
+// ── Ranking estatístico da rodada ────────────────────────────────
+var RANK_POSICOES = ['GOL','LAT','ZAG','VOL','MEI','ATA'];
+var RANK_LABELS = {'GOL':'Goleiros','LAT':'Laterais','ZAG':'Zagueiros','VOL':'Volantes','MEI':'Meias','ATA':'Atacantes'};
+var rankingAtual = {}, rankingPosAtual = 'GOL';
+
+function media(arr) { if (!arr.length) return 0; return arr.reduce(function(a,b){return a+b;},0)/arr.length; }
+function dataKey(r) { return r.data.toISOString().slice(0,10); }
+function fotoJogador(nome,time) {
+  var nk=normalizar(nome), tk=normalizar(time);
+  return PLAYER_PHOTOS[tk+'|'+nk] || PLAYER_PHOTOS[nk] || '';
+}
+function slotCompativel(c,prov) {
+  var positionId=parseInt(prov&&prov.position_id||0);
+  if(c.pos==='GOL')return positionId===1;
+  if(c.pos==='LAT')return positionId===2;
+  if(c.pos==='ZAG')return positionId===3;
+  if(c.pos==='ATA')return positionId===5;
+  if(c.pos==='VOL'||c.pos==='MEI')return positionId===4;
+  return false;
+}
+function infoCartola(id,clubId) {
+  if(!id||!clubId)return null;
+  var entry=(CARTOLA_MERCADO&&CARTOLA_MERCADO.by_id||{})[String(id)];
+  if(!entry||String(entry.club_id)!==String(clubId))return null;
+  return entry.status_id===7||entry.status_id===2?entry:null;
+}
+function escudoDoTime(time) { return TEAM_IMAGES[nomeParaEscudo(time)] || ''; }
+function datasDoRecorte(time,mando) {
+  var recs=dadosPlanilha.filter(function(r){return normalizarTime(r.time)===normalizarTime(time);});
+  if(filtroMando) recs=recs.filter(function(r){return r.mand===mando;});
+  var out=[],seen={};
+  for(var i=0;i<recs.length;i++){var dk=dataKey(recs[i]);if(!seen[dk]){seen[dk]=1;out.push(dk);if(out.length>=nJogos)break;}}
+  return out;
+}
+function registrosRecorte(time,mando) {
+  var ds=datasDoRecorte(time,mando), set={}; ds.forEach(function(d){set[d]=1;});
+  return dadosPlanilha.filter(function(r){return normalizarTime(r.time)===normalizarTime(time)&&set[dataKey(r)]&&(!filtroMando||r.mand===mando);});
+}
+function adversariosDoRecorte(time,mando) {
+  var own=registrosRecorte(time,mando), games={};
+  own.forEach(function(r){var dk=dataKey(r);if(!games[dk])games[dk]=r.adversario;});
+  var out=[];
+  Object.keys(games).forEach(function(dk){
+    dadosPlanilha.forEach(function(r){if(dataKey(r)===dk&&normalizarTime(r.time)===normalizarTime(games[dk]))out.push(r);});
+  });
+  return out;
+}
+function somaScout(recs,key){return recs.reduce(function(s,r){return s+(r.scouts[key]||0);},0);}
+function resumoPosicao(recs,pos) {
+  var rr=recs.filter(function(r){var cp=classificarPos(r.posReal,r.time,r.nome);return pos==='ATA'?cp&&cp.indexOf('ATA')===0:(pos==='LAT'?(cp==='LAT-D'||cp==='LAT-E'):cp===pos);});
+  var games={};rr.forEach(function(r){games[dataKey(r)]=1;});var ng=Math.max(1,Object.keys(games).length);
+  var sgGames={};rr.forEach(function(r){if((r.scouts.SG||0)>0)sgGames[dataKey(r)]=1;});
+  return {de:somaScout(rr,'DS')/ng,ds:somaScout(rr,'DE')/ng,g:somaScout(rr,'G')/ng,ga:(somaScout(rr,'G')+somaScout(rr,'A'))/ng,
+    shots:(somaScout(rr,'FD')+somaScout(rr,'FF')+somaScout(rr,'FT'))/ng,
+    basic:rr.length?media(rr.map(function(r){return r.basica;})):0,
+    sg:rr.length?Object.keys(sgGames).length/ng:0};
+}
+function resumoTime(time,mando) {
+  var own=registrosRecorte(time,mando), adv=adversariosDoRecorte(time,mando), dates=datasDoRecorte(time,mando), ng=Math.max(1,dates.length);
+  var golsContra=somaScout(adv,'G')+somaScout(own,'GC');
+  var shotsAgainst=somaScout(adv,'FD')+somaScout(adv,'FF')+somaScout(adv,'FT');
+  var sgDates={};own.forEach(function(r){if((r.scouts.SG||0)>0)sgDates[dataKey(r)]=1;});
+  return {games:dates.length,goalsFor:somaScout(own,'G')/ng,goalsAgainst:golsContra/ng,
+    shotsFor:(somaScout(own,'FD')+somaScout(own,'FF')+somaScout(own,'FT'))/ng,
+    convFor:somaScout(own,'G')/Math.max(1,somaScout(own,'FD')+somaScout(own,'FF')+somaScout(own,'FT')),
+    convAgainst:golsContra/Math.max(1,shotsAgainst),sg:Object.keys(sgDates).length/ng};
+}
+function candidatosDoJogo(time,oponente,mando,pos) {
+  var recs=registrosRecorte(time,mando), dates=datasDoRecorte(time,mando), by={};
+  recs.forEach(function(r){
+    var cp=classificarPos(r.posReal,r.time,r.nome);
+    var posOk=pos==='ATA'?(cp&&cp.indexOf('ATA')===0):(pos==='LAT'?(cp==='LAT-D'||cp==='LAT-E'):cp===pos);
+    if(!posOk||!r.nome)return;
+    var k=normalizar(r.nome);if(!by[k])by[k]={nome:r.nome,time:time,oponente:oponente,mando:mando,pos:pos,lado:pos==='LAT'?cp:pos,recs:[],games:{}};
+    by[k].recs.push(r);by[k].games[dataKey(r)]=1;
+  });
+  var team=resumoTime(time,mando), opp=resumoTime(oponente,mando==='Casa'?'Fora':'Casa');
+  return Object.keys(by).map(function(k){
+    var c=by[k], rr=c.recs, ng=Object.keys(c.games).length;
+    if(ng<Math.max(1,Math.ceil(dates.length/2)))return null;
+    var prov=infoCartola(rr[0]&&rr[0].id,rr[0]&&rr[0].clubId);
+    if(!prov||(prov.status!=='provavel'&&prov.status!=='duvida'))return null;
+    if(!slotCompativel(c,prov))return null;
+    c.status=prov.status;c.officialPhoto='https://cdn.provaveisdocartola.com.br/atletas/'+String(prov.id)+'.webp';
+    var ced=resumoPosicao(adversariosDoRecorte(oponente,mando==='Casa'?'Fora':'Casa'),c.lado);
+    c.gamesCount=ng;c.sampleGames=dates.length;c.avgPts=media(rr.map(function(r){return r.pts;}));
+    c.raw={de:somaScout(rr,'DS')/ng,ds:somaScout(rr,'DE')/ng,g:somaScout(rr,'G')/ng,ga:(somaScout(rr,'G')+somaScout(rr,'A'))/ng,
+      shots:(somaScout(rr,'FD')+somaScout(rr,'FF')+somaScout(rr,'FT'))/ng,basic:media(rr.map(function(r){return r.basica;})),
+      teamSG:team.sg,teamGA:team.goalsAgainst,teamConvA:team.convAgainst,cedDE:ced.de,cedDS:ced.ds,cedGA:ced.ga,
+      cedShots:ced.shots,cedBasic:ced.basic,cedG:ced.g,cedSG:ced.sg,oppGF:opp.goalsFor,oppConv:opp.convFor};
+    return c;
+  }).filter(Boolean);
+}
+function rankNorm(lista,key,invert) {
+  var vals=lista.map(function(c){return c.raw[key]||0;}), lo=Math.min.apply(null,vals), hi=Math.max.apply(null,vals);
+  lista.forEach(function(c){var v=hi===lo?50:100*((c.raw[key]||0)-lo)/(hi-lo);c.norm[key]=invert?100-v:v;});
+}
+function mediaPonderada(c,pairs){var s=0,w=0;pairs.forEach(function(p){s+=(c.norm[p[0]]||0)*p[1];w+=p[1];});return w?s/w:0;}
+function pontuarRanking(lista,pos) {
+  lista.forEach(function(c){c.norm={};});
+  var negative={teamGA:1,teamConvA:1,oppGF:1,oppConv:1};
+  var keys={GOL:['ds','cedDS','teamGA','oppGF','teamSG','cedSG','teamConvA','oppConv'],
+    DEF:['de','cedDE','basic','cedBasic','g','cedG','ga','cedGA','shots','cedShots','teamSG','cedSG'],
+    MID:['de','cedDE','basic','cedBasic','ga','cedGA','shots','cedShots'],
+    ATT:['basic','cedBasic','ga','cedGA','shots','cedShots']};
+  var grupo=pos==='GOL'?'GOL':(pos==='LAT'||pos==='ZAG'?'DEF':(pos==='VOL'?'MID':'ATT'));
+  keys[grupo].forEach(function(k){rankNorm(lista,k,!!negative[k]);});
+  lista.forEach(function(c){
+    if(grupo==='GOL'){
+      c.conquista=mediaPonderada(c,[['ds',.40],['teamSG',.25],['teamGA',.18],['teamConvA',.17]]);
+      c.cessao=mediaPonderada(c,[['cedDS',.40],['cedSG',.25],['oppGF',.18],['oppConv',.17]]);
+    }else if(pos==='ZAG'){
+      c.conquista=mediaPonderada(c,[['de',.35],['basic',.25],['teamSG',.20],['shots',.12],['g',.08]]);
+      c.cessao=mediaPonderada(c,[['cedDE',.35],['cedBasic',.25],['cedSG',.20],['cedShots',.12],['cedG',.08]]);
+    }else if(grupo==='DEF'){
+      c.conquista=mediaPonderada(c,[['de',.30],['basic',.25],['ga',.18],['shots',.15],['teamSG',.12]]);
+      c.cessao=mediaPonderada(c,[['cedDE',.30],['cedBasic',.25],['cedGA',.18],['cedShots',.15],['cedSG',.12]]);
+    }else if(grupo==='MID'){
+      c.conquista=mediaPonderada(c,[['de',.28],['basic',.25],['ga',.27],['shots',.20]]);
+      c.cessao=mediaPonderada(c,[['cedDE',.28],['cedBasic',.25],['cedGA',.27],['cedShots',.20]]);
+    }else{
+      c.conquista=mediaPonderada(c,[['ga',.42],['shots',.32],['basic',.26]]);
+      c.cessao=mediaPonderada(c,[['cedGA',.42],['cedShots',.32],['cedBasic',.26]]);
+    }
+    c.cruzamento=Math.sqrt(Math.max(0,c.conquista*c.cessao));
+    c.score=Math.round((c.conquista*.40+c.cessao*.35+c.cruzamento*.25)*10)/10;
+  });
+  lista.sort(function(a,b){return b.score-a.score||b.cruzamento-a.cruzamento||b.conquista-a.conquista||b.gamesCount-a.gamesCount||b.avgPts-a.avgPts||a.nome.localeCompare(b.nome);});
+  return lista.slice(0,pos==='LAT'?10:(pos==='GOL'?5:7));
+}
+function fmt(v,suf){return (Math.round((v||0)*100)/100).toLocaleString('pt-BR',{maximumFractionDigits:2})+(suf||'');}
+function justificativas(c) {
+  var r=c.raw, out=[];
+  if(c.pos==='GOL'){
+    out.push('Média de '+fmt(r.ds)+' defesas; o adversário cede '+fmt(r.cedDS)+' defesas por jogo aos goleiros.');
+    out.push('SG do time em '+fmt(r.teamSG*100,'%')+' da amostra; o rival cede SG em '+fmt(r.cedSG*100,'%')+'.');
+    out.push('Conversão sofrida '+fmt(r.teamConvA*100,'%')+' x conversão ofensiva rival '+fmt(r.oppConv*100,'%')+'.');
+  } else {
+    var temDe=c.pos==='MEI'||c.pos==='ATA'?false:true;
+    if(temDe)out.push(fmt(r.de)+' desarmes por jogo; o rival cede '+fmt(r.cedDE)+' à posição.');
+    if(c.pos==='ZAG')out.push(fmt(r.g)+' gol(s) e '+fmt(r.shots)+' finalizações por jogo.');
+    else out.push(fmt(r.ga)+' participação(ões) em gol e '+fmt(r.shots)+' finalizações por jogo.');
+    out.push('Média básica '+fmt(r.basic)+'; o adversário cede '+fmt(r.cedBasic)+' à posição.');
+    if(c.pos==='LAT'||c.pos==='ZAG')out.splice(1,0,'SG do time '+fmt(r.teamSG*100,'%')+'; SG cedido pelo rival '+fmt(r.cedSG*100,'%')+'.');
+  }
+  return out.slice(0,4);
+}
+function gerarRanking() {
+  var fetchedAt=CARTOLA_MERCADO&&CARTOLA_MERCADO.fetched_at?new Date(CARTOLA_MERCADO.fetched_at):null;
+  var cacheAge=fetchedAt&&!isNaN(fetchedAt.getTime())?(Date.now()-fetchedAt.getTime()):Infinity;
+  if(cacheAge>30*60*1000){
+    rankingAtual={};document.getElementById('ranking-rodada').style.display='block';
+    document.getElementById('ranking-tabs').innerHTML='';document.getElementById('ranking-list').innerHTML='';
+    document.getElementById('ranking-subtitle').textContent='Ranking bloqueado: o mercado oficial do Cartola tem mais de 30 minutos. Clique em “Atualizar mercado Cartola” e gere novamente.';
+    document.getElementById('ranking-method').innerHTML='<b>Blindagem:</b> nenhum ranking é liberado com cache vencido.';
+    return;
+  }
+  if(!CARTOLA_MERCADO||parseInt(CARTOLA_MERCADO.round)!==rodadaAlvo){
+    rankingAtual={};document.getElementById('ranking-rodada').style.display='block';
+    document.getElementById('ranking-tabs').innerHTML='';document.getElementById('ranking-list').innerHTML='';
+    document.getElementById('ranking-subtitle').textContent='Ranking indisponível: o mercado oficial do Cartola é da rodada '+(CARTOLA_MERCADO&&CARTOLA_MERCADO.round?CARTOLA_MERCADO.round:'não identificada')+', mas a rodada selecionada é '+rodadaAlvo+'.';
+    document.getElementById('ranking-method').innerHTML='<b>Proteção de elegibilidade:</b> o ranking só é gerado quando a rodada selecionada coincide com a rodada publicada no Prováveis do Cartola.';
+    return;
+  }
+  var todos={};RANK_POSICOES.forEach(function(p){todos[p]=[];});
+  jogosRodadaAtual.forEach(function(j){
+    RANK_POSICOES.forEach(function(p){
+      todos[p]=todos[p].concat(candidatosDoJogo(j.mandante,j.visitante,'Casa',p));
+      todos[p]=todos[p].concat(candidatosDoJogo(j.visitante,j.mandante,'Fora',p));
+    });
+  });
+  RANK_POSICOES.forEach(function(p){rankingAtual[p]=todos[p].length?pontuarRanking(todos[p],p):[];});
+  rankingPosAtual=RANK_POSICOES.filter(function(p){return rankingAtual[p].length;})[0]||'GOL';
+  renderRanking(rankingPosAtual);
+  document.getElementById('ranking-rodada').style.display='block';
+}
+function renderRanking(pos) {
+  rankingPosAtual=pos;var tabs=document.getElementById('ranking-tabs');tabs.innerHTML='';
+  RANK_POSICOES.forEach(function(p){if(!rankingAtual[p]||!rankingAtual[p].length)return;var b=document.createElement('button');b.className='ranking-tab'+(p===pos?' active':'');b.textContent=RANK_LABELS[p];b.onclick=function(){renderRanking(p);};tabs.appendChild(b);});
+  document.getElementById('ranking-subtitle').textContent='Rodada '+rodadaAlvo+' · últimos '+nJogos+' jogos · '+(filtroMando?'mesmo mando':'todos os mandos')+' · somente prováveis e dúvidas · 5 goleiros, 10 laterais e até 7 nas demais posições';
+  document.getElementById('ranking-title').textContent='DESTAQUES · '+RANK_LABELS[pos].toUpperCase();
+  var list=document.getElementById('ranking-list');list.innerHTML='';
+  (rankingAtual[pos]||[]).forEach(function(c,i){
+    var card=document.createElement('article');card.className='ranking-card';
+    var src=c.officialPhoto||fotoJogador(c.nome,c.time)||escudoDoTime(c.time);var fallback=escudoDoTime(c.time);
+    var badges=[];
+    if(c.conquista>=60)badges.push({txt:'JOGADOR CONQUISTA',cls:'conquista',ico:'↑'});
+    if(c.cessao>=60)badges.push({txt:'ADVERSÁRIO CEDE',cls:'cedidos',ico:'↓'});
+    if(c.cruzamento>=60)badges.push({txt:'BOM CRUZAMENTO',cls:'cruzamento',ico:'×'});
+    if(!badges.length)badges.push({txt:'DESTAQUE PELO CONJUNTO',cls:'relativo',ico:'★'});
+    var ladoTxt=c.lado==='LAT-D'?' · lateral direito':(c.lado==='LAT-E'?' · lateral esquerdo':'');
+    var crest=escudoDoTime(c.time);
+    var crestImg=crest?'<img alt="Escudo '+c.time+'" src="'+crest+'">':'';
+    card.innerHTML='<div class="rank-num">'+(i+1)+'</div><div class="rank-photo-wrap"><img class="rank-photo" crossorigin="anonymous" alt="'+c.nome+'" src="'+src+'"'+(fallback?' onerror="this.onerror=null;this.src=\''+fallback+'\'"':'')+'><span class="rank-crest">'+crestImg+'</span></div><div class="rank-player"><div class="rank-player-title"><h3>'+c.nome+'</h3>'+(crest?'<img class="crest-inline" src="'+crest+'" alt="">':'')+'</div><div class="meta">'+c.time+' x '+c.oponente+ladoTxt+' · '+c.gamesCount+'/'+c.sampleGames+' jogos</div><div class="rank-average">MÉDIA NO RECORTE · '+fmt(c.avgPts)+'</div><div class="rank-badges">'+badges.map(function(x){return '<span class="rank-badge '+x.cls+'"><span class="badge-icon">'+x.ico+'</span>'+x.txt+'</span>';}).join('')+'</div></div><div class="rank-reasons">'+justificativas(c).map(function(x){return '<div>• '+x+'</div>';}).join('')+'</div><div class="rank-score"><strong>'+fmt(c.score)+'</strong><span>NOTA / 100</span><div class="rank-breakdown">Conquista '+fmt(c.conquista)+'<br>Cedidos '+fmt(c.cessao)+'<br>Cruzamento '+fmt(c.cruzamento)+'</div></div>';
+    list.appendChild(card);
+  });
+  document.getElementById('ranking-method').innerHTML='<b>Método objetivo:</b> nota final = 40% conquistado + 35% cedido + 25% cruzamento. Cada scout é normalizado entre os jogadores prováveis da rodada.';
+}
+
+function baixarRankingPosicao() {
+  var original=document.getElementById('ranking-rodada');
+  if(!original||!rankingAtual[rankingPosAtual]||!rankingAtual[rankingPosAtual].length)return;
+  var btn=document.getElementById('ranking-download');btn.disabled=true;btn.textContent='GERANDO ARTE...';
+  var clone=original.cloneNode(true);clone.classList.add('ranking-export');clone.style.display='block';clone.removeAttribute('id');
+  clone.querySelectorAll('[id]').forEach(function(el){el.removeAttribute('id');});
+  var cloneTitle=clone.querySelector('h2');if(cloneTitle)cloneTitle.textContent='TOP '+RANK_LABELS[rankingPosAtual].toUpperCase()+' · RODADA '+rodadaAlvo;
+  var cloneButton=clone.querySelector('.ranking-download');if(cloneButton)cloneButton.remove();
+  document.body.appendChild(clone);
+  var imgs=Array.prototype.slice.call(clone.querySelectorAll('img'));
+  Promise.all(imgs.map(function(img){return img.complete?Promise.resolve():new Promise(function(resolve){var done=false;var finish=function(){if(done)return;done=true;resolve();};img.onload=finish;img.onerror=finish;setTimeout(finish,5000);});})).then(function(){
+    return html2canvas(clone,{scale:2,useCORS:true,allowTaint:false,backgroundColor:'#031c0f',logging:false,imageTimeout:8000,width:1800,windowWidth:1800});
+  }).then(function(canvas){
+    return new Promise(function(resolve,reject){canvas.toBlob(function(blob){if(!blob){reject(new Error('Falha ao converter PNG'));return;}var url=URL.createObjectURL(blob);var a=document.createElement('a');a.download='RANKING_R'+rodadaAlvo+'_'+rankingPosAtual.replace(/-/g,'_')+'_ALTA_RESOLUCAO.png';a.href=url;a.click();setTimeout(function(){URL.revokeObjectURL(url);},2000);setStatus('&#10003; Ranking de '+RANK_LABELS[rankingPosAtual]+' baixado em alta resolução.');resolve();},'image/png');});
+  }).catch(function(err){console.error(err);setStatus('&#10060; Não foi possível gerar o download desta posição.');}).then(function(){clone.remove();btn.disabled=false;btn.innerHTML='&#11015; Baixar posição em alta resolução';});
 }
 
 // Fechar com ESC

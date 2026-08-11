@@ -6,7 +6,8 @@ SEM f-strings – garante compatibilidade com qualquer JS embutido.
 Assets (fontes, imagens, JS) são referenciados por URL relativa em vez de
 base64 para manter o HTML pequeno e carregável no Streamlit Cloud.
 """
-import base64, os, glob, json
+import base64, os, glob, json, unicodedata, re
+from atualizar_cartola import atualizar as atualizar_cartola
 
 def b64_image(path):
     ext = os.path.splitext(path)[1].lower().lstrip('.')
@@ -125,6 +126,51 @@ if os.path.exists(teams_dir):
 
 html = html.replace('##TEAM_IMAGES_JSON##', json.dumps(team_images))
 
+# Fotos dos jogadores. Prioriza os arquivos locais copiados do projeto
+# COMPARATIVOS JOGADORES e mantém as URLs do banco como segunda opção.
+def norm_key(value):
+    value = unicodedata.normalize('NFD', str(value or ''))
+    return ''.join(c for c in value if unicodedata.category(c) != 'Mn').upper().strip()
+
+player_photos = {}
+photos_dir = os.path.join(ASSETS, 'photos')
+if os.path.exists(photos_dir):
+    for fn in os.listdir(photos_dir):
+        if fn.lower().endswith(('.png', '.jpg', '.jpeg', '.webp')):
+            stem = os.path.splitext(fn)[0].replace('_', ' ')
+            player_photos[norm_key(stem)] = './assets/photos/' + fn
+
+photo_bank = os.path.join(os.path.dirname(BASE), 'COMPARATIVOS JOGADORES', 'app', 'fotos_jogadores.json')
+if os.path.exists(photo_bank):
+    try:
+        with open(photo_bank, encoding='utf-8') as f:
+            bank_data = json.load(f)
+        for team, players in bank_data.items():
+            for name, url in players.items():
+                if url:
+                    player_photos.setdefault(norm_key(team) + '|' + norm_key(name), url)
+                    player_photos.setdefault(norm_key(name), url)
+    except (OSError, ValueError):
+        pass
+
+html = html.replace('##PLAYER_PHOTOS_JSON##', json.dumps(player_photos, ensure_ascii=False))
+
+# A elegibilidade vem exclusivamente da API oficial do Cartola.
+cartola_path = os.path.join(BASE, 'cartola_mercado.json')
+try:
+    if os.environ.get('TCC_SKIP_CARTOLA_UPDATE') == '1':
+        raise RuntimeError('atualizacao ja executada nesta operacao')
+    cartola_data = atualizar_cartola()
+except Exception as exc:
+    if os.environ.get('TCC_SKIP_CARTOLA_UPDATE') != '1':
+        print('AVISO: nao foi possivel atualizar Cartola: {}'.format(exc))
+    if os.path.exists(cartola_path):
+        with open(cartola_path, encoding='utf-8') as f:
+            cartola_data = json.load(f)
+    else:
+        cartola_data = {'round': None, 'source': '', 'by_id': {}}
+html = html.replace('##CARTOLA_MERCADO_JSON##', json.dumps(cartola_data, ensure_ascii=False))
+
 # ── Rodada options ────────────────────────────────────────────────
 rodada_opts = '\n'.join('<option value="{r}">{r}</option>'.format(r=i) for i in range(1, 39))
 html = html.replace('##RODADA_OPTIONS##', rodada_opts)
@@ -139,8 +185,9 @@ with open(OUT, 'w', encoding='utf-8') as f:
 size_mb = os.path.getsize(OUT) / 1024 / 1024
 print('index.html gerado com sucesso!')
 print('Tamanho: {:.2f} MB'.format(size_mb))
-placeholders_restantes = html.count('##')
-if placeholders_restantes > 0:
-    print('AVISO: {} placeholders nao substituidos!'.format(placeholders_restantes // 2))
+tokens_template = r'##(?:FONT_FACES|XLSX_JS|H2C_JS|RODADAS_TXT_JSON|MEIAS_VOL_CSV_JSON|ATACANTES_TXT_JSON|LOGO_TCC|BG_B64_JSON|TEAM_IMAGES_JSON|PLAYER_PHOTOS_JSON|CARTOLA_MERCADO_JSON|RODADA_OPTIONS|N_OPTIONS)##'
+placeholders_restantes = sorted(set(re.findall(tokens_template, html)))
+if placeholders_restantes:
+    print('AVISO: placeholders nao substituidos: {}'.format(', '.join(placeholders_restantes)))
 else:
     print('Todos os placeholders substituidos corretamente.')
