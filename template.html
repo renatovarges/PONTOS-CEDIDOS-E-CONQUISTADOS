@@ -1496,7 +1496,7 @@ function renderRanking(pos) {
   var list=document.getElementById('ranking-list');list.innerHTML='';
   (rankingAtual[pos]||[]).forEach(function(c,i){
     var card=document.createElement('article');card.className='ranking-card';
-    var src=c.officialPhoto||fotoJogador(c.nome,c.time)||escudoDoTime(c.time);var fallback=escudoDoTime(c.time);
+    var src=fotoJogador(c.nome,c.time)||c.officialPhoto||escudoDoTime(c.time);var fallback=escudoDoTime(c.time);
     var badges=[];
     if(c.conquista>=60)badges.push({txt:'JOGADOR CONQUISTA',cls:'conquista',ico:'↑'});
     if(c.cessao>=60)badges.push({txt:'ADVERSÁRIO CEDE',cls:'cedidos',ico:'↓'});
@@ -1505,7 +1505,7 @@ function renderRanking(pos) {
     var ladoTxt=c.lado==='LAT-D'?' · lateral direito':(c.lado==='LAT-E'?' · lateral esquerdo':'');
     var crest=escudoDoTime(c.time);
     var crestImg=crest?'<img alt="Escudo '+c.time+'" src="'+crest+'">':'';
-    card.innerHTML='<div class="rank-num">'+(i+1)+'</div><div class="rank-photo-wrap"><img class="rank-photo" crossorigin="anonymous" alt="'+c.nome+'" src="'+src+'"'+(fallback?' onerror="this.onerror=null;this.src=\''+fallback+'\'"':'')+'><span class="rank-crest">'+crestImg+'</span></div><div class="rank-player"><div class="rank-player-title"><h3>'+c.nome+'</h3>'+(crest?'<img class="crest-inline" src="'+crest+'" alt="">':'')+'</div><div class="meta">'+c.time+' x '+c.oponente+ladoTxt+' · '+c.gamesCount+'/'+c.sampleGames+' jogos</div><div class="rank-average">MÉDIA NO RECORTE · '+fmt(c.avgPts)+'</div><div class="rank-badges">'+badges.map(function(x){return '<span class="rank-badge '+x.cls+'"><span class="badge-icon">'+x.ico+'</span>'+x.txt+'</span>';}).join('')+'</div></div><div class="rank-reasons">'+justificativas(c).map(function(x){return '<div>• '+x+'</div>';}).join('')+'</div><div class="rank-score"><strong>'+fmt(c.score)+'</strong><span>NOTA / 100</span><div class="rank-breakdown">Conquista '+fmt(c.conquista)+'<br>Cedidos '+fmt(c.cessao)+'<br>Cruzamento '+fmt(c.cruzamento)+'</div></div>';
+    card.innerHTML='<div class="rank-num">'+(i+1)+'</div><div class="rank-photo-wrap"><img class="rank-photo" crossorigin="anonymous" referrerpolicy="no-referrer" alt="'+c.nome+'" src="'+src+'"'+(fallback?' onerror="this.onerror=null;this.src=\''+fallback+'\'"':'')+'><span class="rank-crest">'+crestImg+'</span></div><div class="rank-player"><div class="rank-player-title"><h3>'+c.nome+'</h3>'+(crest?'<img class="crest-inline" src="'+crest+'" alt="">':'')+'</div><div class="meta">'+c.time+' x '+c.oponente+ladoTxt+' · '+c.gamesCount+'/'+c.sampleGames+' jogos</div><div class="rank-average">MÉDIA NO RECORTE · '+fmt(c.avgPts)+'</div><div class="rank-badges">'+badges.map(function(x){return '<span class="rank-badge '+x.cls+'"><span class="badge-icon">'+x.ico+'</span>'+x.txt+'</span>';}).join('')+'</div></div><div class="rank-reasons">'+justificativas(c).map(function(x){return '<div>• '+x+'</div>';}).join('')+'</div><div class="rank-score"><strong>'+fmt(c.score)+'</strong><span>NOTA / 100</span><div class="rank-breakdown">Conquista '+fmt(c.conquista)+'<br>Cedidos '+fmt(c.cessao)+'<br>Cruzamento '+fmt(c.cruzamento)+'</div></div>';
     list.appendChild(card);
   });
   document.getElementById('ranking-method').innerHTML='<b>Método objetivo:</b> nota final = 40% conquistado + 35% cedido + 25% cruzamento. Cada scout é normalizado entre os jogadores prováveis da rodada.';
