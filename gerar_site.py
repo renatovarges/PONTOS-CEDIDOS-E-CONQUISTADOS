@@ -134,9 +134,24 @@ def norm_key(value):
 
 player_photos = {}
 photos_dir = os.path.join(ASSETS, 'photos')
+photos_out_dir = os.path.join(BASE, 'static', 'assets', 'photos')
 if os.path.exists(photos_dir):
+    os.makedirs(photos_out_dir, exist_ok=True)
     for fn in os.listdir(photos_dir):
         if fn.lower().endswith(('.png', '.jpg', '.jpeg', '.webp')):
+            src_path = os.path.join(photos_dir, fn)
+            dst_path = os.path.join(photos_out_dir, fn)
+            # static/assets é servido pelo Streamlit; sem essa cópia o link
+            # relativo ./assets/photos/... fica quebrado e cai no escudo.
+            if not os.path.exists(dst_path) or os.path.getmtime(src_path) > os.path.getmtime(dst_path):
+                try:
+                    from PIL import Image
+                    img = Image.open(src_path)
+                    img.thumbnail((480, 480))
+                    img.save(dst_path)
+                except Exception:
+                    import shutil
+                    shutil.copyfile(src_path, dst_path)
             stem = os.path.splitext(fn)[0].replace('_', ' ')
             player_photos[norm_key(stem)] = './assets/photos/' + fn
 

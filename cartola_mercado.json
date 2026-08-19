@@ -10,20 +10,20 @@
     "timestamp": 1787425140
   },
   "source": "https://api.cartola.globo.com/atletas/mercado",
-  "fetched_at": "2026-08-18T23:38:38.350672+00:00",
+  "fetched_at": "2026-08-19T00:12:18.134806+00:00",
   "eligible_status": {
     "2": "duvida",
     "7": "provavel"
   },
   "by_id": {
-    "118844": {
-      "id": "118844",
-      "club_id": "264",
-      "team": "COR",
-      "position_id": 5,
+    "51413": {
+      "id": "51413",
+      "club_id": "2305",
+      "team": "MIR",
+      "position_id": 1,
       "status_id": 7,
       "status": "provavel",
-      "name": "Kaio César"
+      "name": "Walter"
     },
     "124270": {
       "id": "124270",
@@ -34,14 +34,14 @@
       "status": "duvida",
       "name": "Allex"
     },
-    "51413": {
-      "id": "51413",
-      "club_id": "2305",
-      "team": "MIR",
-      "position_id": 1,
+    "118844": {
+      "id": "118844",
+      "club_id": "264",
+      "team": "COR",
+      "position_id": 5,
       "status_id": 7,
       "status": "provavel",
-      "name": "Walter"
+      "name": "Kaio César"
     },
     "123738": {
       "id": "123738",
@@ -61,15 +61,6 @@
       "status": "duvida",
       "name": "Alerrandro"
     },
-    "99815": {
-      "id": "99815",
-      "club_id": "275",
-      "team": "PAL",
-      "position_id": 4,
-      "status_id": 7,
-      "status": "provavel",
-      "name": "Arias"
-    },
     "116065": {
       "id": "116065",
       "club_id": "267",
@@ -78,6 +69,15 @@
       "status_id": 7,
       "status": "provavel",
       "name": "Cuiabano"
+    },
+    "99815": {
+      "id": "99815",
+      "club_id": "275",
+      "team": "PAL",
+      "position_id": 4,
+      "status_id": 7,
+      "status": "provavel",
+      "name": "Arias"
     },
     "110144": {
       "id": "110144",
@@ -97,6 +97,15 @@
       "status": "provavel",
       "name": "Justino"
     },
+    "109987": {
+      "id": "109987",
+      "club_id": "263",
+      "team": "BOT",
+      "position_id": 4,
+      "status_id": 7,
+      "status": "provavel",
+      "name": "Medina"
+    },
     "105048": {
       "id": "105048",
       "club_id": "364",
@@ -106,14 +115,14 @@
       "status": "provavel",
       "name": "Jajá"
     },
-    "109987": {
-      "id": "109987",
-      "club_id": "263",
-      "team": "BOT",
-      "position_id": 4,
+    "107093": {
+      "id": "107093",
+      "club_id": "265",
+      "team": "BAH",
+      "position_id": 2,
       "status_id": 7,
       "status": "provavel",
-      "name": "Medina"
+      "name": "Luciano Juba"
     },
     "126189": {
       "id": "126189",
@@ -124,14 +133,14 @@
       "status": "duvida",
       "name": "Tomás Pérez"
     },
-    "101807": {
-      "id": "101807",
-      "club_id": "277",
-      "team": "SAN",
-      "position_id": 4,
+    "100804": {
+      "id": "100804",
+      "club_id": "364",
+      "team": "REM",
+      "position_id": 3,
       "status_id": 7,
       "status": "provavel",
-      "name": "Oliva"
+      "name": "Tchamba"
     },
     "92747": {
       "id": "92747",
@@ -142,14 +151,14 @@
       "status": "provavel",
       "name": "Eduardo Domínguez"
     },
-    "107093": {
-      "id": "107093",
-      "club_id": "265",
-      "team": "BAH",
-      "position_id": 2,
+    "101807": {
+      "id": "101807",
+      "club_id": "277",
+      "team": "SAN",
+      "position_id": 4,
       "status_id": 7,
       "status": "provavel",
-      "name": "Luciano Juba"
+      "name": "Oliva"
     },
     "88963": {
       "id": "88963",
@@ -178,14 +187,14 @@
       "status": "provavel",
       "name": "Léo Condé"
     },
-    "110605": {
-      "id": "110605",
-      "club_id": "315",
-      "team": "CHA",
-      "position_id": 4,
+    "95131": {
+      "id": "95131",
+      "club_id": "364",
+      "team": "REM",
+      "position_id": 5,
       "status_id": 7,
       "status": "provavel",
-      "name": "Vinícius Balieiro"
+      "name": "Gabriel Taliari"
     },
     "42411": {
       "id": "42411",
@@ -196,15 +205,6 @@
       "status": "provavel",
       "name": "Cuca"
     },
-    "127273": {
-      "id": "127273",
-      "club_id": "283",
-      "team": "CRU",
-      "position_id": 6,
-      "status_id": 7,
-      "status": "provavel",
-      "name": "Artur Jorge"
-    },
     "130209": {
       "id": "130209",
       "club_id": "287",
@@ -213,15 +213,6 @@
       "status_id": 7,
       "status": "provavel",
       "name": "Renê"
-    },
-    "95131": {
-      "id": "95131",
-      "club_id": "364",
-      "team": "REM",
-      "position_id": 5,
-      "status_id": 7,
-      "status": "provavel",
-      "name": "Gabriel Taliari"
     },
     "107256": {
       "id": "107256",
@@ -232,6 +223,15 @@
       "status": "provavel",
       "name": "Zé Vitor"
     },
+    "110605": {
+      "id": "110605",
+      "club_id": "315",
+      "team": "CHA",
+      "position_id": 4,
+      "status_id": 7,
+      "status": "provavel",
+      "name": "Vinícius Balieiro"
+    },
     "103347": {
       "id": "103347",
       "club_id": "364",
@@ -240,6 +240,15 @@
       "status_id": 7,
       "status": "provavel",
       "name": "Matheus Alexandre"
+    },
+    "127273": {
+      "id": "127273",
+      "club_id": "283",
+      "team": "CRU",
+      "position_id": 6,
+      "status_id": 7,
+      "status": "provavel",
+      "name": "Artur Jorge"
     },
     "149990": {
       "id": "149990",
@@ -250,14 +259,14 @@
       "status": "provavel",
       "name": "Franclim Carvalho"
     },
-    "37715": {
-      "id": "37715",
-      "club_id": "266",
-      "team": "FLU",
-      "position_id": 3,
+    "106907": {
+      "id": "106907",
+      "club_id": "315",
+      "team": "CHA",
+      "position_id": 6,
       "status_id": 7,
       "status": "provavel",
-      "name": "Thiago Silva"
+      "name": "Rafael Lacerda"
     },
     "130307": {
       "id": "130307",
@@ -268,15 +277,6 @@
       "status": "provavel",
       "name": "Wallace"
     },
-    "106907": {
-      "id": "106907",
-      "club_id": "315",
-      "team": "CHA",
-      "position_id": 6,
-      "status_id": 7,
-      "status": "provavel",
-      "name": "Rafael Lacerda"
-    },
     "98617": {
       "id": "98617",
       "club_id": "285",
@@ -285,6 +285,15 @@
       "status_id": 7,
       "status": "provavel",
       "name": "Maripán"
+    },
+    "37715": {
+      "id": "37715",
+      "club_id": "266",
+      "team": "FLU",
+      "position_id": 3,
+      "status_id": 7,
+      "status": "provavel",
+      "name": "Thiago Silva"
     },
     "97101": {
       "id": "97101",
@@ -304,15 +313,6 @@
       "status": "provavel",
       "name": "Alejo Véliz"
     },
-    "128177": {
-      "id": "128177",
-      "club_id": "267",
-      "team": "VAS",
-      "position_id": 6,
-      "status_id": 7,
-      "status": "provavel",
-      "name": "Pedro Emanuel"
-    },
     "141763": {
       "id": "141763",
       "club_id": "287",
@@ -321,6 +321,15 @@
       "status_id": 7,
       "status": "provavel",
       "name": "Fabiano Souza"
+    },
+    "128177": {
+      "id": "128177",
+      "club_id": "267",
+      "team": "VAS",
+      "position_id": 6,
+      "status_id": 7,
+      "status": "provavel",
+      "name": "Pedro Emanuel"
     },
     "109573": {
       "id": "109573",
@@ -340,15 +349,6 @@
       "status": "provavel",
       "name": "Túlio Eduardo"
     },
-    "103967": {
-      "id": "103967",
-      "club_id": "2305",
-      "team": "MIR",
-      "position_id": 5,
-      "status_id": 7,
-      "status": "provavel",
-      "name": "Bruno Santos"
-    },
     "91130": {
       "id": "91130",
       "club_id": "2305",
@@ -367,23 +367,14 @@
       "status": "provavel",
       "name": "Warleson"
     },
-    "122670": {
-      "id": "122670",
-      "club_id": "284",
-      "team": "GRE",
-      "position_id": 2,
+    "103967": {
+      "id": "103967",
+      "club_id": "2305",
+      "team": "MIR",
+      "position_id": 5,
       "status_id": 7,
       "status": "provavel",
-      "name": "Diego Caito"
-    },
-    "106950": {
-      "id": "106950",
-      "club_id": "315",
-      "team": "CHA",
-      "position_id": 2,
-      "status_id": 7,
-      "status": "provavel",
-      "name": "Fernando"
+      "name": "Bruno Santos"
     },
     "109097": {
       "id": "109097",
@@ -394,14 +385,23 @@
       "status": "duvida",
       "name": "Jovane Cabral"
     },
-    "100596": {
-      "id": "100596",
-      "club_id": "284",
-      "team": "GRE",
-      "position_id": 4,
+    "106950": {
+      "id": "106950",
+      "club_id": "315",
+      "team": "CHA",
+      "position_id": 2,
       "status_id": 7,
       "status": "provavel",
-      "name": "Krovinovic"
+      "name": "Fernando"
+    },
+    "122670": {
+      "id": "122670",
+      "club_id": "284",
+      "team": "GRE",
+      "position_id": 2,
+      "status_id": 7,
+      "status": "provavel",
+      "name": "Diego Caito"
     },
     "95541": {
       "id": "95541",
@@ -412,32 +412,14 @@
       "status": "provavel",
       "name": "Gustavo Cazonatti"
     },
-    "141344": {
-      "id": "141344",
-      "club_id": "294",
-      "team": "CFC",
+    "100596": {
+      "id": "100596",
+      "club_id": "284",
+      "team": "GRE",
       "position_id": 4,
       "status_id": 7,
       "status": "provavel",
-      "name": "Vitor Tissi"
-    },
-    "106313": {
-      "id": "106313",
-      "club_id": "276",
-      "team": "SAO",
-      "position_id": 3,
-      "status_id": 7,
-      "status": "provavel",
-      "name": "Domingos Duarte"
-    },
-    "142764": {
-      "id": "142764",
-      "club_id": "315",
-      "team": "CHA",
-      "position_id": 5,
-      "status_id": 7,
-      "status": "provavel",
-      "name": "Franco Rossi"
+      "name": "Krovinovic"
     },
     "117909": {
       "id": "117909",
@@ -448,32 +430,23 @@
       "status": "provavel",
       "name": "Wesley"
     },
-    "86864": {
-      "id": "86864",
-      "club_id": "364",
-      "team": "REM",
-      "position_id": 2,
+    "141344": {
+      "id": "141344",
+      "club_id": "294",
+      "team": "CFC",
+      "position_id": 4,
       "status_id": 7,
       "status": "provavel",
-      "name": "Marlon"
+      "name": "Vitor Tissi"
     },
-    "73476": {
-      "id": "73476",
-      "club_id": "266",
-      "team": "FLU",
-      "position_id": 6,
+    "142764": {
+      "id": "142764",
+      "club_id": "315",
+      "team": "CHA",
+      "position_id": 5,
       "status_id": 7,
       "status": "provavel",
-      "name": "Marcão"
-    },
-    "100804": {
-      "id": "100804",
-      "club_id": "364",
-      "team": "REM",
-      "position_id": 3,
-      "status_id": 7,
-      "status": "provavel",
-      "name": "Tchamba"
+      "name": "Franco Rossi"
     },
     "114323": {
       "id": "114323",
@@ -484,23 +457,23 @@
       "status": "provavel",
       "name": "Colidio"
     },
-    "102255": {
-      "id": "102255",
-      "club_id": "267",
-      "team": "VAS",
-      "position_id": 4,
+    "86864": {
+      "id": "86864",
+      "club_id": "364",
+      "team": "REM",
+      "position_id": 2,
       "status_id": 7,
       "status": "provavel",
-      "name": "Santiago Sosa"
+      "name": "Marlon"
     },
-    "68685": {
-      "id": "68685",
-      "club_id": "285",
-      "team": "INT",
-      "position_id": 4,
+    "106313": {
+      "id": "106313",
+      "club_id": "276",
+      "team": "SAO",
+      "position_id": 3,
       "status_id": 7,
       "status": "provavel",
-      "name": "Alan Patrick"
+      "name": "Domingos Duarte"
     },
     "97810": {
       "id": "97810",
@@ -511,14 +484,32 @@
       "status": "provavel",
       "name": "Erick"
     },
-    "106593": {
-      "id": "106593",
-      "club_id": "283",
-      "team": "CRU",
-      "position_id": 3,
+    "73476": {
+      "id": "73476",
+      "club_id": "266",
+      "team": "FLU",
+      "position_id": 6,
       "status_id": 7,
       "status": "provavel",
-      "name": "Villalba"
+      "name": "Marcão"
+    },
+    "68685": {
+      "id": "68685",
+      "club_id": "285",
+      "team": "INT",
+      "position_id": 4,
+      "status_id": 7,
+      "status": "provavel",
+      "name": "Alan Patrick"
+    },
+    "102255": {
+      "id": "102255",
+      "club_id": "267",
+      "team": "VAS",
+      "position_id": 4,
+      "status_id": 7,
+      "status": "provavel",
+      "name": "Santiago Sosa"
     },
     "68928": {
       "id": "68928",
@@ -529,6 +520,15 @@
       "status": "provavel",
       "name": "Rafael"
     },
+    "63007": {
+      "id": "63007",
+      "club_id": "277",
+      "team": "SAN",
+      "position_id": 4,
+      "status_id": 7,
+      "status": "provavel",
+      "name": "Neymar"
+    },
     "103056": {
       "id": "103056",
       "club_id": "277",
@@ -537,24 +537,6 @@
       "status_id": 7,
       "status": "provavel",
       "name": "Gabriel Brazão"
-    },
-    "72294": {
-      "id": "72294",
-      "club_id": "282",
-      "team": "CAM",
-      "position_id": 1,
-      "status_id": 7,
-      "status": "provavel",
-      "name": "Everson"
-    },
-    "87008": {
-      "id": "87008",
-      "club_id": "267",
-      "team": "VAS",
-      "position_id": 1,
-      "status_id": 7,
-      "status": "provavel",
-      "name": "Léo Jardim"
     },
     "96591": {
       "id": "96591",
@@ -565,41 +547,23 @@
       "status": "provavel",
       "name": "Renan Lodi"
     },
-    "63007": {
-      "id": "63007",
-      "club_id": "277",
-      "team": "SAN",
-      "position_id": 4,
+    "72294": {
+      "id": "72294",
+      "club_id": "282",
+      "team": "CAM",
+      "position_id": 1,
       "status_id": 7,
       "status": "provavel",
-      "name": "Neymar"
+      "name": "Everson"
     },
-    "99274": {
-      "id": "99274",
-      "club_id": "275",
-      "team": "PAL",
+    "106593": {
+      "id": "106593",
+      "club_id": "283",
+      "team": "CRU",
       "position_id": 3,
       "status_id": 7,
       "status": "provavel",
-      "name": "Alexander Barboza"
-    },
-    "101727": {
-      "id": "101727",
-      "club_id": "264",
-      "team": "COR",
-      "position_id": 2,
-      "status_id": 7,
-      "status": "provavel",
-      "name": "Matheuzinho"
-    },
-    "80196": {
-      "id": "80196",
-      "club_id": "364",
-      "team": "REM",
-      "position_id": 4,
-      "status_id": 7,
-      "status": "provavel",
-      "name": "Yago Pikachu"
+      "name": "Villalba"
     },
     "37656": {
       "id": "37656",
@@ -610,6 +574,15 @@
       "status": "provavel",
       "name": "Fábio"
     },
+    "80196": {
+      "id": "80196",
+      "club_id": "364",
+      "team": "REM",
+      "position_id": 4,
+      "status_id": 7,
+      "status": "provavel",
+      "name": "Yago Pikachu"
+    },
     "100898": {
       "id": "100898",
       "club_id": "263",
@@ -618,6 +591,24 @@
       "status_id": 7,
       "status": "provavel",
       "name": "Vitinho"
+    },
+    "101727": {
+      "id": "101727",
+      "club_id": "264",
+      "team": "COR",
+      "position_id": 2,
+      "status_id": 7,
+      "status": "provavel",
+      "name": "Matheuzinho"
+    },
+    "99274": {
+      "id": "99274",
+      "club_id": "275",
+      "team": "PAL",
+      "position_id": 3,
+      "status_id": 7,
+      "status": "provavel",
+      "name": "Alexander Barboza"
     },
     "90768": {
       "id": "90768",
@@ -637,14 +628,14 @@
       "status": "provavel",
       "name": "Erick Pulga"
     },
-    "80313": {
-      "id": "80313",
-      "club_id": "293",
-      "team": "CAP",
-      "position_id": 2,
+    "91772": {
+      "id": "91772",
+      "club_id": "265",
+      "team": "BAH",
+      "position_id": 3,
       "status_id": 7,
       "status": "provavel",
-      "name": "Gilberto"
+      "name": "David Duarte"
     },
     "91101": {
       "id": "91101",
@@ -655,14 +646,23 @@
       "status": "provavel",
       "name": "Ronaldo"
     },
-    "91772": {
-      "id": "91772",
-      "club_id": "265",
-      "team": "BAH",
-      "position_id": 3,
+    "87008": {
+      "id": "87008",
+      "club_id": "267",
+      "team": "VAS",
+      "position_id": 1,
       "status_id": 7,
       "status": "provavel",
-      "name": "David Duarte"
+      "name": "Léo Jardim"
+    },
+    "80313": {
+      "id": "80313",
+      "club_id": "293",
+      "team": "CAP",
+      "position_id": 2,
+      "status_id": 7,
+      "status": "provavel",
+      "name": "Gilberto"
     },
     "98517": {
       "id": "98517",
@@ -682,15 +682,6 @@
       "status": "provavel",
       "name": "Acevedo"
     },
-    "106822": {
-      "id": "106822",
-      "club_id": "265",
-      "team": "BAH",
-      "position_id": 4,
-      "status_id": 7,
-      "status": "provavel",
-      "name": "Rodrigo Nestor"
-    },
     "105990": {
       "id": "105990",
       "club_id": "265",
@@ -699,6 +690,15 @@
       "status_id": 7,
       "status": "provavel",
       "name": "Santiago Mingo"
+    },
+    "106822": {
+      "id": "106822",
+      "club_id": "265",
+      "team": "BAH",
+      "position_id": 4,
+      "status_id": 7,
+      "status": "provavel",
+      "name": "Rodrigo Nestor"
     },
     "68996": {
       "id": "68996",
@@ -718,14 +718,14 @@
       "status": "provavel",
       "name": "Rogério Ceni"
     },
-    "72493": {
-      "id": "72493",
+    "107231": {
+      "id": "107231",
       "club_id": "263",
       "team": "BOT",
-      "position_id": 2,
+      "position_id": 4,
       "status_id": 7,
       "status": "provavel",
-      "name": "Alex Telles"
+      "name": "Danilo"
     },
     "111831": {
       "id": "111831",
@@ -736,23 +736,14 @@
       "status": "provavel",
       "name": "Matheus Martins"
     },
-    "107231": {
-      "id": "107231",
-      "club_id": "263",
-      "team": "BOT",
+    "104693": {
+      "id": "104693",
+      "club_id": "276",
+      "team": "SAO",
       "position_id": 4,
-      "status_id": 7,
-      "status": "provavel",
-      "name": "Danilo"
-    },
-    "142890": {
-      "id": "142890",
-      "club_id": "263",
-      "team": "BOT",
-      "position_id": 4,
-      "status_id": 7,
-      "status": "provavel",
-      "name": "Montoro"
+      "status_id": 2,
+      "status": "duvida",
+      "name": "Newton"
     },
     "95799": {
       "id": "95799",
@@ -763,6 +754,15 @@
       "status": "provavel",
       "name": "Artur"
     },
+    "142890": {
+      "id": "142890",
+      "club_id": "263",
+      "team": "BOT",
+      "position_id": 4,
+      "status_id": 7,
+      "status": "provavel",
+      "name": "Montoro"
+    },
     "39850": {
       "id": "39850",
       "club_id": "280",
@@ -771,33 +771,6 @@
       "status_id": 7,
       "status": "provavel",
       "name": "Vagner Mancini"
-    },
-    "104693": {
-      "id": "104693",
-      "club_id": "276",
-      "team": "SAO",
-      "position_id": 4,
-      "status_id": 2,
-      "status": "duvida",
-      "name": "Newton"
-    },
-    "78605": {
-      "id": "78605",
-      "club_id": "280",
-      "team": "RBB",
-      "position_id": 4,
-      "status_id": 7,
-      "status": "provavel",
-      "name": "Gabriel"
-    },
-    "70360": {
-      "id": "70360",
-      "club_id": "280",
-      "team": "RBB",
-      "position_id": 5,
-      "status_id": 7,
-      "status": "provavel",
-      "name": "Eduardo Sasha"
     },
     "94968": {
       "id": "94968",
@@ -817,6 +790,15 @@
       "status": "provavel",
       "name": "Luan Cândido"
     },
+    "78605": {
+      "id": "78605",
+      "club_id": "280",
+      "team": "RBB",
+      "position_id": 4,
+      "status_id": 7,
+      "status": "provavel",
+      "name": "Gabriel"
+    },
     "105213": {
       "id": "105213",
       "club_id": "280",
@@ -826,14 +808,14 @@
       "status": "provavel",
       "name": "Sant'Anna"
     },
-    "110750": {
-      "id": "110750",
+    "70360": {
+      "id": "70360",
       "club_id": "280",
       "team": "RBB",
-      "position_id": 3,
+      "position_id": 5,
       "status_id": 7,
       "status": "provavel",
-      "name": "Gustavo Marques"
+      "name": "Eduardo Sasha"
     },
     "111246": {
       "id": "111246",
@@ -853,6 +835,15 @@
       "status": "provavel",
       "name": "Lucas Barbosa"
     },
+    "110750": {
+      "id": "110750",
+      "club_id": "280",
+      "team": "RBB",
+      "position_id": 3,
+      "status_id": 7,
+      "status": "provavel",
+      "name": "Gustavo Marques"
+    },
     "72605": {
       "id": "72605",
       "club_id": "282",
@@ -871,6 +862,15 @@
       "status": "provavel",
       "name": "Bernard"
     },
+    "98909": {
+      "id": "98909",
+      "club_id": "282",
+      "team": "CAM",
+      "position_id": 5,
+      "status_id": 7,
+      "status": "provavel",
+      "name": "Cuello"
+    },
     "100842": {
       "id": "100842",
       "club_id": "282",
@@ -880,23 +880,23 @@
       "status": "provavel",
       "name": "Ruan"
     },
-    "124239": {
-      "id": "124239",
-      "club_id": "280",
-      "team": "RBB",
+    "101002": {
+      "id": "101002",
+      "club_id": "263",
+      "team": "BOT",
       "position_id": 5,
       "status_id": 7,
       "status": "provavel",
-      "name": "Henry Mosquera"
+      "name": "Júnior Santos"
     },
-    "98909": {
-      "id": "98909",
-      "club_id": "282",
-      "team": "CAM",
-      "position_id": 5,
-      "status_id": 7,
-      "status": "provavel",
-      "name": "Cuello"
+    "103767": {
+      "id": "103767",
+      "club_id": "277",
+      "team": "SAN",
+      "position_id": 4,
+      "status_id": 2,
+      "status": "duvida",
+      "name": "Gabriel Menino"
     },
     "39656": {
       "id": "39656",
@@ -916,6 +916,15 @@
       "status": "provavel",
       "name": "Natanael"
     },
+    "124239": {
+      "id": "124239",
+      "club_id": "280",
+      "team": "RBB",
+      "position_id": 5,
+      "status_id": 7,
+      "status": "provavel",
+      "name": "Henry Mosquera"
+    },
     "40990": {
       "id": "40990",
       "club_id": "276",
@@ -925,23 +934,14 @@
       "status": "provavel",
       "name": "Dorival Júnior"
     },
-    "103767": {
-      "id": "103767",
-      "club_id": "277",
-      "team": "SAN",
-      "position_id": 4,
-      "status_id": 2,
-      "status": "duvida",
-      "name": "Gabriel Menino"
-    },
-    "101002": {
-      "id": "101002",
-      "club_id": "263",
-      "team": "BOT",
-      "position_id": 5,
+    "78248": {
+      "id": "78248",
+      "club_id": "264",
+      "team": "COR",
+      "position_id": 3,
       "status_id": 7,
       "status": "provavel",
-      "name": "Júnior Santos"
+      "name": "Gustavo Henrique"
     },
     "93790": {
       "id": "93790",
@@ -952,24 +952,6 @@
       "status": "provavel",
       "name": "Marlon Freitas"
     },
-    "95556": {
-      "id": "95556",
-      "club_id": "264",
-      "team": "COR",
-      "position_id": 4,
-      "status_id": 7,
-      "status": "provavel",
-      "name": "Raniele"
-    },
-    "77485": {
-      "id": "77485",
-      "club_id": "264",
-      "team": "COR",
-      "position_id": 4,
-      "status_id": 7,
-      "status": "provavel",
-      "name": "Carrillo"
-    },
     "98225": {
       "id": "98225",
       "club_id": "264",
@@ -978,6 +960,33 @@
       "status_id": 7,
       "status": "provavel",
       "name": "Pedro Raul"
+    },
+    "117910": {
+      "id": "117910",
+      "club_id": "264",
+      "team": "COR",
+      "position_id": 4,
+      "status_id": 7,
+      "status": "provavel",
+      "name": "Breno Bidon"
+    },
+    "72493": {
+      "id": "72493",
+      "club_id": "263",
+      "team": "BOT",
+      "position_id": 2,
+      "status_id": 7,
+      "status": "provavel",
+      "name": "Alex Telles"
+    },
+    "95556": {
+      "id": "95556",
+      "club_id": "264",
+      "team": "COR",
+      "position_id": 4,
+      "status_id": 7,
+      "status": "provavel",
+      "name": "Raniele"
     },
     "101574": {
       "id": "101574",
@@ -997,23 +1006,14 @@
       "status": "provavel",
       "name": "Cacá"
     },
-    "117910": {
-      "id": "117910",
+    "77485": {
+      "id": "77485",
       "club_id": "264",
       "team": "COR",
       "position_id": 4,
       "status_id": 7,
       "status": "provavel",
-      "name": "Breno Bidon"
-    },
-    "78248": {
-      "id": "78248",
-      "club_id": "264",
-      "team": "COR",
-      "position_id": 3,
-      "status_id": 7,
-      "status": "provavel",
-      "name": "Gustavo Henrique"
+      "name": "Carrillo"
     },
     "105531": {
       "id": "105531",
@@ -1042,15 +1042,6 @@
       "status": "provavel",
       "name": "Matheus Pereira"
     },
-    "100742": {
-      "id": "100742",
-      "club_id": "283",
-      "team": "CRU",
-      "position_id": 4,
-      "status_id": 7,
-      "status": "provavel",
-      "name": "Matheus Henrique"
-    },
     "111690": {
       "id": "111690",
       "club_id": "285",
@@ -1060,32 +1051,14 @@
       "status": "provavel",
       "name": "Matheus Cunha"
     },
-    "122660": {
-      "id": "122660",
-      "club_id": "2305",
-      "team": "MIR",
+    "100742": {
+      "id": "100742",
+      "club_id": "283",
+      "team": "CRU",
       "position_id": 4,
       "status_id": 7,
       "status": "provavel",
-      "name": "Japa"
-    },
-    "132264": {
-      "id": "132264",
-      "club_id": "283",
-      "team": "CRU",
-      "position_id": 5,
-      "status_id": 7,
-      "status": "provavel",
-      "name": "Arroyo"
-    },
-    "117404": {
-      "id": "117404",
-      "club_id": "283",
-      "team": "CRU",
-      "position_id": 1,
-      "status_id": 7,
-      "status": "provavel",
-      "name": "Otávio"
+      "name": "Matheus Henrique"
     },
     "83528": {
       "id": "83528",
@@ -1096,14 +1069,23 @@
       "status": "provavel",
       "name": "Léo Pereira"
     },
-    "91473": {
-      "id": "91473",
-      "club_id": "262",
-      "team": "FLA",
+    "122660": {
+      "id": "122660",
+      "club_id": "2305",
+      "team": "MIR",
       "position_id": 4,
       "status_id": 7,
       "status": "provavel",
-      "name": "Erick Pulgar"
+      "name": "Japa"
+    },
+    "117404": {
+      "id": "117404",
+      "club_id": "283",
+      "team": "CRU",
+      "position_id": 1,
+      "status_id": 7,
+      "status": "provavel",
+      "name": "Otávio"
     },
     "84735": {
       "id": "84735",
@@ -1114,14 +1096,32 @@
       "status": "provavel",
       "name": "Jorginho"
     },
-    "96652": {
-      "id": "96652",
-      "club_id": "264",
-      "team": "COR",
+    "91473": {
+      "id": "91473",
+      "club_id": "262",
+      "team": "FLA",
       "position_id": 4,
       "status_id": 7,
       "status": "provavel",
-      "name": "Allan"
+      "name": "Erick Pulgar"
+    },
+    "97867": {
+      "id": "97867",
+      "club_id": "262",
+      "team": "FLA",
+      "position_id": 3,
+      "status_id": 7,
+      "status": "provavel",
+      "name": "Léo Ortiz"
+    },
+    "98873": {
+      "id": "98873",
+      "club_id": "262",
+      "team": "FLA",
+      "position_id": 5,
+      "status_id": 7,
+      "status": "provavel",
+      "name": "Samuel Lino"
     },
     "88393": {
       "id": "88393",
@@ -1132,23 +1132,14 @@
       "status": "provavel",
       "name": "Ayrton Lucas"
     },
-    "109096": {
-      "id": "109096",
-      "club_id": "262",
-      "team": "FLA",
+    "132264": {
+      "id": "132264",
+      "club_id": "283",
+      "team": "CRU",
       "position_id": 5,
       "status_id": 7,
       "status": "provavel",
-      "name": "Plata"
-    },
-    "98873": {
-      "id": "98873",
-      "club_id": "262",
-      "team": "FLA",
-      "position_id": 5,
-      "status_id": 7,
-      "status": "provavel",
-      "name": "Samuel Lino"
+      "name": "Arroyo"
     },
     "96870": {
       "id": "96870",
@@ -1168,6 +1159,24 @@
       "status": "provavel",
       "name": "Arrascaeta"
     },
+    "109096": {
+      "id": "109096",
+      "club_id": "262",
+      "team": "FLA",
+      "position_id": 5,
+      "status_id": 7,
+      "status": "provavel",
+      "name": "Plata"
+    },
+    "96652": {
+      "id": "96652",
+      "club_id": "264",
+      "team": "COR",
+      "position_id": 4,
+      "status_id": 7,
+      "status": "provavel",
+      "name": "Allan"
+    },
     "62977": {
       "id": "62977",
       "club_id": "266",
@@ -1176,15 +1185,6 @@
       "status_id": 7,
       "status": "provavel",
       "name": "Ganso"
-    },
-    "78445": {
-      "id": "78445",
-      "club_id": "266",
-      "team": "FLU",
-      "position_id": 2,
-      "status_id": 7,
-      "status": "provavel",
-      "name": "Renê"
     },
     "73384": {
       "id": "73384",
@@ -1195,14 +1195,23 @@
       "status": "provavel",
       "name": "Samuel Xavier"
     },
-    "87258": {
-      "id": "87258",
+    "78445": {
+      "id": "78445",
       "club_id": "266",
       "team": "FLU",
-      "position_id": 5,
+      "position_id": 2,
       "status_id": 7,
       "status": "provavel",
-      "name": "Soteldo"
+      "name": "Renê"
+    },
+    "116447": {
+      "id": "116447",
+      "club_id": "266",
+      "team": "FLU",
+      "position_id": 4,
+      "status_id": 7,
+      "status": "provavel",
+      "name": "Hércules"
     },
     "102928": {
       "id": "102928",
@@ -1222,23 +1231,14 @@
       "status": "provavel",
       "name": "Ignácio"
     },
-    "116447": {
-      "id": "116447",
+    "87258": {
+      "id": "87258",
       "club_id": "266",
       "team": "FLU",
-      "position_id": 4,
+      "position_id": 5,
       "status_id": 7,
       "status": "provavel",
-      "name": "Hércules"
-    },
-    "72018": {
-      "id": "72018",
-      "club_id": "280",
-      "team": "RBB",
-      "position_id": 1,
-      "status_id": 7,
-      "status": "provavel",
-      "name": "Tiago Volpi"
+      "name": "Soteldo"
     },
     "88037": {
       "id": "88037",
@@ -1249,15 +1249,6 @@
       "status": "provavel",
       "name": "Luís Castro"
     },
-    "91706": {
-      "id": "91706",
-      "club_id": "284",
-      "team": "GRE",
-      "position_id": 2,
-      "status_id": 7,
-      "status": "provavel",
-      "name": "Marlon"
-    },
     "91908": {
       "id": "91908",
       "club_id": "284",
@@ -1267,23 +1258,14 @@
       "status": "provavel",
       "name": "Pavón"
     },
-    "97145": {
-      "id": "97145",
+    "91706": {
+      "id": "91706",
       "club_id": "284",
       "team": "GRE",
-      "position_id": 4,
+      "position_id": 2,
       "status_id": 7,
       "status": "provavel",
-      "name": "Villasanti"
-    },
-    "104994": {
-      "id": "104994",
-      "club_id": "284",
-      "team": "GRE",
-      "position_id": 3,
-      "status_id": 7,
-      "status": "provavel",
-      "name": "Wagner Leonardo"
+      "name": "Marlon"
     },
     "105563": {
       "id": "105563",
@@ -1294,6 +1276,24 @@
       "status": "provavel",
       "name": "Carlos Vinícius"
     },
+    "97145": {
+      "id": "97145",
+      "club_id": "284",
+      "team": "GRE",
+      "position_id": 4,
+      "status_id": 7,
+      "status": "provavel",
+      "name": "Villasanti"
+    },
+    "72018": {
+      "id": "72018",
+      "club_id": "280",
+      "team": "RBB",
+      "position_id": 1,
+      "status_id": 7,
+      "status": "provavel",
+      "name": "Tiago Volpi"
+    },
     "70944": {
       "id": "70944",
       "club_id": "285",
@@ -1303,6 +1303,15 @@
       "status": "provavel",
       "name": "Bruno Henrique"
     },
+    "104994": {
+      "id": "104994",
+      "club_id": "284",
+      "team": "GRE",
+      "position_id": 3,
+      "status_id": 7,
+      "status": "provavel",
+      "name": "Wagner Leonardo"
+    },
     "72951": {
       "id": "72951",
       "club_id": "285",
@@ -1311,15 +1320,6 @@
       "status_id": 7,
       "status": "provavel",
       "name": "Mercado"
-    },
-    "142004": {
-      "id": "142004",
-      "club_id": "284",
-      "team": "GRE",
-      "position_id": 5,
-      "status_id": 2,
-      "status": "duvida",
-      "name": "Amuzu"
     },
     "107989": {
       "id": "107989",
@@ -1338,6 +1338,15 @@
       "status_id": 7,
       "status": "provavel",
       "name": "Bruno Gomes"
+    },
+    "142004": {
+      "id": "142004",
+      "club_id": "284",
+      "team": "GRE",
+      "position_id": 5,
+      "status_id": 2,
+      "status": "duvida",
+      "name": "Amuzu"
     },
     "101960": {
       "id": "101960",
@@ -1402,15 +1411,6 @@
       "status": "provavel",
       "name": "Carlos Miguel"
     },
-    "97867": {
-      "id": "97867",
-      "club_id": "262",
-      "team": "FLA",
-      "position_id": 3,
-      "status_id": 7,
-      "status": "provavel",
-      "name": "Léo Ortiz"
-    },
     "110506": {
       "id": "110506",
       "club_id": "275",
@@ -1438,15 +1438,6 @@
       "status": "provavel",
       "name": "Allan"
     },
-    "97460": {
-      "id": "97460",
-      "club_id": "2305",
-      "team": "MIR",
-      "position_id": 3,
-      "status_id": 7,
-      "status": "provavel",
-      "name": "João Victor"
-    },
     "82775": {
       "id": "82775",
       "club_id": "276",
@@ -1455,6 +1446,15 @@
       "status_id": 7,
       "status": "provavel",
       "name": "Lucas Ramon"
+    },
+    "97460": {
+      "id": "97460",
+      "club_id": "2305",
+      "team": "MIR",
+      "position_id": 3,
+      "status_id": 7,
+      "status": "provavel",
+      "name": "João Victor"
     },
     "104027": {
       "id": "104027",
@@ -1465,15 +1465,6 @@
       "status": "provavel",
       "name": "Rafael Guanaes"
     },
-    "83257": {
-      "id": "83257",
-      "club_id": "277",
-      "team": "SAN",
-      "position_id": 5,
-      "status_id": 7,
-      "status": "provavel",
-      "name": "Gabriel"
-    },
     "97321": {
       "id": "97321",
       "club_id": "2305",
@@ -1483,32 +1474,14 @@
       "status": "provavel",
       "name": "Alesson"
     },
-    "84847": {
-      "id": "84847",
+    "83257": {
+      "id": "83257",
       "club_id": "277",
       "team": "SAN",
-      "position_id": 3,
+      "position_id": 5,
       "status_id": 7,
       "status": "provavel",
-      "name": "Luan Peres"
-    },
-    "77777": {
-      "id": "77777",
-      "club_id": "277",
-      "team": "SAN",
-      "position_id": 4,
-      "status_id": 7,
-      "status": "provavel",
-      "name": "João Schmidt"
-    },
-    "141754": {
-      "id": "141754",
-      "club_id": "277",
-      "team": "SAN",
-      "position_id": 4,
-      "status_id": 2,
-      "status": "duvida",
-      "name": "Gabriel Bontempo"
+      "name": "Gabriel"
     },
     "78478": {
       "id": "78478",
@@ -1519,6 +1492,24 @@
       "status": "provavel",
       "name": "Willian Arão"
     },
+    "102256": {
+      "id": "102256",
+      "club_id": "277",
+      "team": "SAN",
+      "position_id": 4,
+      "status_id": 2,
+      "status": "duvida",
+      "name": "Rollheiser"
+    },
+    "77777": {
+      "id": "77777",
+      "club_id": "277",
+      "team": "SAN",
+      "position_id": 4,
+      "status_id": 7,
+      "status": "provavel",
+      "name": "João Schmidt"
+    },
     "102975": {
       "id": "102975",
       "club_id": "277",
@@ -1528,14 +1519,32 @@
       "status": "provavel",
       "name": "Escobar"
     },
-    "102256": {
-      "id": "102256",
+    "95466": {
+      "id": "95466",
+      "club_id": "277",
+      "team": "SAN",
+      "position_id": 2,
+      "status_id": 2,
+      "status": "duvida",
+      "name": "Igor Vinícius"
+    },
+    "141754": {
+      "id": "141754",
       "club_id": "277",
       "team": "SAN",
       "position_id": 4,
       "status_id": 2,
       "status": "duvida",
-      "name": "Rollheiser"
+      "name": "Gabriel Bontempo"
+    },
+    "84847": {
+      "id": "84847",
+      "club_id": "277",
+      "team": "SAN",
+      "position_id": 3,
+      "status_id": 7,
+      "status": "provavel",
+      "name": "Luan Peres"
     },
     "89840": {
       "id": "89840",
@@ -1546,15 +1555,6 @@
       "status": "provavel",
       "name": "Calleri"
     },
-    "80570": {
-      "id": "80570",
-      "club_id": "276",
-      "team": "SAO",
-      "position_id": 2,
-      "status_id": 7,
-      "status": "provavel",
-      "name": "Wendell"
-    },
     "91573": {
       "id": "91573",
       "club_id": "276",
@@ -1564,6 +1564,15 @@
       "status": "provavel",
       "name": "Arboleda"
     },
+    "80570": {
+      "id": "80570",
+      "club_id": "276",
+      "team": "SAO",
+      "position_id": 2,
+      "status_id": 7,
+      "status": "provavel",
+      "name": "Wendell"
+    },
     "105300": {
       "id": "105300",
       "club_id": "263",
@@ -1572,33 +1581,6 @@
       "status_id": 7,
       "status": "provavel",
       "name": "Ferraresi"
-    },
-    "106294": {
-      "id": "106294",
-      "club_id": "276",
-      "team": "SAO",
-      "position_id": 4,
-      "status_id": 7,
-      "status": "provavel",
-      "name": "Marcos Antônio"
-    },
-    "107873": {
-      "id": "107873",
-      "club_id": "276",
-      "team": "SAO",
-      "position_id": 4,
-      "status_id": 2,
-      "status": "duvida",
-      "name": "Bobadilla"
-    },
-    "118563": {
-      "id": "118563",
-      "club_id": "280",
-      "team": "RBB",
-      "position_id": 4,
-      "status_id": 7,
-      "status": "provavel",
-      "name": "Rodriguinho"
     },
     "71123": {
       "id": "71123",
@@ -1618,6 +1600,15 @@
       "status": "provavel",
       "name": "Pablo Maia"
     },
+    "106294": {
+      "id": "106294",
+      "club_id": "276",
+      "team": "SAO",
+      "position_id": 4,
+      "status_id": 7,
+      "status": "provavel",
+      "name": "Marcos Antônio"
+    },
     "93716": {
       "id": "93716",
       "club_id": "267",
@@ -1627,14 +1618,23 @@
       "status": "provavel",
       "name": "Paulo Henrique"
     },
-    "72391": {
-      "id": "72391",
-      "club_id": "264",
-      "team": "COR",
-      "position_id": 6,
+    "107873": {
+      "id": "107873",
+      "club_id": "276",
+      "team": "SAO",
+      "position_id": 4,
+      "status_id": 2,
+      "status": "duvida",
+      "name": "Bobadilla"
+    },
+    "118563": {
+      "id": "118563",
+      "club_id": "280",
+      "team": "RBB",
+      "position_id": 4,
       "status_id": 7,
       "status": "provavel",
-      "name": "Fernando Diniz"
+      "name": "Rodriguinho"
     },
     "97095": {
       "id": "97095",
@@ -1645,14 +1645,14 @@
       "status": "provavel",
       "name": "Carlos Cuesta"
     },
-    "86686": {
-      "id": "86686",
-      "club_id": "267",
-      "team": "VAS",
-      "position_id": 4,
+    "72391": {
+      "id": "72391",
+      "club_id": "264",
+      "team": "COR",
+      "position_id": 6,
       "status_id": 7,
       "status": "provavel",
-      "name": "Tchê Tchê"
+      "name": "Fernando Diniz"
     },
     "116706": {
       "id": "116706",
@@ -1681,14 +1681,14 @@
       "status": "provavel",
       "name": "Matheuzinho"
     },
-    "142279": {
-      "id": "142279",
+    "86686": {
+      "id": "86686",
       "club_id": "267",
       "team": "VAS",
       "position_id": 4,
-      "status_id": 2,
-      "status": "duvida",
-      "name": "Nuno Moreira"
+      "status_id": 7,
+      "status": "provavel",
+      "name": "Tchê Tchê"
     },
     "99440": {
       "id": "99440",
@@ -1699,14 +1699,14 @@
       "status": "provavel",
       "name": "Baralhas"
     },
-    "92180": {
-      "id": "92180",
+    "104118": {
+      "id": "104118",
       "club_id": "287",
       "team": "VIT",
-      "position_id": 6,
+      "position_id": 1,
       "status_id": 7,
       "status": "provavel",
-      "name": "Jair Ventura"
+      "name": "Lucas Arcanjo"
     },
     "101597": {
       "id": "101597",
@@ -1717,14 +1717,14 @@
       "status": "provavel",
       "name": "Ramon"
     },
-    "104118": {
-      "id": "104118",
+    "92180": {
+      "id": "92180",
       "club_id": "287",
       "team": "VIT",
-      "position_id": 1,
+      "position_id": 6,
       "status_id": 7,
       "status": "provavel",
-      "name": "Lucas Arcanjo"
+      "name": "Jair Ventura"
     },
     "104811": {
       "id": "104811",
@@ -1735,6 +1735,15 @@
       "status": "provavel",
       "name": "Sebastián Gómez"
     },
+    "142279": {
+      "id": "142279",
+      "club_id": "267",
+      "team": "VAS",
+      "position_id": 4,
+      "status_id": 2,
+      "status": "duvida",
+      "name": "Nuno Moreira"
+    },
     "92273": {
       "id": "92273",
       "club_id": "293",
@@ -1743,15 +1752,6 @@
       "status_id": 7,
       "status": "provavel",
       "name": "Odair Hellmann"
-    },
-    "80129": {
-      "id": "80129",
-      "club_id": "293",
-      "team": "CAP",
-      "position_id": 4,
-      "status_id": 7,
-      "status": "provavel",
-      "name": "Jadson"
     },
     "90031": {
       "id": "90031",
@@ -1762,15 +1762,6 @@
       "status": "provavel",
       "name": "Mendoza"
     },
-    "110698": {
-      "id": "110698",
-      "club_id": "293",
-      "team": "CAP",
-      "position_id": 1,
-      "status_id": 7,
-      "status": "provavel",
-      "name": "Mycael"
-    },
     "113113": {
       "id": "113113",
       "club_id": "293",
@@ -1780,14 +1771,23 @@
       "status": "provavel",
       "name": "Benavídez"
     },
-    "123869": {
-      "id": "123869",
+    "80129": {
+      "id": "80129",
       "club_id": "293",
       "team": "CAP",
-      "position_id": 3,
+      "position_id": 4,
       "status_id": 7,
       "status": "provavel",
-      "name": "Aguirre"
+      "name": "Jadson"
+    },
+    "110698": {
+      "id": "110698",
+      "club_id": "293",
+      "team": "CAP",
+      "position_id": 1,
+      "status_id": 7,
+      "status": "provavel",
+      "name": "Mycael"
     },
     "123101": {
       "id": "123101",
@@ -1797,6 +1797,15 @@
       "status_id": 7,
       "status": "provavel",
       "name": "Leozinho"
+    },
+    "123869": {
+      "id": "123869",
+      "club_id": "293",
+      "team": "CAP",
+      "position_id": 3,
+      "status_id": 7,
+      "status": "provavel",
+      "name": "Aguirre"
     },
     "128431": {
       "id": "128431",
@@ -1834,14 +1843,14 @@
       "status": "provavel",
       "name": "Pedro Rocha"
     },
-    "95466": {
-      "id": "95466",
-      "club_id": "277",
-      "team": "SAN",
-      "position_id": 2,
-      "status_id": 2,
-      "status": "duvida",
-      "name": "Igor Vinícius"
+    "84428": {
+      "id": "84428",
+      "club_id": "294",
+      "team": "CFC",
+      "position_id": 4,
+      "status_id": 7,
+      "status": "provavel",
+      "name": "Fernando Sobral"
     },
     "126977": {
       "id": "126977",
@@ -1852,15 +1861,6 @@
       "status": "provavel",
       "name": "Fernando Seabra"
     },
-    "117930": {
-      "id": "117930",
-      "club_id": "294",
-      "team": "CFC",
-      "position_id": 5,
-      "status_id": 7,
-      "status": "provavel",
-      "name": "Lavega"
-    },
     "97878": {
       "id": "97878",
       "club_id": "294",
@@ -1869,15 +1869,6 @@
       "status_id": 7,
       "status": "provavel",
       "name": "Jacy"
-    },
-    "109127": {
-      "id": "109127",
-      "club_id": "294",
-      "team": "CFC",
-      "position_id": 3,
-      "status_id": 7,
-      "status": "provavel",
-      "name": "Tiago Cóser"
     },
     "125803": {
       "id": "125803",
@@ -1888,23 +1879,14 @@
       "status": "provavel",
       "name": "Pedro Morisco"
     },
-    "84428": {
-      "id": "84428",
+    "109127": {
+      "id": "109127",
       "club_id": "294",
       "team": "CFC",
-      "position_id": 4,
+      "position_id": 3,
       "status_id": 7,
       "status": "provavel",
-      "name": "Fernando Sobral"
-    },
-    "82730": {
-      "id": "82730",
-      "club_id": "364",
-      "team": "REM",
-      "position_id": 1,
-      "status_id": 7,
-      "status": "provavel",
-      "name": "Marcelo Rangel"
+      "name": "Tiago Cóser"
     },
     "101405": {
       "id": "101405",
@@ -1914,6 +1896,24 @@
       "status_id": 7,
       "status": "provavel",
       "name": "Wallisson"
+    },
+    "117930": {
+      "id": "117930",
+      "club_id": "294",
+      "team": "CFC",
+      "position_id": 5,
+      "status_id": 7,
+      "status": "provavel",
+      "name": "Lavega"
+    },
+    "82730": {
+      "id": "82730",
+      "club_id": "364",
+      "team": "REM",
+      "position_id": 1,
+      "status_id": 7,
+      "status": "provavel",
+      "name": "Marcelo Rangel"
     },
     "102911": {
       "id": "102911",
@@ -1942,15 +1942,6 @@
       "status": "provavel",
       "name": "Marcinho"
     },
-    "102906": {
-      "id": "102906",
-      "club_id": "315",
-      "team": "CHA",
-      "position_id": 1,
-      "status_id": 7,
-      "status": "provavel",
-      "name": "Anderson"
-    },
     "104519": {
       "id": "104519",
       "club_id": "315",
@@ -1959,24 +1950,6 @@
       "status_id": 7,
       "status": "provavel",
       "name": "Camilo"
-    },
-    "130806": {
-      "id": "130806",
-      "club_id": "315",
-      "team": "CHA",
-      "position_id": 3,
-      "status_id": 7,
-      "status": "provavel",
-      "name": "Kauan"
-    },
-    "104470": {
-      "id": "104470",
-      "club_id": "315",
-      "team": "CHA",
-      "position_id": 2,
-      "status_id": 7,
-      "status": "provavel",
-      "name": "Everton"
     },
     "68938": {
       "id": "68938",
@@ -1987,6 +1960,24 @@
       "status": "provavel",
       "name": "Giovanni Augusto"
     },
+    "104470": {
+      "id": "104470",
+      "club_id": "315",
+      "team": "CHA",
+      "position_id": 2,
+      "status_id": 7,
+      "status": "provavel",
+      "name": "Everton"
+    },
+    "102906": {
+      "id": "102906",
+      "club_id": "315",
+      "team": "CHA",
+      "position_id": 1,
+      "status_id": 7,
+      "status": "provavel",
+      "name": "Anderson"
+    },
     "130843": {
       "id": "130843",
       "club_id": "293",
@@ -1995,33 +1986,6 @@
       "status_id": 7,
       "status": "provavel",
       "name": "Arthur Dias"
-    },
-    "110426": {
-      "id": "110426",
-      "club_id": "285",
-      "team": "INT",
-      "position_id": 2,
-      "status_id": 7,
-      "status": "provavel",
-      "name": "Bernabei"
-    },
-    "80287": {
-      "id": "80287",
-      "club_id": "276",
-      "team": "SAO",
-      "position_id": 5,
-      "status_id": 7,
-      "status": "provavel",
-      "name": "Luciano"
-    },
-    "126471": {
-      "id": "126471",
-      "club_id": "277",
-      "team": "SAN",
-      "position_id": 4,
-      "status_id": 7,
-      "status": "provavel",
-      "name": "Barreal"
     },
     "99552": {
       "id": "99552",
@@ -2032,14 +1996,14 @@
       "status": "provavel",
       "name": "Rossi"
     },
-    "89274": {
-      "id": "89274",
-      "club_id": "275",
-      "team": "PAL",
-      "position_id": 4,
+    "110426": {
+      "id": "110426",
+      "club_id": "285",
+      "team": "INT",
+      "position_id": 2,
       "status_id": 7,
       "status": "provavel",
-      "name": "Andreas Pereira"
+      "name": "Bernabei"
     },
     "39148": {
       "id": "39148",
@@ -2050,14 +2014,50 @@
       "status": "provavel",
       "name": "Hulk"
     },
-    "78850": {
-      "id": "78850",
-      "club_id": "2305",
-      "team": "MIR",
-      "position_id": 2,
+    "80287": {
+      "id": "80287",
+      "club_id": "276",
+      "team": "SAO",
+      "position_id": 5,
       "status_id": 7,
       "status": "provavel",
-      "name": "Reinaldo"
+      "name": "Luciano"
+    },
+    "89274": {
+      "id": "89274",
+      "club_id": "275",
+      "team": "PAL",
+      "position_id": 4,
+      "status_id": 7,
+      "status": "provavel",
+      "name": "Andreas Pereira"
+    },
+    "126471": {
+      "id": "126471",
+      "club_id": "277",
+      "team": "SAN",
+      "position_id": 4,
+      "status_id": 7,
+      "status": "provavel",
+      "name": "Barreal"
+    },
+    "130806": {
+      "id": "130806",
+      "club_id": "315",
+      "team": "CHA",
+      "position_id": 3,
+      "status_id": 7,
+      "status": "provavel",
+      "name": "Kauan"
+    },
+    "122781": {
+      "id": "122781",
+      "club_id": "277",
+      "team": "SAN",
+      "position_id": 5,
+      "status_id": 2,
+      "status": "duvida",
+      "name": "Caballero"
     },
     "103445": {
       "id": "103445",
@@ -2068,14 +2068,14 @@
       "status": "provavel",
       "name": "Kaio Jorge"
     },
-    "122781": {
-      "id": "122781",
-      "club_id": "277",
-      "team": "SAN",
-      "position_id": 5,
-      "status_id": 2,
-      "status": "duvida",
-      "name": "Caballero"
+    "78850": {
+      "id": "78850",
+      "club_id": "2305",
+      "team": "MIR",
+      "position_id": 2,
+      "status_id": 7,
+      "status": "provavel",
+      "name": "Reinaldo"
     },
     "94583": {
       "id": "94583",
@@ -2122,6 +2122,15 @@
       "status": "provavel",
       "name": "JP Chermont"
     },
+    "94154": {
+      "id": "94154",
+      "club_id": "282",
+      "team": "CAM",
+      "position_id": 4,
+      "status_id": 7,
+      "status": "provavel",
+      "name": "Maycon"
+    },
     "130048": {
       "id": "130048",
       "club_id": "284",
@@ -2130,15 +2139,6 @@
       "status_id": 7,
       "status": "provavel",
       "name": "Noriega"
-    },
-    "93988": {
-      "id": "93988",
-      "club_id": "294",
-      "team": "CFC",
-      "position_id": 5,
-      "status_id": 7,
-      "status": "provavel",
-      "name": "Breno Lopes"
     },
     "70666": {
       "id": "70666",
@@ -2158,15 +2158,6 @@
       "status": "provavel",
       "name": "Igor Formiga"
     },
-    "94154": {
-      "id": "94154",
-      "club_id": "282",
-      "team": "CAM",
-      "position_id": 4,
-      "status_id": 7,
-      "status": "provavel",
-      "name": "Maycon"
-    },
     "89256": {
       "id": "89256",
       "club_id": "283",
@@ -2175,51 +2166,6 @@
       "status_id": 7,
       "status": "provavel",
       "name": "Gerson"
-    },
-    "69208": {
-      "id": "69208",
-      "club_id": "264",
-      "team": "COR",
-      "position_id": 3,
-      "status_id": 7,
-      "status": "provavel",
-      "name": "Gabriel Paulista"
-    },
-    "116034": {
-      "id": "116034",
-      "club_id": "282",
-      "team": "CAM",
-      "position_id": 4,
-      "status_id": 7,
-      "status": "provavel",
-      "name": "Victor Hugo"
-    },
-    "71536": {
-      "id": "71536",
-      "club_id": "293",
-      "team": "CAP",
-      "position_id": 4,
-      "status_id": 7,
-      "status": "provavel",
-      "name": "Luiz Gustavo"
-    },
-    "113125": {
-      "id": "113125",
-      "club_id": "364",
-      "team": "REM",
-      "position_id": 4,
-      "status_id": 7,
-      "status": "provavel",
-      "name": "Picco"
-    },
-    "95362": {
-      "id": "95362",
-      "club_id": "282",
-      "team": "CAM",
-      "position_id": 5,
-      "status_id": 7,
-      "status": "provavel",
-      "name": "Cassierra"
     },
     "103388": {
       "id": "103388",
@@ -2230,6 +2176,33 @@
       "status": "provavel",
       "name": "Emmanuel Martínez"
     },
+    "93988": {
+      "id": "93988",
+      "club_id": "294",
+      "team": "CFC",
+      "position_id": 5,
+      "status_id": 7,
+      "status": "provavel",
+      "name": "Breno Lopes"
+    },
+    "69208": {
+      "id": "69208",
+      "club_id": "264",
+      "team": "COR",
+      "position_id": 3,
+      "status_id": 7,
+      "status": "provavel",
+      "name": "Gabriel Paulista"
+    },
+    "71536": {
+      "id": "71536",
+      "club_id": "293",
+      "team": "CAP",
+      "position_id": 4,
+      "status_id": 7,
+      "status": "provavel",
+      "name": "Luiz Gustavo"
+    },
     "105157": {
       "id": "105157",
       "club_id": "285",
@@ -2238,6 +2211,33 @@
       "status_id": 7,
       "status": "provavel",
       "name": "Villagra"
+    },
+    "95362": {
+      "id": "95362",
+      "club_id": "282",
+      "team": "CAM",
+      "position_id": 5,
+      "status_id": 7,
+      "status": "provavel",
+      "name": "Cassierra"
+    },
+    "116034": {
+      "id": "116034",
+      "club_id": "282",
+      "team": "CAM",
+      "position_id": 4,
+      "status_id": 7,
+      "status": "provavel",
+      "name": "Victor Hugo"
+    },
+    "113125": {
+      "id": "113125",
+      "club_id": "364",
+      "team": "REM",
+      "position_id": 4,
+      "status_id": 7,
+      "status": "provavel",
+      "name": "Picco"
     },
     "86859": {
       "id": "86859",

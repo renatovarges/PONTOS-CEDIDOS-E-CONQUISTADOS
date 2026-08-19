@@ -2,7 +2,7 @@ import streamlit as st
 import streamlit.components.v1 as components
 import os
 import json
-import runpy
+import re
 
 st.set_page_config(layout="wide", page_title="Pontos Cedidos e Conquistados")
 
@@ -44,13 +44,29 @@ else:
         try:
             with st.spinner("Atualizando prováveis e dúvidas na API oficial do Cartola..."):
                 from atualizar_cartola import atualizar as atualizar_lista
-                atualizar_lista()
-                os.environ["TCC_SKIP_CARTOLA_UPDATE"] = "1"
-                try:
-                    runpy.run_path(os.path.join(base_dir, "gerar_site.py"), run_name="__main__")
-                finally:
-                    os.environ.pop("TCC_SKIP_CARTOLA_UPDATE", None)
-            st.success("Mercado oficial do Cartola atualizado e ranking regenerado.")
+                dados_mercado = atualizar_lista()
+                # Faz um patch cirurgico apenas do bloco CARTOLA_MERCADO dentro do
+                # static/index.html ja publicado, em vez de rodar gerar_site.py
+                # inteiro no servidor. gerar_site.py depende de uma pasta irma
+                # ("COMPARATIVOS JOGADORES") que so existe na maquina local do
+                # autor — no servidor publicado ela nao existe, e uma regeneracao
+                # completa aqui apagaria o banco de fotos dos jogadores ja embutido.
+                html_path_patch = os.path.join(base_dir, "static", "index.html")
+                with open(html_path_patch, "r", encoding="utf-8") as f_html:
+                    html_patch = f_html.read()
+                novo_bloco = "var CARTOLA_MERCADO = " + json.dumps(dados_mercado, ensure_ascii=False) + ";"
+                html_patch, n_subs = re.subn(
+                    r"var CARTOLA_MERCADO = \{.*?\};",
+                    lambda _m: novo_bloco,
+                    html_patch,
+                    count=1,
+                    flags=re.DOTALL,
+                )
+                if n_subs != 1:
+                    raise RuntimeError("Bloco CARTOLA_MERCADO nao encontrado em static/index.html")
+                with open(html_path_patch, "w", encoding="utf-8") as f_html:
+                    f_html.write(html_patch)
+            st.success("Mercado oficial do Cartola atualizado.")
             st.rerun()
         except Exception as exc:
             st.error(f"Não foi possível atualizar a API do Cartola: {exc}")
