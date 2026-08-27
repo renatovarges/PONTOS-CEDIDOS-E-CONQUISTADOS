@@ -163,8 +163,10 @@ if os.path.exists(photo_bank):
         for team, players in bank_data.items():
             for name, url in players.items():
                 if url:
+                    # Fotos do banco externo nunca podem ser indexadas apenas pelo
+                    # nome: homônimos (ex.: Otávio) poderiam receber a imagem de
+                    # um atleta de outro clube. A chave composta preserva o vínculo.
                     player_photos.setdefault(norm_key(team) + '|' + norm_key(name), url)
-                    player_photos.setdefault(norm_key(name), url)
     except (OSError, ValueError):
         pass
 

@@ -1496,7 +1496,9 @@ function renderRanking(pos) {
   var list=document.getElementById('ranking-list');list.innerHTML='';
   (rankingAtual[pos]||[]).forEach(function(c,i){
     var card=document.createElement('article');card.className='ranking-card';
-    var src=fotoJogador(c.nome,c.time)||c.officialPhoto||escudoDoTime(c.time);var fallback=escudoDoTime(c.time);
+    // A URL por ID único do Cartola tem prioridade. O banco nominal fica apenas
+    // como alternativa, evitando que homônimos de clubes diferentes se misturem.
+    var namedPhoto=fotoJogador(c.nome,c.time);var src=c.officialPhoto||namedPhoto||escudoDoTime(c.time);var fallback=namedPhoto||escudoDoTime(c.time);
     var badges=[];
     if(c.conquista>=60)badges.push({txt:'JOGADOR CONQUISTA',cls:'conquista',ico:'↑'});
     if(c.cessao>=60)badges.push({txt:'ADVERSÁRIO CEDE',cls:'cedidos',ico:'↓'});
