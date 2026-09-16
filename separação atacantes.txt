@@ -61,7 +61,7 @@ atleta_id|nome|clube|posicao_especifica|categoria
 117930|Lavega|Coritiba|Left Winger|Ponta esquerda
 123648|Lucas Ronier|Coritiba|Right Winger|Ponta direita
 103626|Ocampo|Coritiba|Left Winger|Ponta esquerda
-141339|Paulo Roberto|Coritiba||Atacante de área
+141339|Paulo Roberto|Coritiba|Centre-Forward|Atacante de área
 90302|Pedro Rocha|Coritiba|Left Winger|Ponta esquerda
 117403|Renato Marques|Coritiba|Centre-Forward|Atacante de área
 93371|Rodrigo Rodrigues|Coritiba|Centre-Forward|Atacante de área
@@ -128,7 +128,7 @@ atleta_id|nome|clube|posicao_especifica|categoria
 97450|Gustavo Mosquito|Mirassol|Right Winger|Ponta direita
 98384|Negueba|Mirassol|Right Winger|Ponta direita
 145436|Belé|Palmeiras|Centre-Forward|Atacante de área
-151003|Eduardo|Palmeiras|Centre-Back|Ponta esquerda
+151003|Eduardo|Palmeiras|Left Winger|Ponta esquerda
 113103|Flaco López|Palmeiras|Centre-Forward|Atacante de área
 146624|Heittor|Palmeiras|Centre-Forward|Atacante de área
 130612|Luighi|Palmeiras|Centre-Forward|Atacante de área
