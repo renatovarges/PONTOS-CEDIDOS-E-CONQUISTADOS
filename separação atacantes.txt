@@ -5,6 +5,7 @@ atleta_id|nome|clube|posicao_especifica|categoria
 90031|Mendoza|Athletico-PR|Left Winger|Ponta esquerda
 105518|Renan Peixoto|Athletico-PR|Centre-Forward|Atacante de área
 115266|Renan Viana|Athletico-PR|Centre-Forward|Atacante de área
+127871|Vargas|Athletico-PR|Left Winger|Ponta esquerda
 143193|Viveros|Athletico-PR|Centre-Forward|Atacante de área
 95362|Cassierra|Atlético-MG|Centre-Forward|Atacante de área
 147089|Cauã Soares|Atlético-MG|Second Striker|Atacante de área
@@ -34,6 +35,7 @@ atleta_id|nome|clube|posicao_especifica|categoria
 111831|Matheus Martins|Botafogo|Left Winger|Ponta esquerda
 142877|Villalba|Botafogo|Left Winger|Ponta esquerda
 86292|Bolasie|Chapecoense|Centre-Forward|Atacante de área
+142764|Franco Rossi|Chapecoense|Centre-Forward|Atacante de área
 108131|Garcez|Chapecoense|Left Winger|Ponta esquerda
 146894|João Bom|Chapecoense|Right Winger|Ponta direita
 94034|Kevin Ramírez|Chapecoense|Left Winger|Ponta esquerda
@@ -71,22 +73,27 @@ atleta_id|nome|clube|posicao_especifica|categoria
 92811|Bruno Rodrigues|Cruzeiro|Left Winger|Ponta esquerda
 90608|Chico da Costa|Cruzeiro|Centre-Forward|Atacante de área
 106199|Gabriel Pec|Cruzeiro|Right Winger|Ponta direita
+130121|João Costa|Cruzeiro|Right Winger|Ponta direita
 103445|Kaio Jorge|Cruzeiro|Centre-Forward|Atacante de área
 137542|Kaique Kenji|Cruzeiro|Left Winger|Ponta esquerda
+123795|Lucho Rodríguez|Cruzeiro|Centre-Forward|Atacante de área
 113158|Marquinhos|Cruzeiro|Right Winger|Ponta direita
 146807|Rayan Lelis|Cruzeiro|Left Winger|Ponta esquerda
 114405|Sinisterra|Cruzeiro|Left Winger|Ponta esquerda
 137543|Tevis|Cruzeiro|Centre-Forward|Atacante de área
 131967|Villarreal|Cruzeiro|Centre-Forward|Atacante de área
 93478|Wanderson|Cruzeiro|Left Winger|Ponta esquerda
+117909|Wesley|Cruzeiro|Left Winger|Ponta esquerda
 147556|Alan Santos|Flamengo|Left Winger|Ponta esquerda
 90285|Bruno Henrique|Flamengo|Centre-Forward|Atacante de área
 145705|Douglas Telles|Flamengo|Left Winger|Ponta esquerda
 86757|Everton|Flamengo|Left Winger|Ponta esquerda
+150251|Joaquín Freitas|Flamengo|Centre-Forward|Atacante de área
 82627|Luiz Araújo|Flamengo|Right Winger|Ponta direita
 94583|Pedro|Flamengo|Centre-Forward|Atacante de área
 109096|Plata|Flamengo|Right Winger|Ponta direita
 98873|Samuel Lino|Flamengo|Left Winger|Ponta esquerda
+108602|Valencia|Flamengo|Right Winger|Ponta direita
 122573|Wallace Yan|Flamengo|Centre-Forward|Atacante de área
 79631|Cano|Fluminense|Centre-Forward|Atacante de área
 102928|Canobbio|Fluminense|Right Winger|Ponta direita
@@ -111,11 +118,13 @@ atleta_id|nome|clube|posicao_especifica|categoria
 105089|Tetê|Grêmio|Right Winger|Ponta direita
 101715|Alerrandro|Internacional|Centre-Forward|Atacante de área
 107989|Carbonero|Internacional|Right Winger|Ponta direita
+101237|Eliasson|Internacional|Right Winger|Ponta direita
 150841|Fabricio Prado|Internacional|Centre-Forward|Atacante de área
 147202|João Bezerra|Internacional|Left Winger|Ponta esquerda
 142638|João Victor|Internacional|Centre-Forward|Atacante de área
 111829|Kayky|Internacional|Right Winger|Ponta direita
 143488|Raykkonen|Internacional|Centre-Forward|Atacante de área
+85035|Sanabria|Internacional|Centre-Forward|Atacante de área
 101960|Vitinho|Internacional|Left Winger|Ponta esquerda
 97321|Alesson|Mirassol|Left Winger|Ponta esquerda
 81005|André Luis|Mirassol|Centre-Forward|Atacante de área
@@ -179,11 +188,14 @@ atleta_id|nome|clube|posicao_especifica|categoria
 141406|Andrey Fernandes|Vasco|Left Winger|Ponta esquerda
 116706|Andrés Gómez|Vasco|Left Winger|Ponta esquerda
 99789|Brenner|Vasco|Centre-Forward|Atacante de área
+138941|Bruno Duarte|Vasco|Centre-Forward|Atacante de área
 133690|Bruno Lopes|Vasco|Centre-Forward|Atacante de área
+114323|Colidio|Vasco|Left Winger|Ponta esquerda
 90309|David|Vasco|Left Winger|Ponta esquerda
 147883|João Vitor|Vasco|Left Winger|Ponta esquerda
 110598|Marino Hinestroza|Vasco|Right Winger|Ponta direita
 110144|Spinelli|Vasco|Centre-Forward|Atacante de área
+107300|Alex Bruno|Vitória|Centre-Forward|Atacante de área
 147268|Anderson Pato|Vitória|Left Winger|Ponta esquerda
 97810|Erick|Vitória|Right Winger|Ponta direita
 104134|Fabri|Vitória|Centre-Forward|Atacante de área

@@ -578,9 +578,11 @@ function parseAtacantes(txt) {
     if (!line) continue;
     var parts = line.split('|');
     if (parts.length < 5) continue;
-    var nome = parts[1].trim(), categoria = parts[4].trim();
+    var nome = parts[1].trim(), clube = parts[2].trim(), categoria = parts[4].trim();
     var pos = categoria === 'Ponta direita' ? 'ATA-PD' : (categoria === 'Ponta esquerda' ? 'ATA-PE' : 'ATA');
-    result[normalizar(nome)] = pos;
+    var nk = normalizar(nome), tk = normalizarTime(clube);
+    result[tk + '|' + nk] = pos;
+    if (!(nk in result)) result[nk] = pos;
   }
   return result;
 }
@@ -714,10 +716,11 @@ function classificarPos(posReal, time, nome) {
   if (posReal === 2.6) return 'LAT-E';
   if (posReal === 3) return 'ZAG';
   if (posReal === 5) {
-    var nk = normalizar(nome);
+    var nk = normalizar(nome); var tk = normalizarTime(time); var key = tk + '|' + nk;
+    if (atacantesMap[key]) return atacantesMap[key];
     if (atacantesMap[nk]) return atacantesMap[nk];
     var ataKeys = Object.keys(atacantesMap);
-    for (var i = 0; i < ataKeys.length; i++) { if (ataKeys[i].indexOf(nk) >= 0 || nk.indexOf(ataKeys[i]) >= 0) return atacantesMap[ataKeys[i]]; }
+    for (var i = 0; i < ataKeys.length; i++) { var an = ataKeys[i].indexOf('|') >= 0 ? ataKeys[i].split('|')[1] : ataKeys[i]; if (an.indexOf(nk) >= 0 || nk.indexOf(an) >= 0) return atacantesMap[ataKeys[i]]; }
     return 'ATA';
   }
   if (posReal === 4) {
