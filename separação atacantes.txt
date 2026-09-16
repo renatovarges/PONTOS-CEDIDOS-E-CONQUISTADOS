@@ -85,7 +85,7 @@ atleta_id|nome|clube|posicao_especifica|categoria
 86757|Everton|Flamengo|Left Winger|Ponta esquerda
 82627|Luiz Araújo|Flamengo|Right Winger|Ponta direita
 94583|Pedro|Flamengo|Centre-Forward|Atacante de área
-109096|Plata|Flamengo|Centre-Forward|Atacante de área
+109096|Plata|Flamengo|Right Winger|Ponta direita
 98873|Samuel Lino|Flamengo|Left Winger|Ponta esquerda
 122573|Wallace Yan|Flamengo|Centre-Forward|Atacante de área
 79631|Cano|Fluminense|Centre-Forward|Atacante de área
